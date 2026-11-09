@@ -3,7 +3,7 @@ name: Actualizar Canales M3U Tailscale
 on:
   push:
     paths:
-      - 'Mi lista acestream'
+      - acestream'
   workflow_dispatch:
 
 permissions:
@@ -18,14 +18,14 @@ jobs:
 
       - name: Copiar y reemplazar IP para Tailscale
         run: |
-          cp "Mi lista acestream" "Canales m3u"
-          sed -i 's/127\.0\.0\.1:6878/100.90.204.66:6878/g' "Canales m3u"
+          cp "acestream" "lista"
+          sed -i 's/127\.0\.0\.1:6878/100.90.204.66:6878/g' "lista"
 
       - name: Guardar cambios
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add "Canales m3u"
+          git add "lista"
           if ! git diff --cached --quiet; then
             git commit -m "Actualizar Canales M3U Tailscale"
             git push
