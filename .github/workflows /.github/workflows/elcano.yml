@@ -1,0 +1,198 @@
+name: Actualizador Automatico Elcano, Tailscale y Amigos
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar-lista:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Sincronización automática ELCANO, Tailscale y Amigos
+        run: |
+          python <<'PY'
+          import re
+          import sys
+          import datetime
+          import urllib.request
+          from pathlib import Path
+
+          URL_ELCANO = "https://tokyo2.elcano-ipfs.workers.dev/k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs/hashes_acestream.m3u"
+          archivo_casa = Path("Mi lista acestream")
+          archivo_tailscale = Path("Canales m3u")
+          archivo_amigos = Path("lista-amigos")
+
+          if not archivo_casa.is_file():
+              sys.exit("ERROR: No se encuentra el archivo 'Mi lista acestream'.")
+
+          try:
+              contenido_casa = archivo_casa.read_text(encoding="utf-8-sig")
+          except UnicodeDecodeError:
+              contenido_casa = archivo_casa.read_text(encoding="latin-1")
+
+          try:
+              peticion = urllib.request.Request(URL_ELCANO, headers={"User-Agent": "Mozilla/5.0"})
+              with urllib.request.urlopen(peticion, timeout=60) as respuesta:
+                  fuente_elcano = respuesta.read().decode("utf-8-sig", errors="replace")
+          except Exception as error:
+              sys.exit(f"ERROR descargando Elcano: {error}")
+
+          # 1. Parsear los canales de Elcano
+          lineas_elcano = fuente_elcano.splitlines()
+          canales_raw = []
+          i = 0
+          while i < len(lineas_elcano):
+              linea = lineas_elcano[i].strip()
+              if linea.startswith("#EXTINF:"):
+                  url = None
+                  j = i + 1
+                  while j < len(lineas_elcano):
+                      candidata = lineas_elcano[j].strip()
+                      if candidata and not candidata.startswith("#"):
+                          url = candidata
+                          break
+                      j += 1
+                  if url:
+                      match_h = re.search(r'([0-9a-fA-F]{40})', url)
+                      if match_h:
+                          h_id = match_h.group(1)
+                          url_local = f"http://127.0.0.1:6878/ace/getstream?id={h_id}"
+                      else:
+                          url_local = url
+
+                      nombre_c = linea.rsplit(",", 1)[-1].upper()
+
+                      # REGLA EXACTA: Forzar el tvg-id idéntico para Movistar Plus HD
+                      extinf_mod = linea
+                      if "MOVISTAR PLUS" in nombre_c:
+                          if 'tvg-id=' in extinf_mod:
+                              extinf_mod = re.sub(r'tvg-id="[^"]*"', 'tvg-id="Movistar Plus HD"', extinf_mod)
+                          else:
+                              extinf_mod = extinf_mod.replace('#EXTINF:-1', '#EXTINF:-1 tvg-id="Movistar Plus HD"')
+
+                      # Forzar el group-title con el nombre exacto
+                      extinf_mod = re.sub(r'group-title="[^"]*"', 'group-title="⭐ ELCANO [MÁXIMA CALIDAD]"', extinf_mod)
+                      if 'group-title=' not in extinf_mod:
+                          extinf_mod = extinf_mod.replace('#EXTINF:-1', '#EXTINF:-1 group-title="⭐ ELCANO [MÁXIMA CALIDAD]"')
+
+                      canales_raw.append((nombre_c, extinf_mod, url_local))
+                      i = j
+              i += 1
+
+          # Criterio de ordenación estricto
+          def prioridad_elcano(item):
+              nombre = item[0]
+              es_multi = bool(re.search(r'\b(2|3|4|5|6|7|8|9)\b', nombre))
+
+              if not es_multi or ("F1" in nombre or "MOTOGP" in nombre):
+                  if "M+ LALIGA" in nombre: bloque = 1
+                  elif "DAZN LALIGA" in nombre: bloque = 2
+                  elif "MOVISTAR PLUS" in nombre or "MOVISTAR+" in nombre: bloque = 3
+                  elif "CAMPEONES" in nombre: bloque = 4
+                  elif "F1" in nombre or "FORMULA 1" in nombre: bloque = 5
+                  elif "MOTOGP" in nombre: bloque = 6
+                  elif "DAZN 1" in nombre: bloque = 7
+                  elif "DEPORTES" in nombre: bloque = 8
+                  elif "VAMOS" in nombre: bloque = 10
+                  elif "HYPERMOTION" in nombre: bloque = 11
+                  elif "PRIMERA" in nombre or "RFEF" in nombre: bloque = 12
+                  else: bloque = 14
+              else:
+                  bloque = 14
+
+              if es_multi and any(x in nombre for x in ["LALIGA", "CAMPEONES", "DAZN", "VAMOS", "HYPERMOTION", "DEPORTES"]):
+                  bloque = 13
+
+              if any(x in nombre for x in ["AZTECA", "FOX SPORTS", "RALLY TV", "CUATRO", "TELEDEPORTE", "TELECINCO", "LA 1", "LA 2", "ESPORT3", "A PUNT", "À PUNT", "REAL MADRID", "ONE TORO", "ONETORO"]):
+                  bloque = 15
+
+              if "1080" in nombre or "4K" in nombre:
+                  calidad = 0
+              elif "720" in nombre:
+                  calidad = 2
+              else:
+                  calidad = 1
+
+              return (bloque, calidad, nombre)
+
+          canales_ordenados = sorted(canales_raw, key=prioridad_elcano)
+
+          bloque_automatico = [
+              "# ==========================================",
+              "# ZONA AUTOMATICA: ⭐ ELCANO [MÁXIMA CALIDAD]",
+              "# =========================================="
+          ]
+          for _, inf, u in canales_ordenados:
+              bloque_automatico.append(inf)
+              bloque_automatico.append(u)
+
+          texto_nuevo_elcano = "\n".join(bloque_automatico)
+
+          partes = re.split(r'(?i)#\s*={5,}\s*\n#\s*CARPETA:\s*LA LIGA', contenido_casa, maxsplit=1)
+          
+          if len(partes) > 1:
+              cuerpo_personal = "# CARPETA: LA LIGA" + partes[1]
+          else:
+              partes_alt = re.split(r'(?i)#\s*={5,}\s*\n#\s*SECCIÓN:', contenido_casa, maxsplit=1)
+              cuerpo_personal = partes_alt[1] if len(partes_alt) > 1 else contenido_casa
+
+          cuerpo_personal = re.sub(r'#\s*Ultima sincronizacion:.*', '', cuerpo_personal).strip()
+
+          cabecera_m3u = (
+              '#EXTM3U url-tvg="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml,'
+              'https://epgshare01.online/epgshare01/epg_ripper_NL1.xml.gz,'
+              'https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml" refresh="3600"\n'
+              '#EXTVLCOPT:network-caching=1000\n'
+              '#EXTGRP: group-title="⭐ ELCANO [MÁXIMA CALIDAD]" group-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20LaLiga.png"\n\n'
+          )
+
+          timestamp_actual = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+          
+          texto_final = (
+              cabecera_m3u + 
+              texto_nuevo_elcano + 
+              "\n\n\n# ==========================================\n" +
+              "# ZONA PERSONAL: TUS CATEGORÍAS Y LISTAS\n" +
+              "# ==========================================\n\n" + 
+              cuerpo_personal + 
+              f"\n\n# Ultima sincronizacion: {timestamp_actual}\n"
+          )
+
+          # 1. Guardar archivo principal local
+          archivo_casa.write_text(texto_final, encoding="utf-8")
+
+          # 2. Generar versión Tailscale
+          texto_ts = texto_final.replace("127.0.0.1:6878", "100.90.204.66:6878")
+          archivo_tailscale.write_text(texto_ts, encoding="utf-8")
+
+          # 3. Generar archivo idéntico para los amigos (lista-amigos)
+          archivo_amigos.write_text(texto_final, encoding="utf-8")
+
+          print("¡Sincronización completa: Casa, Tailscale y Amigos actualizados!")
+          PY
+
+      - name: Guardar cambios en GitHub
+        run: |
+          git config user.name "GitHub Action Bot"
+          git config user.email "actions@github.com"
+          git add "Mi lista acestream" "Canales m3u" "lista-amigos"
+          
+          if ! git diff --cached --quiet; then
+            git commit -m "Actualización automática: Casa, Tailscale y Lista Amigos"
+            git push
+          else
+            echo "No hay cambios que guardar."
+          fi
