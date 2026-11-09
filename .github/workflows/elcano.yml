@@ -1,4 +1,4 @@
-name: Actualizador Automatico Elcano, Tailscale y Amigos
+name: Actualizador Automatico Elcano, lista
 
 on:
   schedule:
@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Sincronización automática ELCANO, Tailscale y Amigos
+      - name: Sincronización automática ELCANO, lista
         run: |
           python <<'PY'
           import re
@@ -32,8 +32,8 @@ jobs:
 
           URL_ELCANO = "https://tokyo2.elcano-ipfs.workers.dev/k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs/hashes_acestream.m3u"
           archivo_casa = Path("Mi lista acestream")
-          archivo_tailscale = Path("Canales m3u")
-          archivo_amigos = Path("lista-amigos")
+          archivo_tailscale = Path("lista")
+      
 
           if not archivo_casa.is_file():
               sys.exit("ERROR: No se encuentra el archivo 'Mi lista acestream'.")
