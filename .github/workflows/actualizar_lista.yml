@@ -1,4 +1,4 @@
-name: Actualizar Canales M3U Tailscale
+name: Actualizar lista
 
 on:
   push:
