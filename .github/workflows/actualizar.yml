@@ -2,8 +2,10 @@ name: Actualizar ACE-AUTO
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "0 */3 * * *"
+
   push:
     paths:
       - "canales_manuales.m3u"
@@ -16,6 +18,7 @@ permissions:
 jobs:
   actualizar:
     runs-on: ubuntu-latest
+
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
