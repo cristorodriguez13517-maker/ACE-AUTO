@@ -2,132 +2,241 @@ import os
 import re
 import json
 import base64
+import hashlib
 import requests
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime
 
-# =====================================
-# CONFIGURACIÓN
-# =====================================
+# ==========================================
+# CONFIGURACION
+# ==========================================
 
 TOKEN = os.environ["GIT_GAY_TOKEN"]
+
+FUENTE_ELCANO = (
+    "https://tokyo2.elcano-ipfs.workers.dev/"
+    "k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs/"
+    "hashes_acestream.m3u"
+)
 
 API = "https://git.gay/api/v1"
 
 PROPIETARIO = "iptvpro2026"
 REPOSITORIO = "lista"
 RAMA = "main"
-ARCHIVO = "hashes.m3u"
+ARCHIVO_DESTINO = "hashes.m3u"
 
-LISTA_LOCAL = Path("canales.m3u")
-HISTORIAL = Path("historial.json")
-INFORME = Path("cambios.md")
+ARCHIVO_AUTO = Path("canales.m3u")
+ARCHIVO_MANUAL = Path("canales_manuales.m3u")
+ARCHIVO_HISTORIAL = Path("historial.json")
+ARCHIVO_CAMBIOS = Path("cambios.md")
 
 HEADERS = {
     "Authorization": f"token {TOKEN}",
     "Content-Type": "application/json"
 }
 
+# ==========================================
+# DESCARGAR LISTA AUTOMATICA
+# ==========================================
 
-# =====================================
-# LEER LISTA M3U
-# =====================================
+def descargar_elcano():
 
-def leer_canales():
+    print("Descargando lista de Elcano...")
 
-    if not LISTA_LOCAL.exists():
-        raise Exception("No existe canales.m3u")
+    respuesta = requests.get(
+        FUENTE_ELCANO,
+        timeout=90,
+        headers={
+            "User-Agent": "ACE-AUTO/1.0"
+        }
+    )
 
-    contenido = LISTA_LOCAL.read_text(
-        encoding="utf-8-sig"
+    respuesta.raise_for_status()
+
+    contenido = respuesta.content.decode(
+        "utf-8-sig"
     ).strip()
 
     if not contenido.startswith("#EXTM3U"):
-        raise Exception("Formato M3U incorrecto")
+        raise Exception("La fuente de Elcano no contiene una M3U valida")
+
+    registros = analizar_lista(contenido)
+
+    if not registros:
+        raise Exception("Elcano no ha devuelto canales validos")
+
+    ARCHIVO_AUTO.write_text(
+        contenido + "\n",
+        encoding="utf-8"
+    )
+
+    print("Canales automaticos:", len(registros))
+
+    return registros
+
+
+# ==========================================
+# ANALIZAR LISTA M3U
+# ==========================================
+
+def analizar_lista(contenido):
 
     lineas = contenido.splitlines()
 
-    canales = {}
-    info = None
-    numero = 0
+    registros = []
+    actual = []
 
     for linea in lineas:
 
         linea = linea.strip()
 
+        if not linea:
+            continue
+
         if linea.startswith("#EXTINF:"):
-            info = linea
 
-        elif linea and not linea.startswith("#") and info:
+            if actual:
+                registros.append(actual)
 
+            actual = [linea]
+
+        elif actual:
+
+            actual.append(linea)
+
+    if actual:
+        registros.append(actual)
+
+    resultado = {}
+
+    for registro in registros:
+
+        info = registro[0]
+
+        urls = [
+            linea for linea in registro[1:]
+            if linea and not linea.startswith("#")
+        ]
+
+        if not urls:
+            continue
+
+        nombre_match = re.search(r",\s*(.*)$", info)
+
+        nombre = (
+            nombre_match.group(1).strip()
+            if nombre_match
+            else "Canal sin nombre"
+        )
+
+        grupo_match = re.search(
+            r'group-title="([^"]*)"',
+            info
+        )
+
+        grupo = (
+            grupo_match.group(1)
+            if grupo_match
+            else "Sin categoria"
+        )
+
+        id_match = re.search(
+            r'tvg-id="([^"]*)"',
+            info
+        )
+
+        tvg_id = (
+            id_match.group(1)
+            if id_match
+            else ""
+        )
+
+        # Identificador estable para comparar canales.
+        if tvg_id:
+            clave = "ID:" + tvg_id
+        else:
+            clave = "NOMBRE:" + grupo + "|" + nombre
+
+        base = clave
+        numero = 2
+
+        while clave in resultado:
+            clave = f"{base}#{numero}"
             numero += 1
 
-            partes = info.split(",", 1)
+        huella = hashlib.sha256(
+            "\n".join(registro).encode("utf-8")
+        ).hexdigest()
 
-            nombre = (
-                partes[1].strip()
-                if len(partes) > 1
-                else f"Canal {numero}"
-            )
+        resultado[clave] = {
+            "nombre": nombre,
+            "grupo": grupo,
+            "huella": huella,
+            "registro": registro
+        }
 
-            grupo = re.search(
-                r'group-title="([^"]*)"',
-                info
-            )
-
-            categoria = (
-                grupo.group(1)
-                if grupo
-                else "Sin categoría"
-            )
-
-            clave = f"{categoria} | {nombre}"
-
-            # Evitar colisiones cuando hay nombres repetidos.
-            base = clave
-            repetido = 2
-
-            while clave in canales:
-                clave = f"{base} [{repetido}]"
-                repetido += 1
-
-            canales[clave] = {
-                "nombre": nombre,
-                "categoria": categoria,
-                "url": linea
-            }
-
-            info = None
-
-    if not canales:
-        raise Exception("No se encontraron canales en la lista")
-
-    return contenido + "\n", canales
+    return resultado
 
 
-# =====================================
-# LEER HISTORIAL ANTERIOR
-# =====================================
+# ==========================================
+# LEER LISTA MANUAL
+# ==========================================
+
+def leer_manuales():
+
+    if not ARCHIVO_MANUAL.exists():
+        ARCHIVO_MANUAL.write_text(
+            "#EXTM3U\n",
+            encoding="utf-8"
+        )
+
+    contenido = ARCHIVO_MANUAL.read_text(
+        encoding="utf-8-sig"
+    ).strip()
+
+    if not contenido:
+        raise Exception("El archivo manual esta vacio o incorrecto")
+
+    if not contenido.startswith("#EXTM3U"):
+        raise Exception("La lista manual no tiene cabecera M3U")
+
+    registros = analizar_lista(contenido)
+
+    if len(registros) == 0:
+        print("No hay canales manuales todavia")
+
+    return contenido
+
+
+# ==========================================
+# LEER HISTORIAL
+# ==========================================
 
 def leer_historial():
 
-    if not HISTORIAL.exists():
+    if not ARCHIVO_HISTORIAL.exists():
         return {}
 
     try:
+
         return json.loads(
-            HISTORIAL.read_text(encoding="utf-8")
+            ARCHIVO_HISTORIAL.read_text(
+                encoding="utf-8"
+            )
         )
+
     except Exception:
+
         raise Exception(
-            "historial.json está dañado. "
-            "No se sobrescribirá."
+            "historial.json esta dañado. "
+            "No se sobrescribira."
         )
 
 
-# =====================================
-# COMPARAR LISTAS
-# =====================================
+# ==========================================
+# COMPARAR CAMBIOS
+# ==========================================
 
 def comparar(anterior, actual):
 
@@ -138,9 +247,10 @@ def comparar(anterior, actual):
     for clave, canal in actual.items():
 
         if clave not in anterior:
+
             nuevos.append(canal)
 
-        elif anterior[clave]["url"] != canal["url"]:
+        elif canal["huella"] != anterior[clave]["huella"]:
 
             modificados.append({
                 "anterior": anterior[clave],
@@ -155,15 +265,25 @@ def comparar(anterior, actual):
     return nuevos, eliminados, modificados
 
 
-# =====================================
+# ==========================================
 # GUARDAR HISTORIAL
-# =====================================
+# ==========================================
 
 def guardar_historial(canales):
 
-    HISTORIAL.write_text(
+    datos = {}
+
+    for clave, canal in canales.items():
+
+        datos[clave] = {
+            "nombre": canal["nombre"],
+            "grupo": canal["grupo"],
+            "huella": canal["huella"]
+        }
+
+    ARCHIVO_HISTORIAL.write_text(
         json.dumps(
-            canales,
+            datos,
             ensure_ascii=False,
             indent=2
         ),
@@ -171,9 +291,9 @@ def guardar_historial(canales):
     )
 
 
-# =====================================
+# ==========================================
 # GENERAR INFORME
-# =====================================
+# ==========================================
 
 def generar_informe(nuevos, eliminados, modificados):
 
@@ -182,70 +302,104 @@ def generar_informe(nuevos, eliminados, modificados):
     )
 
     lineas = [
-        f"\n## Actualización: {fecha}\n",
+        f"\n## Actualizacion: {fecha}\n",
         f"- Canales nuevos: {len(nuevos)}",
         f"- Canales eliminados: {len(eliminados)}",
         f"- Canales modificados: {len(modificados)}",
-        ""
+        "",
+        "### Canales nuevos"
     ]
 
-    lineas.append("### 🟢 Canales nuevos")
+    for canal in nuevos:
+        lineas.append(
+            f"- {canal['nombre']} ({canal['grupo']})"
+        )
 
-    if nuevos:
-        for canal in nuevos:
-            lineas.append(
-                f"- {canal['nombre']} ({canal['categoria']})"
-            )
-    else:
+    if not nuevos:
         lineas.append("- Ninguno")
 
-    lineas.append("")
-    lineas.append("### 🔴 Canales eliminados")
+    lineas.extend([
+        "",
+        "### Canales eliminados"
+    ])
 
-    if eliminados:
-        for canal in eliminados:
-            lineas.append(
-                f"- {canal['nombre']} ({canal['categoria']})"
-            )
-    else:
+    for canal in eliminados:
+        lineas.append(
+            f"- {canal['nombre']} ({canal['grupo']})"
+        )
+
+    if not eliminados:
         lineas.append("- Ninguno")
 
-    lineas.append("")
-    lineas.append("### 🟡 Canales modificados")
+    lineas.extend([
+        "",
+        "### Canales modificados"
+    ])
 
-    if modificados:
-        for cambio in modificados:
-            lineas.append(
-                f"- {cambio['actual']['nombre']}"
-            )
-    else:
+    for cambio in modificados:
+
+        lineas.append(
+            f"- {cambio['actual']['nombre']}"
+        )
+
+    if not modificados:
         lineas.append("- Ninguno")
 
     lineas.append("\n---\n")
 
     anterior = ""
 
-    if INFORME.exists():
-        anterior = INFORME.read_text(encoding="utf-8")
+    if ARCHIVO_CAMBIOS.exists():
+        anterior = ARCHIVO_CAMBIOS.read_text(
+            encoding="utf-8"
+        )
 
     if not anterior.strip():
         anterior = "# HISTORIAL DE CAMBIOS ACESTREAM\n"
 
-    INFORME.write_text(
+    ARCHIVO_CAMBIOS.write_text(
         anterior + "\n".join(lineas),
         encoding="utf-8"
     )
 
 
-# =====================================
+# ==========================================
+# CREAR LISTA COMBINADA
+# ==========================================
+
+def crear_lista_final():
+
+    automaticos = ARCHIVO_AUTO.read_text(
+        encoding="utf-8-sig"
+    ).strip()
+
+    manuales = ARCHIVO_MANUAL.read_text(
+        encoding="utf-8-sig"
+    ).strip()
+
+    lineas = ["#EXTM3U"]
+
+    # Primero los canales automaticos.
+    for contenido in (automaticos, manuales):
+
+        registros = analizar_lista(contenido)
+
+        for canal in registros.values():
+
+            lineas.extend(canal["registro"])
+
+    return "\n".join(lineas) + "\n"
+
+
+# ==========================================
 # PUBLICAR EN GIT.GAY
-# =====================================
+# ==========================================
 
 def publicar(contenido):
 
     url = (
         f"{API}/repos/{PROPIETARIO}/"
-        f"{REPOSITORIO}/contents/{ARCHIVO}"
+        f"{REPOSITORIO}/contents/{ARCHIVO_DESTINO}"
     )
 
     print("Consultando archivo remoto...")
@@ -260,15 +414,18 @@ def publicar(contenido):
     sha = None
 
     if respuesta.status_code == 200:
+
         sha = respuesta.json().get("sha")
 
     elif respuesta.status_code != 404:
+
         raise Exception(
-            f"Error consultando git.gay: {respuesta.text}"
+            f"Error consultando git.gay: {respuesta.status_code} "
+            f"{respuesta.text}"
         )
 
     datos = {
-        "message": "Actualizar lista ACESTREAM",
+        "message": "Actualizar lista ACESTREAM desde ACE-AUTO",
         "content": base64.b64encode(
             contenido.encode("utf-8")
         ).decode("utf-8"),
@@ -278,6 +435,8 @@ def publicar(contenido):
     if sha:
         datos["sha"] = sha
 
+    print("Publicando lista combinada...")
+
     respuesta = requests.put(
         url,
         headers=HEADERS,
@@ -286,30 +445,35 @@ def publicar(contenido):
     )
 
     if respuesta.status_code not in (200, 201):
+
         raise Exception(
-            f"Error publicando lista: {respuesta.text}"
+            f"Error publicando lista: {respuesta.status_code} "
+            f"{respuesta.text}"
         )
 
     print("Lista publicada correctamente")
 
 
-# =====================================
+# ==========================================
 # PROGRAMA PRINCIPAL
-# =====================================
+# ==========================================
 
 def main():
 
-    print("--------------------------------")
-    print("ACTUALIZADOR ACESTREAM")
-    print("--------------------------------")
+    print("================================")
+    print("ACTUALIZADOR ACE-AUTO")
+    print("================================")
 
-    contenido, canales_actuales = leer_canales()
+    automaticos = descargar_elcano()
 
-    canales_anteriores = leer_historial()
+    manuales = leer_manuales()
 
-    if not canales_anteriores:
+    anterior = leer_historial()
 
-        print("Primera ejecución: creando referencia inicial")
+    # La primera ejecucion establece la referencia.
+    if not anterior:
+
+        print("Primera ejecucion: creando referencia inicial")
 
         nuevos = []
         eliminados = []
@@ -318,11 +482,11 @@ def main():
     else:
 
         nuevos, eliminados, modificados = comparar(
-            canales_anteriores,
-            canales_actuales
+            anterior,
+            automaticos
         )
 
-    print("Canales actuales:", len(canales_actuales))
+    print("Canales automaticos:", len(automaticos))
     print("Canales nuevos:", len(nuevos))
     print("Canales eliminados:", len(eliminados))
     print("Canales modificados:", len(modificados))
@@ -333,13 +497,19 @@ def main():
         modificados
     )
 
-    guardar_historial(canales_actuales)
+    lista_final = crear_lista_final()
 
-    publicar(contenido)
+    if not lista_final.startswith("#EXTM3U"):
+        raise Exception("Lista final incorrecta")
 
-    print("--------------------------------")
-    print("ACTUALIZACIÓN COMPLETADA")
-    print("--------------------------------")
+    publicar(lista_final)
+
+    guardar_historial(automaticos)
+
+    print("================================")
+    print("ACTUALIZACION COMPLETADA")
+    print("Canales manuales conservados")
+    print("================================")
 
 
 if __name__ == "__main__":
