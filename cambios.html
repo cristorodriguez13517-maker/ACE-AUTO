@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACE-AUTO - Historial de cambios</title>
+
+<style>
+:root {
+    --fondo: #080808;
+    --panel: #151515;
+    --rojo: #e50914;
+    --verde: #20c878;
+    --amarillo: #f5bd42;
+    --texto: #ffffff;
+    --gris: #999999;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 25px;
+    background:
+        radial-gradient(ellipse at top left, #301014 0%, transparent 45%),
+        var(--fondo);
+    color: var(--texto);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+header {
+    padding: 25px 0;
+    border-bottom: 1px solid #333;
+    margin-bottom: 25px;
+}
+
+.logo {
+    color: var(--rojo);
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: var(--gris);
+    margin-top: 8px;
+}
+
+.estado {
+    background: var(--panel);
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #292929;
+}
+
+.estado strong {
+    color: var(--verde);
+}
+
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.tarjeta {
+    background: var(--panel);
+    padding: 22px 12px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #292929;
+}
+
+.numero {
+    font-size: 34px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.tarjeta small {
+    color: var(--gris);
+}
+
+.verde { color: var(--verde); }
+.rojo { color: var(--rojo); }
+.amarillo { color: var(--amarillo); }
+
+.actualizacion {
+    background: var(--panel);
+    border: 1px solid #292929;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.fecha {
+    color: var(--rojo);
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.seccion {
+    margin-top: 22px;
+}
+
+.seccion h3 {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.seccion ul {
+    list-style: none;
+    padding: 0;
+}
+
+.seccion li {
+    padding: 12px;
+    margin: 7px 0;
+    background: #202020;
+    border-radius: 7px;
+    border-left: 3px solid #555;
+    overflow-wrap: anywhere;
+}
+
+.seccion.anadidos li {
+    border-left-color: var(--verde);
+}
+
+.seccion.eliminados li {
+    border-left-color: var(--rojo);
+}
+
+.seccion.modificados li {
+    border-left-color: var(--amarillo);
+}
+
+.sin-cambios {
+    color: var(--gris);
+    padding: 12px 0;
+}
+
+.boton {
+    background: var(--rojo);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton:active {
+    transform: scale(.97);
+}
+
+footer {
+    color: #666;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 12px;
+}
+
+@media(max-width: 550px) {
+    body {
+        padding: 15px;
+    }
+
+    .resumen {
+        gap: 8px;
+    }
+
+    .numero {
+        font-size: 27px;
+    }
+
+    .tarjeta {
+        padding: 17px 5px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <div class="logo">ACE-AUTO</div>
+    <div class="subtitle">Historial de cambios de la lista Elcano</div>
+</header>
+
+<div class="estado" id="estado">
+    Consultando historial...
+</div>
+
+<div class="resumen">
+
+    <div class="tarjeta">
+        <span class="numero verde" id="totalAnadidos">0</span>
+        <small>CANALES AÑADIDOS</small>
+    </div>
+
+    <div class="tarjeta">
+        <span class="numero rojo" id="totalEliminados">0</span>
+        <small>CANALES ELIMINADOS</small>
+    </div>
+
+    <div class="tarjeta">
+        <span class="numero amarillo" id="totalModificados">0</span>
+        <small>CANALES MODIFICADOS</small>
+    </div>
+
+</div>
+
+<h2>Historial de actualizaciones</h2>
+
+<div id="historial">
+    Cargando cambios...
+</div>
+
+<button class="boton" onclick="cargarCambios()">
+    ↻ ACTUALIZAR
+</button>
+
+<footer>
+    ACE-AUTO · Actualización automática del historial
+</footer>
+
+</div>
+
+<script>
+
+const ARCHIVO = "./cambios.md";
+
+function crearSeccion(titulo, elementos, clase) {
+
+    const seccion = document.createElement("div");
+    seccion.className = "seccion " + clase;
+
+    const h3 = document.createElement("h3");
+    h3.textContent = titulo;
+
+    seccion.appendChild(h3);
+
+    if (!elementos.length) {
+        const p = document.createElement("p");
+        p.className = "sin-cambios";
+        p.textContent = "No hay cambios en este apartado.";
+        seccion.appendChild(p);
+        return seccion;
+    }
+
+    const ul = document.createElement("ul");
+
+    elementos.forEach(nombre => {
+        const li = document.createElement("li");
+        li.textContent = nombre;
+        ul.appendChild(li);
+    });
+
+    seccion.appendChild(ul);
+
+    return seccion;
+}
+
+function leerNumero(texto, tipo) {
+
+    const expresion = new RegExp(
+        "Canales " + tipo + ":\\s*(\\d+)",
+        "i"
+    );
+
+    const resultado = texto.match(expresion);
+
+    return resultado ? Number(resultado[1]) : 0;
+}
+
+function obtenerLista(lineas, nombre) {
+
+    const inicio = lineas.findIndex(
+        linea => linea.trim().toLowerCase() ===
+        ("### " + nombre).toLowerCase()
+    );
+
+    if (inicio === -1) return [];
+
+    const resultado = [];
+
+    for (let i = inicio + 1; i < lineas.length; i++) {
+
+        const linea = lineas[i].trim();
+
+        if (linea.startsWith("### ") || linea.startsWith("## ")) {
+            break;
+        }
+
+        if (linea.startsWith("- ")) {
+            resultado.push(linea.substring(2).trim());
+        }
+    }
+
+    return resultado;
+}
+
+async function cargarCambios() {
+
+    const estado = document.getElementById("estado");
+    const historial = document.getElementById("historial");
+
+    estado.textContent = "Consultando historial...";
+    historial.textContent = "Cargando...";
+
+    try {
+
+        const respuesta = await fetch(
+            ARCHIVO + "?t=" + Date.now(),
+            { cache: "no-store" }
+        );
+
+        if (!respuesta.ok) {
+            throw new Error("No se encuentra cambios.md");
+        }
+
+        const texto = await respuesta.text();
+
+        const bloques = texto.split(/^## /m).slice(1);
+
+        historial.replaceChildren();
+
+        let sumaNuevos = 0;
+        let sumaEliminados = 0;
+        let sumaModificados = 0;
+
+        if (!bloques.length) {
+            estado.textContent = "Todavía no hay actualizaciones registradas.";
+            return;
+        }
+
+        bloques.forEach((bloque, indice) => {
+
+            const lineas = bloque.split("\n");
+            const fecha = lineas[0].trim();
+            const contenido = lineas.slice(1).join("\n");
+
+            const nuevos = leerNumero(contenido, "añadidos");
+            const eliminados = leerNumero(contenido, "eliminados");
+            const modificados = leerNumero(contenido, "modificados");
+
+            sumaNuevos += nuevos;
+            sumaEliminados += eliminados;
+            sumaModificados += modificados;
+
+            const anadidos = obtenerLista(lineas, "Añadidos");
+            const quitados = obtenerLista(lineas, "Eliminados");
+            const cambiados = obtenerLista(lineas, "Modificados");
+
+            const tarjeta = document.createElement("div");
+            tarjeta.className = "actualizacion";
+
+            const titulo = document.createElement("div");
+            titulo.className = "fecha";
+            titulo.textContent = "📅 " + fecha;
+
+            tarjeta.appendChild(titulo);
+
+            const resumen = document.createElement("p");
+            resumen.textContent =
+                "🟢 " + nuevos + " añadidos · " +
+                "🔴 " + eliminados + " eliminados · " +
+                "🟡 " + modificados + " modificados";
+
+            tarjeta.appendChild(resumen);
+
+            tarjeta.appendChild(
+                crearSeccion("🟢 CANALES AÑADIDOS", anadidos, "anadidos")
+            );
+
+            tarjeta.appendChild(
+                crearSeccion("🔴 CANALES ELIMINADOS", quitados, "eliminados")
+            );
+
+            tarjeta.appendChild(
+                crearSeccion("🟡 CANALES MODIFICADOS", cambiados, "modificados")
+            );
+
+            if (indice === 0) {
+                tarjeta.style.borderColor = "#e50914";
+            }
+
+            historial.appendChild(tarjeta);
+
+        });
+
+        document.getElementById("totalAnadidos").textContent = sumaNuevos;
+        document.getElementById("totalEliminados").textContent = sumaEliminados;
+        document.getElementById("totalModificados").textContent = sumaModificados;
+
+        estado.replaceChildren();
+
+        const mensaje = document.createElement("span");
+        mensaje.textContent = "✓ Historial cargado correctamente. ";
+
+        const detalle = document.createElement("small");
+        detalle.style.color = "#999";
+        detalle.textContent =
+            "Última comprobación: " +
+            new Date().toLocaleString("es-ES");
+
+        estado.appendChild(mensaje);
+        estado.appendChild(detalle);
+
+    } catch (error) {
+
+        estado.textContent = "⚠️ " + error.message;
+
+        historial.textContent =
+            "Comprueba que cambios.md esté publicado junto a cambios.html.";
+
+    }
+}
+
+cargarCambios();
+
+// Comprobar automáticamente cada minuto.
+setInterval(cargarCambios, 60000);
+
+</script>
+
+</body>
+</html>
