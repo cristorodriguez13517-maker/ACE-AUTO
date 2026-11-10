@@ -2,7 +2,7 @@
   "a punt|calidad-3": {
     "nombre": "À Punt 1080p *",
     "calidad": 3,
-    "hash": "c3d3179b8c001ff222f9fb8e1d7aeec1fe035b7710624796e8fb434641fb37de"
+    "hash": "203a9358c5b47e08f892f2fe7e5de13e13ef7880d2c02bac5e9d0381e0c08444"
   },
   "bein sports 3 tr|calidad-2": {
     "nombre": "Bein Sports 3 TR 720p *",
@@ -57,7 +57,7 @@
   "dazn motogp|calidad-3": {
     "nombre": "Dazn MotoGP 1080p *",
     "calidad": 3,
-    "hash": "90323afb90dca1e828c105700cd47fb5e46071c05a41dc2b0a8416e8c58bfae9"
+    "hash": "a26c34a79f6f50cf0920b992a4290335d33869fb0a7902803ee65a16960d0fba"
   },
   "esport3|calidad-3": {
     "nombre": "Esport3 1080p *",
@@ -197,7 +197,7 @@
   "m liga de campeones|calidad-3": {
     "nombre": "M+ Liga de Campeones 1080p *",
     "calidad": 3,
-    "hash": "6bf96500de08baf193917106547371a4f2f5b134f4ad1279598af8d56742e36a"
+    "hash": "057d2150257ac81ee56cf94a270ef42122e13b1a748f57a66079ba4ce49025b9"
   },
   "m liga de campeones|calidad-2": {
     "nombre": "M+ Liga de Campeones 720p *",
@@ -233,11 +233,6 @@
     "nombre": "M+ Vamos 720p *",
     "calidad": 2,
     "hash": "89241ca0d6367bbb7707c348016357f358403927f4191998ac1befba101f5ca8"
-  },
-  "m vamos 2|calidad-2": {
-    "nombre": "M+ VAMOS 2 720p *",
-    "calidad": 2,
-    "hash": "98ec75b3e3fe2b6a2ee16a21a467d11f14c8657fd17b4b9d69d34c4b7a0cf832"
   },
   "movistar plus|calidad-3": {
     "nombre": "MOVISTAR PLUS 1080p *",

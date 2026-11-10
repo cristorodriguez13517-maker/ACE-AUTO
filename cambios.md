@@ -75,3 +75,17 @@ La primera ejecución guardará la lista de referencia.
 - Canales eliminados: 0
 - Canales modificados: 0
 
+## 2026-11-10 17:32 UTC
+
+- Canales añadidos: 0
+- Canales eliminados: 1
+- Canales modificados: 3
+
+### Eliminados
+- M+ VAMOS 2 720p *
+
+### Modificados
+- À Punt 1080p *
+- Dazn MotoGP 1080p *
+- M+ Liga de Campeones 1080p *
+
