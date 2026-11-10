@@ -1,1 +1,407 @@
-{}
+{
+  "ID:DAZN Baloncesto": {
+    "nombre": "DAZN Baloncesto 720p *",
+    "grupo": "BALONCESTO",
+    "huella": "72305efc6382ec1790d5893503433b531196236ceb6ec60dd46d979c50175e98"
+  },
+  "ID:DAZN Baloncesto 2": {
+    "nombre": "DAZN Baloncesto 2 720p *",
+    "grupo": "BALONCESTO",
+    "huella": "434c9e26811884a7ea0626e8934708f7a330c946fa6c41a8a3f9e973ad79879e"
+  },
+  "ID:DAZN Baloncesto 3": {
+    "nombre": "DAZN Baloncesto 3 720p *",
+    "grupo": "BALONCESTO",
+    "huella": "5957df4c811673d3c8209c3c4b3694662793ec993872c856366619b627cf7e05"
+  },
+  "ID:DAZN Baloncesto 3#2": {
+    "nombre": "DAZN Baloncesto 3 1080p **",
+    "grupo": "BALONCESTO",
+    "huella": "54ef66ee58c465ebe3a79a1adb58806010af0eebabab81f36a629dce7b6e6fe6"
+  },
+  "ID:M+ Baloncesto": {
+    "nombre": "M+ Baloncesto 1080p *",
+    "grupo": "BALONCESTO",
+    "huella": "5ae757cb3cbc6bf32dbb0345fba907c9d9942264b904923c8c712a7793944466"
+  },
+  "ID:M+ Baloncesto#2": {
+    "nombre": "M+ Baloncesto 1080p *",
+    "grupo": "BALONCESTO",
+    "huella": "da345b01cf26934e683b1d04671b6a00d92b79515fbf114541fd4aa4e3d89c19"
+  },
+  "ID:M+ Baloncesto#3": {
+    "nombre": "M+ Baloncesto 1080p *",
+    "grupo": "BALONCESTO",
+    "huella": "fd24e25adfd32c6f46ae3f537872871b1bbf73f4c481cad074fd37894220a001"
+  },
+  "ID:DAZN 2 HD": {
+    "nombre": "DAZN 2 1080p *",
+    "grupo": "DAZN",
+    "huella": "f1a0de8ca59c1180c7e89ffe1bd951dff352f433ef9022ca4387411f3021f4bb"
+  },
+  "ID:DAZN 4 HD": {
+    "nombre": "DAZN 4 1080p *",
+    "grupo": "DAZN",
+    "huella": "75cb282d709ae9cf7c16cd6963f070ffb4d63bac84b4ae00121584e11a88e7e5"
+  },
+  "ID:Eurosport 2": {
+    "nombre": "Eurosport 2 1080p *",
+    "grupo": "EUROSPORT",
+    "huella": "f325b2a4e76314b5c74c2c28b26f04866490d8954277ab03561d2f87d9ee17da"
+  },
+  "ID:DAZN F1 HD": {
+    "nombre": "DAZN F1 1080p *",
+    "grupo": "FORMULA 1",
+    "huella": "a7cf44ae8f3823b01b890574976f6c062620c345eebbff1081119790f48f5f79"
+  },
+  "ID:LaLiga TV Hypermotion HD": {
+    "nombre": "LaLiga TV Hypermotion 720p *",
+    "grupo": "HYPERMOTION",
+    "huella": "520d23bd62dcb3c04dcf2ebabd7c8c472cc79d17e8df51d8d4d6cb8c11df32dd"
+  },
+  "ID:LaLiga TV Hypermotion HD#2": {
+    "nombre": "LaLiga TV Hypermotion 1080p *",
+    "grupo": "HYPERMOTION",
+    "huella": "06d7f42e0cada403f493aac56ac5f7be8570291482be8a40a1f49cda95ba1741"
+  },
+  "ID:LaLiga TV Hypermotion HD#3": {
+    "nombre": "LaLiga TV Hypermotion 1080p **",
+    "grupo": "HYPERMOTION",
+    "huella": "164b975dabca2a814d2380a046e1c524512262ffc5179608c1c2817cf484dcc8"
+  },
+  "ID:LaLiga TV Hypermotion 2": {
+    "nombre": "LaLiga TV Hypermotion 2 720p *",
+    "grupo": "HYPERMOTION",
+    "huella": "c4cf004671336c48b8a8843aa0d2f7a9134148ff56c19e30d65eb02e6ab0f466"
+  },
+  "ID:LaLiga TV Hypermotion 2#2": {
+    "nombre": "LaLiga TV Hypermotion 2 1080p *",
+    "grupo": "HYPERMOTION",
+    "huella": "32381400589a125a9d783aa707229ca2e74cf972be62c3829eae31e29e3566ff"
+  },
+  "ID:LaLiga TV Hypermotion HD#4": {
+    "nombre": "LaLiga TV Hypermotion *",
+    "grupo": "HYPERMOTION",
+    "huella": "b11ff59bcfc3105c7374070431a3c5b7d4498aae2667d8a4cc180fd94f4d59ce"
+  },
+  "ID:DAZN LaLiga HD": {
+    "nombre": "DAZN LaLiga 1080p *",
+    "grupo": "LA LIGA",
+    "huella": "9099a2b75f5111cbb602e60a39121b51187b14f9c650b294c3bc56a3233bd43c"
+  },
+  "ID:DAZN LaLiga 2 HD": {
+    "nombre": "DAZN LaLiga 2 720p *",
+    "grupo": "LA LIGA",
+    "huella": "c15390527808f4c5bcdc889e8c56b6aa88a82509447fe1dc5d51f4552955c52e"
+  },
+  "ID:M+ LaLiga HD": {
+    "nombre": "M+ LaLiga 720p *",
+    "grupo": "LA LIGA",
+    "huella": "f443a970ea5113d8e6305ef8d94992328bc1bbb973a7f5c8d62a8771a190ddeb"
+  },
+  "ID:M+ LaLiga HD#2": {
+    "nombre": "M+ LaLiga 720p *",
+    "grupo": "LA LIGA",
+    "huella": "31ef3543cd327c49ca8aab4350118677e2a971570e6ef95f4b9703d10e2496ab"
+  },
+  "ID:M+ LaLiga HD#3": {
+    "nombre": "M+ LaLiga 720p **",
+    "grupo": "LA LIGA",
+    "huella": "99b23eea374cbe067ac3fe7d62e7af7077fae7874c2ca7ec28e5e36cc5278176"
+  },
+  "ID:M+ LaLiga HD#4": {
+    "nombre": "M+ LaLiga 1080p *",
+    "grupo": "LA LIGA",
+    "huella": "620f247647772b5b97549fd46c26e7ce43982a6de1e0cc4d7b77fd3de5ed69e4"
+  },
+  "ID:M+ LaLiga HD#5": {
+    "nombre": "M+ LaLiga 1080p **",
+    "grupo": "LA LIGA",
+    "huella": "521c2d411245e8085a36ad1bfd6d6ccde997860815a8c6592b7a31e5f91b4f9b"
+  },
+  "ID:M+ LaLiga HD#6": {
+    "nombre": "M+ LaLiga 1080p **",
+    "grupo": "LA LIGA",
+    "huella": "363a4d2731c5f38ea9bdea9de96f1b18fef1dcb296e2aff11da942437fdff75f"
+  },
+  "ID:M+ LaLiga HD#7": {
+    "nombre": "M+ LaLiga 1080p **",
+    "grupo": "LA LIGA",
+    "huella": "08976d9b9d43b59714d63190aaa3ee786e7c681e36149e596a7de6d678945875"
+  },
+  "ID:M+ LaLiga 2 HD": {
+    "nombre": "M+ LaLiga 2 *",
+    "grupo": "LA LIGA",
+    "huella": "ed6a6af0eecb42b5e7a5393e14f1c039afcbaae3c1ecc7c40ff2c9ba70f98511"
+  },
+  "ID:M+ Liga de Campeones HD": {
+    "nombre": "M+ Liga de Campeones 720p *",
+    "grupo": "LIGA DE CAMPEONES",
+    "huella": "0456bb58058db30274d0f22ced09d23c20294fdeca35297ff2722f218223a0f8"
+  },
+  "ID:M+ Liga de Campeones HD#2": {
+    "nombre": "M+ Liga de Campeones 1080p *",
+    "grupo": "LIGA DE CAMPEONES",
+    "huella": "4a3ea621142b0ac9f2cc58a47277acb7d0b7c540cc0118e8e06b75d2f3fa4485"
+  },
+  "ID:M+ Liga de Campeones HD#3": {
+    "nombre": "M+ Liga de Campeones 1080p *",
+    "grupo": "LIGA DE CAMPEONES",
+    "huella": "d254637d90fcbc2285d8246fee7d3505599349e7cc8ca3a2651bd59943ee23f7"
+  },
+  "ID:M+ Liga de Campeones 2 HD": {
+    "nombre": "M+ Liga de Campeones 2 720p *",
+    "grupo": "LIGA DE CAMPEONES",
+    "huella": "20aacab36826cf52e8786b9e25196447e3edaa0e96677a2d3435f31fe70609ae"
+  },
+  "ID:M+ Liga de Campeones 4": {
+    "nombre": "M+ Liga de Campeones 4 1080p *",
+    "grupo": "LIGA DE CAMPEONES",
+    "huella": "d194be3e45dd569cbae6a5791f44620d5f0bc3c017520f99923998d7a00e75d9"
+  },
+  "ID:M+ Liga de Campeones 5": {
+    "nombre": "M+ Liga de Campeones 5 1080p *",
+    "grupo": "LIGA DE CAMPEONES",
+    "huella": "f3bc9618b9535586044877825ea732a0112147886f8b33213237ced4ee377d19"
+  },
+  "NOMBRE:LIGA DE CAMPEONES|M+ Liga de Campeones 7 1080p *": {
+    "nombre": "M+ Liga de Campeones 7 1080p *",
+    "grupo": "LIGA DE CAMPEONES",
+    "huella": "cdc2887212b36ce7fe4eac31c4c10f90f805fc3806ab6512c104ed03646ec029"
+  },
+  "ID:Movistar Plus+ HD": {
+    "nombre": "MOVISTAR PLUS 720p *",
+    "grupo": "MOVISTAR",
+    "huella": "b8a4e67bf3feff27efb7438c1a968ff040297817755ef3c6d96a0a04e90b9c87"
+  },
+  "ID:Movistar Plus+ HD#2": {
+    "nombre": "MOVISTAR PLUS 1080p *",
+    "grupo": "MOVISTAR",
+    "huella": "5d55b8ba59464ccdacad6d08db467794cba7945aea58770949da55dd7ba228f0"
+  },
+  "ID:M+ Deportes HD": {
+    "nombre": "M+ Deportes 720p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "dea891f0bda48cc64cdd5d98b9c3c0a84ee9a01ba7755dc64727b51725870a70"
+  },
+  "ID:M+ Deportes HD#2": {
+    "nombre": "M+ Deportes 1080p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "64566f506fe8628b6257ded3b3f94c49179df98a451a3d103173143a51e213b6"
+  },
+  "ID:M+ Deportes 2 HD": {
+    "nombre": "M+ Deportes 2 720p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "ada18a36e5ae7ff14e9d19f8c4d749be35f56f57f03904a02a01971bd32d615e"
+  },
+  "ID:M+ Deportes 2 HD#2": {
+    "nombre": "M+ Deportes 2 1080p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "4827d74d53d44d173bb9532e59fc904c57f25a0a2b309b27ec19c64c88f018eb"
+  },
+  "ID:M+ Deportes 3": {
+    "nombre": "M+ Deportes 3 720p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "6cb5534b7b986e5bbe7632f05f1f6780f16cdd55285c6c5161b8bdb195249bc2"
+  },
+  "ID:M+ Deportes 3#2": {
+    "nombre": "M+ Deportes 3 1080p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "a424f1afdd79216f9a787f82fe15cbb3dc70050b380e3bbf3e3c088d2b9c8767"
+  },
+  "ID:M+ Deportes 4": {
+    "nombre": "M+ Deportes 4 720p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "0f11626240988b616a49ce28f495f5b18e1298e0170613f96a6f79f9c93c4584"
+  },
+  "ID:M+ Deportes 5": {
+    "nombre": "M+ Deportes 5 1080p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "ad21581ea2b0f41dd99c34dfdac6a0e5af6141450bf5233ac4a3fade07f7ad78"
+  },
+  "ID:M+ Deportes 6": {
+    "nombre": "M+ Deportes 6 1080p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "bd60fa0db3c97c96e72725cff9ea5cc58bd89da116f37f35d69354ffa555a6a4"
+  },
+  "ID:M+ Deportes 7": {
+    "nombre": "M+ Deportes 7 720p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "66842385a37261ef2807acaaaea76235b6f39958c3bc33d81171b838bffc972b"
+  },
+  "ID:M+ Deportes 7#2": {
+    "nombre": "M+ Deportes 7 1080p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "5aed6e6998f7055c52b053c6254d6b4a2b87a2412874e37dd62243df5a379c27"
+  },
+  "ID:M+ Golf HD": {
+    "nombre": "M+ Golf 1080p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "ba2b52c53ff2ab439502bbe4babbd87f1e6631247818b294086fd754721c1052"
+  },
+  "ID:M+ Golf 2 HD": {
+    "nombre": "M+ Golf 2 1080p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "b82f181ab723bc6009972d6f231ffcce7571b8c1ba853975f30502102ad32389"
+  },
+  "ID:M+ Vamos HD": {
+    "nombre": "M+ Vamos 720p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "d413851fd5887308e138bab25620d7d8a47aca372094ddc56505a2c093e7513e"
+  },
+  "ID:M+ Vamos HD#2": {
+    "nombre": "M+ Vamos 1080p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "844351de4b794edb63f6b461b20bf6737db3351570f8a74db18839718be6f724"
+  },
+  "ID:M+ Vamos HD#3": {
+    "nombre": "M+ Vamos 1080p **",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "95e57b8674dadad3efe20d482b9a035b6ab3b61bb3f5affddf487e397a7587be"
+  },
+  "ID:M+ Vamos 2": {
+    "nombre": "M+ VAMOS 2 720p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "64473fe953abbc5a42a89492a2b4f0fc17ed5271a90488f756fe135376613447"
+  },
+  "ID:M+ Vamos 3": {
+    "nombre": "M+ VAMOS 3 1080p *",
+    "grupo": "MOVISTAR DEPORTES",
+    "huella": "6bc2b6520ba6a726bd5eaf16bc77e5212a26350ccc1db1e4a5e0f7414186448b"
+  },
+  "ID:Primera Federación": {
+    "nombre": "RFEF TV 1080p *",
+    "grupo": "RFEF TV",
+    "huella": "d724b800e57f1fbe1d57344ffaa31143685f4766c63d62fbf5efcdfb4222c269"
+  },
+  "ID:Primera Federación#2": {
+    "nombre": "RFEF TV 1080p *",
+    "grupo": "RFEF TV",
+    "huella": "46b84fb202cccd78a5062c433b6e5de90281cc07a9cc9010cdb11f8d4d6f0116"
+  },
+  "ID:La 2": {
+    "nombre": "La 2 TVE 1080p *",
+    "grupo": "TDT",
+    "huella": "ad61ec44c83b98703326a8dc924703b85855de68656e3ad9824b5298d0322d77"
+  },
+  "NOMBRE:TDT|M+ 0 1080p **": {
+    "nombre": "M+ 0 1080p **",
+    "grupo": "TDT",
+    "huella": "28349dc39eef7a57c11f745dd322e437ad27f223b2ace4def66e3c235960d941"
+  },
+  "NOMBRE:DEPORTES|Bein Sports 3 TR 720p *": {
+    "nombre": "Bein Sports 3 TR 720p *",
+    "grupo": "DEPORTES",
+    "huella": "c09ef5ae5d0be728c9c6cd8f07e1798d9a245a5d0f38c8e6db3ac9ad9b7831e4"
+  },
+  "NOMBRE:DEPORTES|Bein Sports TR 720p *": {
+    "nombre": "Bein Sports TR 720p *",
+    "grupo": "DEPORTES",
+    "huella": "d66a6e143971e0a61bf8314db0acbc7bd5e3fd28977f4e29691cef496eeff03a"
+  },
+  "ID:Esport 3": {
+    "nombre": "Esport3 720p *",
+    "grupo": "DEPORTES",
+    "huella": "7f753cdf79459df974b9f4fda70ed07f87c71ca98112cd32fa21033ad05cc030"
+  },
+  "ID:Esport 3#2": {
+    "nombre": "Esport3 1080p *",
+    "grupo": "DEPORTES",
+    "huella": "ef308ff77b7af256e690de69b525f7da8c2014eaac6eb0ff1f5290dbe3656dfc"
+  },
+  "NOMBRE:DEPORTES|Fox Sports 2 *": {
+    "nombre": "Fox Sports 2 *",
+    "grupo": "DEPORTES",
+    "huella": "e8faf874a22d0e8c125c88847235f21bf174907a856fd235366c21c9485e8934"
+  },
+  "NOMBRE:DEPORTES|NBC Sports 1080p *": {
+    "nombre": "NBC Sports 1080p *",
+    "grupo": "DEPORTES",
+    "huella": "dae9452f9734a31fb4c5e58b4585cddade5b0f46a79cac3824b187dd7cac86ff"
+  },
+  "ID:DE | Rally TV": {
+    "nombre": "RALLY TV 1080p *",
+    "grupo": "DEPORTES",
+    "huella": "eb93695404b613602316f99c2201a72a201b0a504cca41db029ec10a42914aa2"
+  },
+  "NOMBRE:DEPORTES|SPORT TV3 1080p *": {
+    "nombre": "SPORT TV3 1080p *",
+    "grupo": "DEPORTES",
+    "huella": "b85789934af50ec4c9997b629b8d064477fe376561b0a43a604037afb223b0b3"
+  },
+  "NOMBRE:DEPORTES|Sport TV+ 1080p *": {
+    "nombre": "Sport TV+ 1080p *",
+    "grupo": "DEPORTES",
+    "huella": "cf7af221d221e856d4bb46f2fc5e113d08d81d658c2e280a12d32f1690f03983"
+  },
+  "NOMBRE:DEPORTES|Sport TV+ 1080p *#2": {
+    "nombre": "Sport TV+ 1080p *",
+    "grupo": "DEPORTES",
+    "huella": "9b15364c1b5d5996d169d6f179e333fec6a07b75f17097d8af913a953a14766d"
+  },
+  "ID:Teledeporte": {
+    "nombre": "Teledeporte 1080p *",
+    "grupo": "DEPORTES",
+    "huella": "62ae4c950204e44910a1f332b03eaa8e5e0087912fe1111934ee91183b3db50e"
+  },
+  "NOMBRE:DEPORTES|À Punt 1080p *": {
+    "nombre": "À Punt 1080p *",
+    "grupo": "DEPORTES",
+    "huella": "d5178adcb37e335016260f4674107f1d4060b823e7e6671767935742d20a238d"
+  },
+  "NOMBRE:DEPORTES|À Punt 1080p *#2": {
+    "nombre": "À Punt 1080p *",
+    "grupo": "DEPORTES",
+    "huella": "8e8dea9a058038419fcac450994239a4945f29b68c39bf6137bd161d527169fb"
+  },
+  "ID:DAZN MotoGP": {
+    "nombre": "Dazn MotoGP 1080p *",
+    "grupo": "MOTOGP",
+    "huella": "bfb9043a3de5943211881266c15eeeaa6221c12f950417aa46c84a7ae7775c65"
+  },
+  "ID:DAZN MotoGP#2": {
+    "nombre": "Dazn MotoGP 1080p *",
+    "grupo": "MOTOGP",
+    "huella": "dc4beee4edefc884d294d159fcb23aa863e7cdf8a8a4fecb6250703d58fc46e9"
+  },
+  "NOMBRE:NBA|NBA League Pass 1080p *": {
+    "nombre": "NBA League Pass 1080p *",
+    "grupo": "NBA",
+    "huella": "14d867879d8f39c522bbfae29c17015660e80303e1cfab1a453296a93f07636d"
+  },
+  "NOMBRE:NBA|NBA League Pass 1080p *#2": {
+    "nombre": "NBA League Pass 1080p *",
+    "grupo": "NBA",
+    "huella": "97cd7d7055cdb9c630cd55390fc9756039839cab7ce087504b5c4cb74ac9aabc"
+  },
+  "NOMBRE:NBA|NBA League Pass 1080p *#3": {
+    "nombre": "NBA League Pass 1080p *",
+    "grupo": "NBA",
+    "huella": "6dea7898a1777287d89d7198f023fed32690e954eb14f84772f3e2699db4a656"
+  },
+  "NOMBRE:TENNIS|Sky Sport Tennis 1080p *": {
+    "nombre": "Sky Sport Tennis 1080p *",
+    "grupo": "TENNIS",
+    "huella": "2285d9c80e5b6114e66b73278d60651079380885e9aa81a800bf5a96267a55a5"
+  },
+  "NOMBRE:TENNIS|Sky Sport Tennis 1080p **": {
+    "nombre": "Sky Sport Tennis 1080p **",
+    "grupo": "TENNIS",
+    "huella": "7bff21ef07cf7b27754fb1aa63d2d7ad0248198ffd341e09aff8ecbb32707ea0"
+  },
+  "NOMBRE:TENNIS|Tennis Channel 1080p *": {
+    "nombre": "Tennis Channel 1080p *",
+    "grupo": "TENNIS",
+    "huella": "bee97d5390f5dc102eb552048036bbc71ae7f6460d99b7808716976d5af9ef2c"
+  },
+  "NOMBRE:TENNIS|Tennis Channel 1080p **": {
+    "nombre": "Tennis Channel 1080p **",
+    "grupo": "TENNIS",
+    "huella": "8b594b6c1a19981d4de2841874d1215b41d8cbeaa2edf07ed6744a8abc01f050"
+  },
+  "NOMBRE:TOROS|Onetoro TV 1080p *": {
+    "nombre": "Onetoro TV 1080p *",
+    "grupo": "TOROS",
+    "huella": "5b467d23143a85b4b0ea805caaabdb9160956f282a5d8ee8ebf93585915af728"
+  }
+}
