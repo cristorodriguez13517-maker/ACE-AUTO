@@ -1,0 +1,44 @@
+name: Actualizar ACE-AUTO
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */3 * * *"
+  push:
+    paths:
+      - "canales_manuales.m3u"
+      - "actualizar.py"
+      - ".github/workflows/actualizar.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Actualizar y publicar lista
+        env:
+          GIT_GAY_TOKEN: ${{ secrets.GIT_GAY_TOKEN }}
+        run: python actualizar.py
+
+      - name: Guardar lista automática e historial en GitHub
+        run: |
+          git config user.name "ACE-AUTO"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add canales.m3u historial.json cambios.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Actualizar canales Elcano e historial"
+            git push
+          fi
