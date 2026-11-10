@@ -101,3 +101,29 @@ La primera ejecución guardará la lista de referencia.
 - Canales eliminados: 0
 - Canales modificados: 0
 
+## 2026-11-10 22:56 UTC
+
+- Canales añadidos: 2
+- Canales eliminados: 6
+- Canales modificados: 6
+
+### Añadidos
+- Eurosport 2 720p **
+- Teledeporte 720p **
+
+### Eliminados
+- Bein Sports 3 TR 720p *
+- DAZN Baloncesto 3 720p *
+- DAZN F1 1080p *
+- M+ Deportes 7 1080p *
+- M+ Liga de Campeones 2 720p *
+- MOVISTAR PLUS 720p *
+
+### Modificados
+- Dazn MotoGP 1080p *
+- M+ Baloncesto 1080p *
+- M+ LaLiga 720p *
+- M+ LaLiga 2 720p **
+- M+ Liga de Campeones 1080p *
+- RFEF TV 1080p *
+

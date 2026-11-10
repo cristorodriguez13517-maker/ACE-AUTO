@@ -4,11 +4,6 @@
     "calidad": 3,
     "hash": "203a9358c5b47e08f892f2fe7e5de13e13ef7880d2c02bac5e9d0381e0c08444"
   },
-  "bein sports 3 tr|calidad-2": {
-    "nombre": "Bein Sports 3 TR 720p *",
-    "calidad": 2,
-    "hash": "dfef0ad03212bd1f4a6aed7d453c6e975417ec8ec83ecee7b38768ca8acea1d5"
-  },
   "bein sports tr|calidad-2": {
     "nombre": "Bein Sports TR 720p *",
     "calidad": 2,
@@ -34,16 +29,6 @@
     "calidad": 2,
     "hash": "6e1f7cecfe51cf28cddec5413ddcfac7bd6f33b06bcfae327725977af2a7e38b"
   },
-  "dazn baloncesto 3|calidad-2": {
-    "nombre": "DAZN Baloncesto 3 720p *",
-    "calidad": 2,
-    "hash": "8a5fad834514a1ba69b0e414b83e32fcdf6a96f6027b6ef983f2c944e3be29ec"
-  },
-  "dazn f1|calidad-3": {
-    "nombre": "DAZN F1 1080p *",
-    "calidad": 3,
-    "hash": "13d4b4c8d1c5e807397e8eefe8c89d674759abd6e8141cd7ed803ab1b24b5e85"
-  },
   "dazn laliga|calidad-3": {
     "nombre": "DAZN LaLiga 1080p *",
     "calidad": 3,
@@ -57,7 +42,7 @@
   "dazn motogp|calidad-3": {
     "nombre": "Dazn MotoGP 1080p *",
     "calidad": 3,
-    "hash": "a26c34a79f6f50cf0920b992a4290335d33869fb0a7902803ee65a16960d0fba"
+    "hash": "90323afb90dca1e828c105700cd47fb5e46071c05a41dc2b0a8416e8c58bfae9"
   },
   "esport3|calidad-3": {
     "nombre": "Esport3 1080p *",
@@ -73,6 +58,11 @@
     "nombre": "Eurosport 2 1080p *",
     "calidad": 3,
     "hash": "034af3cbfe235c3b24cb8880f91ff9784641d8ee60bbad045e8b81ec8767a6f1"
+  },
+  "eurosport 2|calidad-2": {
+    "nombre": "Eurosport 2 720p **",
+    "calidad": 2,
+    "hash": "089e40e309bd126327ded48cf7bd11b5a99215d78ceab13310e486f4a6bf3eb3"
   },
   "fox sports 2|calidad-0": {
     "nombre": "Fox Sports 2 *",
@@ -112,7 +102,7 @@
   "m baloncesto|calidad-3": {
     "nombre": "M+ Baloncesto 1080p *",
     "calidad": 3,
-    "hash": "784fbd0ba9fcf1473dfe0055b93b9e8812ee175cca896689f594b565de46faeb"
+    "hash": "ff8f9fc3210d699e029804d5dee3bce8be61f1abd5542904e08334a857f9a656"
   },
   "m deportes|calidad-3": {
     "nombre": "M+ Deportes 1080p *",
@@ -159,11 +149,6 @@
     "calidad": 3,
     "hash": "5f26ba00d265ec3c2003fcaee159ed5642fbe536620f56423e324416ae123130"
   },
-  "m deportes 7|calidad-3": {
-    "nombre": "M+ Deportes 7 1080p *",
-    "calidad": 3,
-    "hash": "825cc9c8f11ad42163e3aeef27657d2b6ed0b6a0b31198e56b798298636385e4"
-  },
   "m deportes 7|calidad-2": {
     "nombre": "M+ Deportes 7 720p *",
     "calidad": 2,
@@ -187,27 +172,22 @@
   "m laliga|calidad-2": {
     "nombre": "M+ LaLiga 720p *",
     "calidad": 2,
-    "hash": "98189d63b55a07c23856c378437561d1d2c00f304492ad453b6bb60534e38496"
+    "hash": "b12a3467ce7164f35268c9a09eafcd4b085f82f84d0e944dbb53f5254efbc084"
   },
   "m laliga 2|calidad-2": {
-    "nombre": "M+ LaLiga 2 *",
+    "nombre": "M+ LaLiga 2 720p **",
     "calidad": 2,
-    "hash": "c8955a3425fc358d48aff823585abd1180fa29a9bc09b224430322c20149782b"
+    "hash": "747dc392e06a8d21374032c3fe1f7859e856ad6a2d1d83bff3231a744172b241"
   },
   "m liga de campeones|calidad-3": {
     "nombre": "M+ Liga de Campeones 1080p *",
     "calidad": 3,
-    "hash": "057d2150257ac81ee56cf94a270ef42122e13b1a748f57a66079ba4ce49025b9"
+    "hash": "6bf96500de08baf193917106547371a4f2f5b134f4ad1279598af8d56742e36a"
   },
   "m liga de campeones|calidad-2": {
     "nombre": "M+ Liga de Campeones 720p *",
     "calidad": 2,
     "hash": "f5f918720c048c834fdd270d5978a2bcd1b880da0b6ef08b33a5f7871714ba38"
-  },
-  "m liga de campeones 2|calidad-2": {
-    "nombre": "M+ Liga de Campeones 2 720p *",
-    "calidad": 2,
-    "hash": "af3de48084c6f7e219c54a7c6aeaefb969850a8f136da1cd95a4b72992d2f3ae"
   },
   "m liga de campeones 4|calidad-3": {
     "nombre": "M+ Liga de Campeones 4 1080p *",
@@ -239,11 +219,6 @@
     "calidad": 3,
     "hash": "75f4a6d6a096429c8c7d806ea96b238d480372fe03889ee899c5a5a29c9faf34"
   },
-  "movistar plus|calidad-2": {
-    "nombre": "MOVISTAR PLUS 720p *",
-    "calidad": 2,
-    "hash": "34bc3ce585b94321af27038ef1c31e12f50ae1cc95b77664e9eee915bc396e57"
-  },
   "nba league pass|calidad-3": {
     "nombre": "NBA League Pass 1080p *",
     "calidad": 3,
@@ -267,7 +242,7 @@
   "rfef tv|calidad-3": {
     "nombre": "RFEF TV 1080p *",
     "calidad": 3,
-    "hash": "9d09c8be1c5924911f026540fe9d3fce6efd471a7c9c5aee4bbe6b0d47503e46"
+    "hash": "dd884be183725d3ca89f98feb2a5b7689543984a82ce8c500f40d75970df28cd"
   },
   "sky sport tennis|calidad-3": {
     "nombre": "Sky Sport Tennis 1080p *",
@@ -288,6 +263,11 @@
     "nombre": "Teledeporte 1080p *",
     "calidad": 3,
     "hash": "9518dad19f8838fcfc12548e4b8e74930979ca4758f9318a4915dcf8897f774a"
+  },
+  "teledeporte|calidad-2": {
+    "nombre": "Teledeporte 720p **",
+    "calidad": 2,
+    "hash": "6f0fb061fd0ac2b81d865c59903c77f9e3442afb989a58594e60c289ba5b4036"
   },
   "tennis channel|calidad-3": {
     "nombre": "Tennis Channel 1080p *",
