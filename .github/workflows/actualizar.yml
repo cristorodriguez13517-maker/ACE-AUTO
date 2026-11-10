@@ -1,4 +1,4 @@
-name: Actualizar ACESTREAM
+name: Actualizar ACE-AUTO
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
 
   push:
     paths:
-      - "canales.m3u"
+      - "canales_manuales.m3u"
       - "actualizar.py"
       - ".github/workflows/actualizar.yml"
 
@@ -34,7 +34,7 @@ jobs:
       - name: Instalar dependencias
         run: pip install requests
 
-      - name: Ejecutar actualización
+      - name: Ejecutar actualizacion
         env:
           GIT_GAY_TOKEN: ${{ secrets.GIT_GAY_TOKEN }}
         run: python actualizar.py
@@ -44,9 +44,9 @@ jobs:
           git config user.name "ACE-AUTO"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add historial.json cambios.md
+          git add canales.m3u historial.json cambios.md
 
           if ! git diff --cached --quiet; then
-            git commit -m "Actualizar historial ACESTREAM"
+            git commit -m "Actualizar lista y registrar cambios"
             git push
           fi
