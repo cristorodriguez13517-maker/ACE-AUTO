@@ -13,7 +13,7 @@ on:
       - ".github/workflows/actualizar.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
 
@@ -32,12 +32,21 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar dependencias
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests
+        run: pip install requests
 
-      - name: Actualizar lista ACESTREAM
+      - name: Ejecutar actualización
         env:
           GIT_GAY_TOKEN: ${{ secrets.GIT_GAY_TOKEN }}
+        run: python actualizar.py
+
+      - name: Guardar historial en GitHub
         run: |
-          python actualizar.py
+          git config user.name "ACE-AUTO"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add historial.json cambios.md
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Actualizar historial ACESTREAM"
+            git push
+          fi
