@@ -4,12 +4,12 @@
     "calidad": 2,
     "hash": "f4e2a81c7e4f7a0d2fd46c8a4204054013c879c4e01a04f2850ac8907d99a354"
   },
-  "dazn baloncesto|calidad-3|opcion-1": {
-    "nombre": "DAZN Baloncesto 1080p **",
-    "calidad": 3,
-    "hash": "99ff41e7de551249c35d4b61835453d17d4f93daba0dcfef937cfac3522e7d8f"
+  "dazn baloncesto|calidad-2|opcion-2": {
+    "nombre": "DAZN Baloncesto 720p **",
+    "calidad": 2,
+    "hash": "f8169ec1f06ced26f56f6730e2a08fe5061b38830f1670a102fc2a0881ec21b1"
   },
-  "dazn baloncesto|calidad-3|opcion-2": {
+  "dazn baloncesto|calidad-3|opcion-1": {
     "nombre": "DAZN Baloncesto 1080p **",
     "calidad": 3,
     "hash": "bec85885c41903091481a79c9ea433c3bd6a5669e286cb15e49ae9c61e583db9"
@@ -49,6 +49,11 @@
     "calidad": 3,
     "hash": "e952691f052f3d261ad2a4c16cb4dc60e6faebeaed9ca24d6f3789ea1d31c5a5"
   },
+  "m baloncesto 3|calidad-3|opcion-2": {
+    "nombre": "M+ Baloncesto 3 1080p **",
+    "calidad": 3,
+    "hash": "16eca23203f2ce7ef0bf660125e138242809aff864c0d677ea3424d646d34696"
+  },
   "eurosport 1|calidad-2|opcion-1": {
     "nombre": "Eurosport 1 720p **",
     "calidad": 2,
@@ -65,11 +70,6 @@
     "hash": "4825ced5a8d13d220925feac742b0f5692a6e32dc744fdbc7704edcdc48da807"
   },
   "m vamos|calidad-2|opcion-1": {
-    "nombre": "M+ Vamos 720p *",
-    "calidad": 2,
-    "hash": "89241ca0d6367bbb7707c348016357f358403927f4191998ac1befba101f5ca8"
-  },
-  "m vamos|calidad-2|opcion-2": {
     "nombre": "M+ Vamos 720p **",
     "calidad": 2,
     "hash": "4f314301aabc13b1ae0f8b3da7609d812ec82dbcaca61efc171df4b19841721b"
@@ -122,16 +122,6 @@
   "nba league pass|calidad-3|opcion-1": {
     "nombre": "NBA League Pass 1080p *",
     "calidad": 3,
-    "hash": "af8cdd625aeca9b9e1661540abcc427fed898e98c479eb6f1859957e9b3d63aa"
-  },
-  "nba league pass|calidad-3|opcion-2": {
-    "nombre": "NBA League Pass 1080p *",
-    "calidad": 3,
-    "hash": "38985eee96ff5b1193149e8afdd6eb64d2c926d1a9ec3362d8482fc32e82bb9c"
-  },
-  "nba league pass|calidad-3|opcion-3": {
-    "nombre": "NBA League Pass 1080p *",
-    "calidad": 3,
     "hash": "35381709cdc63a1333de13c547f5a75fea1962c17b3a1c63cecc50e51a645090"
   },
   "sky sport tennis|calidad-3|opcion-1": {
@@ -143,10 +133,5 @@
     "nombre": "Tennis Channel 1080p *",
     "calidad": 3,
     "hash": "6e077bae386b2674a3d818082025adabc4e20a9914336bfebfe4aa1023286aaa"
-  },
-  "tennis channel|calidad-3|opcion-2": {
-    "nombre": "Tennis Channel 1080p **",
-    "calidad": 3,
-    "hash": "59e014d81a52939590cfbb2bc5216df0c98e493b678c8ad33d949345925d1734"
   }
 }
