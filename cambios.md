@@ -127,3 +127,98 @@ La primera ejecución guardará la lista de referencia.
 - M+ Liga de Campeones 1080p *
 - RFEF TV 1080p *
 
+## 2026-11-11 04:35 UTC
+
+- Canales añadidos: 30
+- Canales eliminados: 55
+- Canales modificados: 0
+
+### Añadidos
+- DAZN Baloncesto 720p *
+- DAZN Baloncesto 1080p **
+- DAZN Baloncesto 1080p **
+- DAZN Baloncesto 2 720p *
+- DAZN Baloncesto 2 1080p **
+- M+ Baloncesto 1080p *
+- M+ Baloncesto 1080p *
+- M+ Baloncesto 1080p **
+- M+ Baloncesto 2 1080p *
+- M+ Baloncesto 3 1080p *
+- Eurosport 1 720p **
+- Eurosport 1 1080p *
+- Eurosport 1 1080p **
+- M+ Vamos 720p *
+- M+ Vamos 720p **
+- M+ Vamos 1080p *
+- M+ Vamos 1080p **
+- Esport3 720p *
+- Esport3 720p **
+- Esport3 1080p *
+- Esport3 1080p **
+- Teledeporte 720p **
+- Teledeporte 1080p *
+- Teledeporte 1080p **
+- NBA League Pass 1080p *
+- NBA League Pass 1080p *
+- NBA League Pass 1080p *
+- Sky Sport Tennis 1080p *
+- Tennis Channel 1080p *
+- Tennis Channel 1080p **
+
+### Eliminados
+- À Punt 1080p *
+- Bein Sports TR 720p *
+- DAZN 2 1080p *
+- DAZN 4 1080p *
+- DAZN Baloncesto 720p *
+- DAZN Baloncesto 2 720p *
+- DAZN LaLiga 1080p *
+- DAZN LaLiga 2 720p *
+- Dazn MotoGP 1080p *
+- Esport3 1080p *
+- Esport3 720p *
+- Eurosport 2 1080p *
+- Eurosport 2 720p **
+- Fox Sports 2 *
+- La 2 TVE 1080p *
+- LaLiga TV Hypermotion 1080p *
+- LaLiga TV Hypermotion 720p *
+- LaLiga TV Hypermotion 2 1080p *
+- LaLiga TV Hypermotion 2 720p *
+- M+ 0 1080p **
+- M+ Baloncesto 1080p *
+- M+ Deportes 1080p *
+- M+ Deportes 720p *
+- M+ Deportes 2 1080p *
+- M+ Deportes 2 720p *
+- M+ Deportes 3 1080p *
+- M+ Deportes 3 720p *
+- M+ Deportes 4 720p *
+- M+ Deportes 5 1080p *
+- M+ Deportes 6 1080p *
+- M+ Deportes 7 720p *
+- M+ Golf 1080p *
+- M+ Golf 2 1080p *
+- M+ LaLiga 1080p *
+- M+ LaLiga 720p *
+- M+ LaLiga 2 720p **
+- M+ Liga de Campeones 1080p *
+- M+ Liga de Campeones 720p *
+- M+ Liga de Campeones 4 1080p *
+- M+ Liga de Campeones 5 1080p *
+- M+ Liga de Campeones 7 1080p *
+- M+ Vamos 1080p *
+- M+ Vamos 720p *
+- MOVISTAR PLUS 1080p *
+- NBA League Pass 1080p *
+- NBC Sports 1080p *
+- Onetoro TV 1080p *
+- RALLY TV 1080p *
+- RFEF TV 1080p *
+- Sky Sport Tennis 1080p *
+- Sport TV+ 1080p *
+- SPORT TV3 1080p *
+- Teledeporte 1080p *
+- Teledeporte 720p **
+- Tennis Channel 1080p *
+
