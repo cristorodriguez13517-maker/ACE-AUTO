@@ -590,49 +590,30 @@ def cargar_historial():
 def registrar_cambios(registros):
 
     anterior = cargar_historial()
-
     actual = mapa_registros(registros)
 
     ahora = datetime.now(
         timezone.utc
-    ).strftime("%Y-%m-%d %H:%M UTC")
+    ).strftime("%d/%m/%Y %H:%M UTC")
 
     if anterior is None:
-
         ARCHIVO_HISTORIAL.write_text(
-            json.dumps(
-                actual,
-                ensure_ascii=False,
-                indent=2
-            ),
+            json.dumps(actual, ensure_ascii=False, indent=2),
             encoding="utf-8"
         )
 
-        if not ARCHIVO_CAMBIOS.exists():
-
-            ARCHIVO_CAMBIOS.write_text(
-                "# Historial ACE-AUTO\n\n"
-                f"## {ahora}\n"
-                f"Primera sincronización: "
-                f"{len(actual)} entradas guardadas como referencia.\n\n",
-                encoding="utf-8"
-            )
-
-        print(
-            "Primera sincronización del historial."
+        ARCHIVO_CAMBIOS.write_text(
+            "# Última actualización ACE-AUTO\n\n"
+            "Primera sincronización completada.\n",
+            encoding="utf-8"
         )
 
+        print("Primera sincronización.")
         return
 
-    nuevos = [
-        k for k in actual
-        if k not in anterior
-    ]
+    nuevos = [k for k in actual if k not in anterior]
 
-    eliminados = [
-        k for k in anterior
-        if k not in actual
-    ]
+    eliminados = [k for k in anterior if k not in actual]
 
     modificados = [
         k for k in actual
@@ -642,12 +623,26 @@ def registrar_cambios(registros):
         )
     ]
 
+    # Actualizar el historial interno.
+    ARCHIVO_HISTORIAL.write_text(
+        json.dumps(actual, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+
+    # Si no hay cambios, conservar la última actualización mostrada.
+    if not nuevos and not eliminados and not modificados:
+        print("Sin cambios. Se conserva la última actualización.")
+        return
+
+    # Crear exclusivamente el último resultado.
     informe = [
-        f"## {ahora}",
+        "# Última actualización ACE-AUTO",
         "",
-        f"- Canales añadidos: {len(nuevos)}",
-        f"- Canales eliminados: {len(eliminados)}",
-        f"- Canales modificados: {len(modificados)}"
+        f"Fecha: {ahora}",
+        "",
+        f"Canales añadidos: {len(nuevos)}",
+        f"Canales eliminados: {len(eliminados)}",
+        f"Canales modificados: {len(modificados)}"
     ]
 
     for titulo, claves in (
@@ -657,138 +652,23 @@ def registrar_cambios(registros):
     ):
 
         if claves:
-
-            informe.extend([
-                "",
-                f"### {titulo}"
-            ])
+            informe.extend(["", f"### {titulo}"])
 
             for clave in claves:
-
                 if clave in actual:
-
                     nombre = actual[clave]["nombre"]
-
                 else:
-
                     nombre = anterior[clave]["nombre"]
 
-                informe.append(
-                    f"- {nombre}"
-                )
+                informe.append(f"- {nombre}")
 
-    informe.append("")
-
-    if ARCHIVO_CAMBIOS.exists():
-
-        previo = ARCHIVO_CAMBIOS.read_text(
-            encoding="utf-8"
-        )
-
-    else:
-
-        previo = "# Historial ACE-AUTO\n\n"
-
+    # SOBRESCRIBIR: nunca acumular informes anteriores.
     ARCHIVO_CAMBIOS.write_text(
-        previo + "\n".join(informe) + "\n",
+        "\n".join(informe) + "\n",
         encoding="utf-8"
     )
 
-    ARCHIVO_HISTORIAL.write_text(
-        json.dumps(
-            actual,
-            ensure_ascii=False,
-            indent=2
-        ),
-        encoding="utf-8"
-    )
-
-    print(
-        f"Cambios: +{len(nuevos)} / "
-        f"-{len(eliminados)} / "
-        f"modificados {len(modificados)}"
-    )
-
-
-# ==========================================================
-# PUBLICAR EN GIT.GAY
-# ==========================================================
-
-def publicar_git_gay(contenido):
-
-    token = os.environ.get(
-        "GIT_GAY_TOKEN",
-        ""
-    ).strip()
-
-    if not token:
-
-        raise RuntimeError(
-            "Falta el secreto GIT_GAY_TOKEN en GitHub Actions."
-        )
-
-    url = (
-        f"{API_GIT_GAY}/repos/"
-        f"{REPO_GIT_GAY}/contents/"
-        f"{ARCHIVO_DESTINO}"
-    )
-
-    headers = {
-        "Authorization": f"token {token}",
-        "Accept": "application/json"
-    }
-
-    existente = SESION.get(
-        url,
-        headers=headers,
-        params={
-            "ref": RAMA_GIT_GAY
-        },
-        timeout=40
-    )
-
-    payload = {
-        "message": "Actualizar lista ACE-AUTO Elcano y canales manuales",
-        "content": base64.b64encode(
-            contenido.encode("utf-8")
-        ).decode("ascii"),
-        "branch": RAMA_GIT_GAY
-    }
-
-    if existente.status_code == 200:
-
-        datos = existente.json()
-
-        if datos.get("sha"):
-
-            payload["sha"] = datos["sha"]
-
-    elif existente.status_code != 404:
-
-        raise RuntimeError(
-            "No se pudo consultar hashes.m3u en git.gay: "
-            f"HTTP {existente.status_code} - "
-            f"{existente.text[:500]}"
-        )
-
-    respuesta = SESION.put(
-        url,
-        headers=headers,
-        json=payload,
-        timeout=90
-    )
-
-    if respuesta.status_code not in (200, 201):
-
-        raise RuntimeError(
-            "Error publicando en git.gay: "
-            f"HTTP {respuesta.status_code} - "
-            f"{respuesta.text[:1000]}"
-        )
-
-    print(
-        "Lista publicada correctamente en git.gay."
-    )
+    print("Última actualización guardada correctamente.")
 
 
 # ==========================================================
