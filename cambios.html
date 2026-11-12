@@ -61,10 +61,6 @@ header {
     border: 1px solid #292929;
 }
 
-.estado strong {
-    color: var(--verde);
-}
-
 .resumen {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -209,7 +205,6 @@ footer {
 </div>
 
 <div class="resumen">
-
     <div class="tarjeta">
         <span class="numero verde" id="totalAnadidos">0</span>
         <small>CANALES AÑADIDOS</small>
@@ -224,10 +219,9 @@ footer {
         <span class="numero amarillo" id="totalModificados">0</span>
         <small>CANALES MODIFICADOS</small>
     </div>
-
 </div>
 
-<h2>Historial de actualizaciones</h2>
+<h2>Última actualización</h2>
 
 <div id="historial">
     Cargando cambios...
@@ -257,7 +251,7 @@ function crearSeccion(titulo, elementos, clase) {
 
     seccion.appendChild(h3);
 
-    if (!elementos.length) {
+    if (elementos.length === 0) {
         const p = document.createElement("p");
         p.className = "sin-cambios";
         p.textContent = "No hay cambios en este apartado.";
@@ -281,7 +275,7 @@ function crearSeccion(titulo, elementos, clase) {
 function leerNumero(texto, tipo) {
 
     const expresion = new RegExp(
-        "Canales " + tipo + ":\\s*(\\d+)",
+        "Canales\\s+" + tipo + ":\\s*(\\d+)",
         "i"
     );
 
@@ -292,8 +286,8 @@ function leerNumero(texto, tipo) {
 
 function obtenerLista(lineas, nombre) {
 
-    const inicio = lineas.findIndex(
-        linea => linea.trim().toLowerCase() ===
+    const inicio = lineas.findIndex(linea =>
+        linea.trim().toLowerCase() ===
         ("### " + nombre).toLowerCase()
     );
 
@@ -322,9 +316,6 @@ async function cargarCambios() {
     const estado = document.getElementById("estado");
     const historial = document.getElementById("historial");
 
-    estado.textContent = "Consultando historial...";
-    historial.textContent = "Cargando...";
-
     try {
 
         const respuesta = await fetch(
@@ -338,81 +329,68 @@ async function cargarCambios() {
 
         const texto = await respuesta.text();
 
+        // Buscar el último informe, no sumar informes antiguos.
         const bloques = texto.split(/^## /m).slice(1);
+
+        if (bloques.length === 0) {
+            throw new Error("El archivo no contiene informes.");
+        }
+
+        const bloque = bloques[bloques.length - 1];
+
+        const lineas = bloque.split("\n");
+        const fecha = lineas[0].trim();
+
+        const nuevos = leerNumero(bloque, "añadidos");
+        const eliminados = leerNumero(bloque, "eliminados");
+        const modificados = leerNumero(bloque, "modificados");
+
+        const anadidos = obtenerLista(lineas, "Añadidos");
+        const quitados = obtenerLista(lineas, "Eliminados");
+        const cambiados = obtenerLista(lineas, "Modificados");
+
+        // Los totales corresponden exclusivamente al último informe.
+        document.getElementById("totalAnadidos").textContent = nuevos;
+        document.getElementById("totalEliminados").textContent = eliminados;
+        document.getElementById("totalModificados").textContent = modificados;
 
         historial.replaceChildren();
 
-        let sumaNuevos = 0;
-        let sumaEliminados = 0;
-        let sumaModificados = 0;
+        const tarjeta = document.createElement("div");
+        tarjeta.className = "actualizacion";
+        tarjeta.style.borderColor = "#e50914";
 
-        if (!bloques.length) {
-            estado.textContent = "Todavía no hay actualizaciones registradas.";
-            return;
-        }
+        const titulo = document.createElement("div");
+        titulo.className = "fecha";
+        titulo.textContent = "📅 " + fecha;
 
-        bloques.forEach((bloque, indice) => {
+        tarjeta.appendChild(titulo);
 
-            const lineas = bloque.split("\n");
-            const fecha = lineas[0].trim();
-            const contenido = lineas.slice(1).join("\n");
+        const resumen = document.createElement("p");
+        resumen.textContent =
+            "🟢 " + nuevos + " añadidos · " +
+            "🔴 " + eliminados + " eliminados · " +
+            "🟡 " + modificados + " modificados";
 
-            const nuevos = leerNumero(contenido, "añadidos");
-            const eliminados = leerNumero(contenido, "eliminados");
-            const modificados = leerNumero(contenido, "modificados");
+        tarjeta.appendChild(resumen);
 
-            sumaNuevos += nuevos;
-            sumaEliminados += eliminados;
-            sumaModificados += modificados;
+        tarjeta.appendChild(
+            crearSeccion("🟢 CANALES AÑADIDOS", anadidos, "anadidos")
+        );
 
-            const anadidos = obtenerLista(lineas, "Añadidos");
-            const quitados = obtenerLista(lineas, "Eliminados");
-            const cambiados = obtenerLista(lineas, "Modificados");
+        tarjeta.appendChild(
+            crearSeccion("🔴 CANALES ELIMINADOS", quitados, "eliminados")
+        );
 
-            const tarjeta = document.createElement("div");
-            tarjeta.className = "actualizacion";
+        tarjeta.appendChild(
+            crearSeccion("🟡 CANALES MODIFICADOS", cambiados, "modificados")
+        );
 
-            const titulo = document.createElement("div");
-            titulo.className = "fecha";
-            titulo.textContent = "📅 " + fecha;
-
-            tarjeta.appendChild(titulo);
-
-            const resumen = document.createElement("p");
-            resumen.textContent =
-                "🟢 " + nuevos + " añadidos · " +
-                "🔴 " + eliminados + " eliminados · " +
-                "🟡 " + modificados + " modificados";
-
-            tarjeta.appendChild(resumen);
-
-            tarjeta.appendChild(
-                crearSeccion("🟢 CANALES AÑADIDOS", anadidos, "anadidos")
-            );
-
-            tarjeta.appendChild(
-                crearSeccion("🔴 CANALES ELIMINADOS", quitados, "eliminados")
-            );
-
-            tarjeta.appendChild(
-                crearSeccion("🟡 CANALES MODIFICADOS", cambiados, "modificados")
-            );
-
-            if (indice === 0) {
-                tarjeta.style.borderColor = "#e50914";
-            }
-
-            historial.appendChild(tarjeta);
-
-        });
-
-        document.getElementById("totalAnadidos").textContent = sumaNuevos;
-        document.getElementById("totalEliminados").textContent = sumaEliminados;
-        document.getElementById("totalModificados").textContent = sumaModificados;
+        historial.appendChild(tarjeta);
 
         estado.replaceChildren();
 
-        const mensaje = document.createElement("span");
+        const mensaje = document.createElement("strong");
         mensaje.textContent = "✓ Historial cargado correctamente. ";
 
         const detalle = document.createElement("small");
