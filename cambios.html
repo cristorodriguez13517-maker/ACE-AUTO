@@ -16,24 +16,17 @@
     --gris: #999999;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
     padding: 25px;
-    background:
-        radial-gradient(ellipse at top left, #301014 0%, transparent 45%),
-        var(--fondo);
+    background: radial-gradient(ellipse at top left, #301014 0%, transparent 45%), var(--fondo);
     color: var(--texto);
     font-family: Arial, sans-serif;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-}
+.container { max-width: 1000px; margin: auto; }
 
 header {
     padding: 25px 0;
@@ -48,10 +41,7 @@ header {
     letter-spacing: 2px;
 }
 
-.subtitle {
-    color: var(--gris);
-    margin-top: 8px;
-}
+.subtitle { color: var(--gris); margin-top: 8px; }
 
 .estado {
     background: var(--panel);
@@ -83,9 +73,7 @@ header {
     margin-bottom: 8px;
 }
 
-.tarjeta small {
-    color: var(--gris);
-}
+.tarjeta small { color: var(--gris); }
 
 .verde { color: var(--verde); }
 .rojo { color: var(--rojo); }
@@ -93,7 +81,7 @@ header {
 
 .actualizacion {
     background: var(--panel);
-    border: 1px solid #292929;
+    border: 1px solid #e50914;
     border-radius: 14px;
     padding: 22px;
     margin-bottom: 20px;
@@ -106,19 +94,14 @@ header {
     margin-bottom: 18px;
 }
 
-.seccion {
-    margin-top: 22px;
-}
+.seccion { margin-top: 22px; }
 
 .seccion h3 {
     font-size: 15px;
     letter-spacing: 1px;
 }
 
-.seccion ul {
-    list-style: none;
-    padding: 0;
-}
+.seccion ul { list-style: none; padding: 0; }
 
 .seccion li {
     padding: 12px;
@@ -129,22 +112,11 @@ header {
     overflow-wrap: anywhere;
 }
 
-.seccion.anadidos li {
-    border-left-color: var(--verde);
-}
+.seccion.anadidos li { border-left-color: var(--verde); }
+.seccion.eliminados li { border-left-color: var(--rojo); }
+.seccion.modificados li { border-left-color: var(--amarillo); }
 
-.seccion.eliminados li {
-    border-left-color: var(--rojo);
-}
-
-.seccion.modificados li {
-    border-left-color: var(--amarillo);
-}
-
-.sin-cambios {
-    color: var(--gris);
-    padding: 12px 0;
-}
+.sin-cambios { color: var(--gris); padding: 12px 0; }
 
 .boton {
     background: var(--rojo);
@@ -156,9 +128,7 @@ header {
     cursor: pointer;
 }
 
-.boton:active {
-    transform: scale(.97);
-}
+.boton:active { transform: scale(.97); }
 
 footer {
     color: #666;
@@ -168,31 +138,16 @@ footer {
 }
 
 @media(max-width: 550px) {
-    body {
-        padding: 15px;
-    }
-
-    .resumen {
-        gap: 8px;
-    }
-
-    .numero {
-        font-size: 27px;
-    }
-
-    .tarjeta {
-        padding: 17px 5px;
-    }
-
-    .logo {
-        font-size: 25px;
-    }
+    body { padding: 15px; }
+    .resumen { gap: 8px; }
+    .numero { font-size: 27px; }
+    .tarjeta { padding: 17px 5px; }
+    .logo { font-size: 25px; }
 }
 </style>
 </head>
 
 <body>
-
 <div class="container">
 
 <header>
@@ -200,9 +155,7 @@ footer {
     <div class="subtitle">Historial de cambios de la lista Elcano</div>
 </header>
 
-<div class="estado" id="estado">
-    Consultando historial...
-</div>
+<div class="estado" id="estado">Consultando historial...</div>
 
 <div class="resumen">
     <div class="tarjeta">
@@ -223,23 +176,67 @@ footer {
 
 <h2>Última actualización</h2>
 
-<div id="historial">
-    Cargando cambios...
-</div>
+<div id="historial">Cargando cambios...</div>
 
-<button class="boton" onclick="cargarCambios()">
-    ↻ ACTUALIZAR
-</button>
+<button class="boton" onclick="cargarCambios()">↻ ACTUALIZAR</button>
 
-<footer>
-    ACE-AUTO · Actualización automática del historial
-</footer>
+<footer>ACE-AUTO · Actualización automática del historial</footer>
 
 </div>
 
 <script>
 
 const ARCHIVO = "./cambios.md";
+
+function normalizar(texto) {
+    return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim()
+        .toLowerCase();
+}
+
+function leerNumero(texto, tipo) {
+
+    const expresion = new RegExp(
+        "^Canales\\s+" + tipo + "\\s*:\\s*(\\d+)\\s*$",
+        "im"
+    );
+
+    const resultado = texto.match(expresion);
+
+    return resultado ? Number(resultado[1]) : 0;
+}
+
+function obtenerLista(lineas, nombre) {
+
+    const objetivo = normalizar(nombre);
+    let dentro = false;
+    const resultado = [];
+
+    for (const lineaOriginal of lineas) {
+
+        const linea = lineaOriginal.trim();
+
+        if (/^###\s+/.test(linea)) {
+
+            const titulo = normalizar(
+                linea.replace(/^###\s+/, "")
+            );
+
+            if (dentro) break;
+
+            dentro = titulo === objetivo;
+            continue;
+        }
+
+        if (dentro && linea.startsWith("- ")) {
+            resultado.push(linea.substring(2).trim());
+        }
+    }
+
+    return resultado;
+}
 
 function crearSeccion(titulo, elementos, clase) {
 
@@ -248,7 +245,6 @@ function crearSeccion(titulo, elementos, clase) {
 
     const h3 = document.createElement("h3");
     h3.textContent = titulo;
-
     seccion.appendChild(h3);
 
     if (elementos.length === 0) {
@@ -272,98 +268,64 @@ function crearSeccion(titulo, elementos, clase) {
     return seccion;
 }
 
-function leerNumero(texto, tipo) {
-
-    const expresion = new RegExp(
-        "Canales\\s+" + tipo + ":\\s*(\\d+)",
-        "i"
-    );
-
-    const resultado = texto.match(expresion);
-
-    return resultado ? Number(resultado[1]) : 0;
-}
-
-function obtenerLista(lineas, nombre) {
-
-    const inicio = lineas.findIndex(linea =>
-        linea.trim().toLowerCase() ===
-        ("### " + nombre).toLowerCase()
-    );
-
-    if (inicio === -1) return [];
-
-    const resultado = [];
-
-    for (let i = inicio + 1; i < lineas.length; i++) {
-
-        const linea = lineas[i].trim();
-
-        if (linea.startsWith("### ") || linea.startsWith("## ")) {
-            break;
-        }
-
-        if (linea.startsWith("- ")) {
-            resultado.push(linea.substring(2).trim());
-        }
-    }
-
-    return resultado;
-}
-
 async function cargarCambios() {
 
     const estado = document.getElementById("estado");
     const historial = document.getElementById("historial");
 
+    estado.textContent = "Consultando historial...";
+    historial.textContent = "Cargando...";
+
     try {
 
         const respuesta = await fetch(
-            ARCHIVO + "?t=" + Date.now(),
+            ARCHIVO + "?actualizacion=" + Date.now(),
             { cache: "no-store" }
         );
 
         if (!respuesta.ok) {
-            throw new Error("No se encuentra cambios.md");
+            throw new Error("No se pudo descargar cambios.md. Código: " + respuesta.status);
         }
 
-        const texto = await respuesta.text();
+        const texto = (await respuesta.text()).replace(/^\uFEFF/, "");
 
-        // Buscar el último informe, no sumar informes antiguos.
-        const bloques = texto.split(/^## /m).slice(1);
-
-        if (bloques.length === 0) {
-            throw new Error("El archivo no contiene informes.");
+        if (!texto.trim()) {
+            throw new Error("El archivo cambios.md está vacío.");
         }
 
-        const bloque = bloques[bloques.length - 1];
+        // Leer directamente el formato real de cambios.md.
+        const nuevos = leerNumero(texto, "añadidos");
+        const eliminados = leerNumero(texto, "eliminados");
+        const modificados = leerNumero(texto, "modificados");
 
-        const lineas = bloque.split("\n");
-        const fecha = lineas[0].trim();
+        const lineas = texto.split(/\r?\n/);
 
-        const nuevos = leerNumero(bloque, "añadidos");
-        const eliminados = leerNumero(bloque, "eliminados");
-        const modificados = leerNumero(bloque, "modificados");
+        const lineaFecha = lineas.find(linea =>
+            /^Fecha\s*:/i.test(linea.trim())
+        );
+
+        const fecha = lineaFecha
+            ? lineaFecha.trim().replace(/^Fecha\s*:\s*/i, "")
+            : "Fecha no disponible";
 
         const anadidos = obtenerLista(lineas, "Añadidos");
         const quitados = obtenerLista(lineas, "Eliminados");
         const cambiados = obtenerLista(lineas, "Modificados");
 
-        // Los totales corresponden exclusivamente al último informe.
+        // Actualizar los contadores.
         document.getElementById("totalAnadidos").textContent = nuevos;
         document.getElementById("totalEliminados").textContent = eliminados;
         document.getElementById("totalModificados").textContent = modificados;
 
+        // Construir el informe.
         historial.replaceChildren();
 
         const tarjeta = document.createElement("div");
         tarjeta.className = "actualizacion";
-        tarjeta.style.borderColor = "#e50914";
 
         const titulo = document.createElement("div");
         titulo.className = "fecha";
         titulo.textContent = "📅 " + fecha;
-
         tarjeta.appendChild(titulo);
 
         const resumen = document.createElement("p");
@@ -391,13 +353,12 @@ async function cargarCambios() {
         estado.replaceChildren();
 
         const mensaje = document.createElement("strong");
-        mensaje.textContent = "✓ Historial cargado correctamente. ";
+        mensaje.textContent = "✓ Historial leído correctamente. ";
 
         const detalle = document.createElement("small");
         detalle.style.color = "#999";
         detalle.textContent =
-            "Última comprobación: " +
-            new Date().toLocaleString("es-ES");
+            "Comprobado: " + new Date().toLocaleString("es-ES");
 
         estado.appendChild(mensaje);
         estado.appendChild(detalle);
@@ -407,17 +368,16 @@ async function cargarCambios() {
         estado.textContent = "⚠️ " + error.message;
 
         historial.textContent =
-            "Comprueba que cambios.md esté publicado junto a cambios.html.";
+            "No se ha podido leer el historial. Comprueba la ubicación de cambios.md.";
 
+        console.error("Error leyendo cambios.md:", error);
     }
 }
 
 cargarCambios();
 
-// Comprobar automáticamente cada minuto.
 setInterval(cargarCambios, 60000);
 
 </script>
-
 </body>
 </html>
