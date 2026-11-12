@@ -31,7 +31,8 @@ ARCHIVO_MANUAL = Path("canales_manuales.m3u")
 ARCHIVO_HISTORIAL = Path("historial.json")
 ARCHIVO_CAMBIOS = Path("cambios.md")
 
-GRUPO_AUTO = "⭐ ELCANO [MÁXIMA CALIDAD]"
+# NUEVO NOMBRE DEL GRUPO AUTOMATICO
+GRUPO_AUTO = "CANO AUTO"
 
 URL_ACE_LOCAL = "http://127.0.0.1:6878/ace/getstream?id="
 
@@ -407,8 +408,6 @@ def seleccionar_opciones(registros):
             automatico=True
         )
 
-        # IMPORTANTE:
-        # No agrupamos por nombre ni por calidad.
         # Cada entrada original de Elcano se conserva.
         resultado.append(preparado)
 
@@ -540,8 +539,6 @@ def mapa_registros(registros):
 
         base = f"{canal}|calidad-{calidad}"
 
-        # Permite conservar varias entradas del mismo canal
-        # y de la misma calidad en el historial.
         contadores[base] += 1
 
         clave = (
@@ -597,6 +594,7 @@ def registrar_cambios(registros):
     ).strftime("%d/%m/%Y %H:%M UTC")
 
     if anterior is None:
+
         ARCHIVO_HISTORIAL.write_text(
             json.dumps(actual, ensure_ascii=False, indent=2),
             encoding="utf-8"
@@ -623,18 +621,15 @@ def registrar_cambios(registros):
         )
     ]
 
-    # Actualizar el historial interno.
     ARCHIVO_HISTORIAL.write_text(
         json.dumps(actual, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
 
-    # Si no hay cambios, conservar la última actualización mostrada.
     if not nuevos and not eliminados and not modificados:
         print("Sin cambios. Se conserva la última actualización.")
         return
 
-    # Crear exclusivamente el último resultado.
     informe = [
         "# Última actualización ACE-AUTO",
         "",
@@ -655,6 +650,7 @@ def registrar_cambios(registros):
             informe.extend(["", f"### {titulo}"])
 
             for clave in claves:
+
                 if clave in actual:
                     nombre = actual[clave]["nombre"]
                 else:
@@ -662,7 +658,6 @@ def registrar_cambios(registros):
 
                 informe.append(f"- {nombre}")
 
-    # SOBRESCRIBIR: nunca acumular informes anteriores.
     ARCHIVO_CAMBIOS.write_text(
         "\n".join(informe) + "\n",
         encoding="utf-8"
@@ -676,12 +671,11 @@ def registrar_cambios(registros):
 # ==========================================================
 
 def publicar_git_gay(contenido):
-    """
-    Publica hashes.m3u en iptvpro2026/lista (rama main).
-    Si el archivo ya existe, recupera su SHA para actualizarlo.
-    """
 
-    token = os.environ.get("GIT_GAY_TOKEN", "").strip()
+    token = os.environ.get(
+        "GIT_GAY_TOKEN",
+        ""
+    ).strip()
 
     if not token:
         raise RuntimeError(
@@ -700,7 +694,6 @@ def publicar_git_gay(contenido):
         "User-Agent": "ACE-AUTO/2.0",
     }
 
-    # Consultar el archivo para obtener el SHA si ya existe.
     respuesta = SESION.get(
         url,
         headers=cabeceras,
@@ -711,9 +704,12 @@ def publicar_git_gay(contenido):
     sha = None
 
     if respuesta.status_code == 200:
+
         try:
             datos = respuesta.json()
+
         except ValueError as error:
+
             raise RuntimeError(
                 "git.gay devolvió una respuesta no válida al consultar "
                 f"{ARCHIVO_DESTINO}: {respuesta.text[:500]}"
@@ -727,6 +723,7 @@ def publicar_git_gay(contenido):
             )
 
     elif respuesta.status_code != 404:
+
         raise RuntimeError(
             "No se pudo consultar el archivo en git.gay. "
             f"HTTP {respuesta.status_code}: {respuesta.text[:1000]}"
@@ -753,6 +750,7 @@ def publicar_git_gay(contenido):
     )
 
     if publicacion.status_code not in (200, 201):
+
         raise RuntimeError(
             "No se pudo publicar hashes.m3u en git.gay. "
             f"HTTP {publicacion.status_code}: "
