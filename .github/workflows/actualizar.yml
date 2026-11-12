@@ -15,9 +15,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: ace-auto-actualizar
+  cancel-in-progress: false
+
 jobs:
   actualizar:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Descargar repositorio
@@ -29,19 +34,22 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar dependencias
-        run: pip install requests
+        run: python -m pip install --disable-pip-version-check requests
 
       - name: Actualizar y publicar lista
         env:
           GIT_GAY_TOKEN: ${{ secrets.GIT_GAY_TOKEN }}
-        run: python actualizar.py
+          PYTHONUNBUFFERED: "1"
+        run: python -u actualizar.py
 
-      - name: Guardar lista automática e historial en GitHub
+      - name: Guardar listas e historial en GitHub
         run: |
           git config user.name "ACE-AUTO"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add canales.m3u historial.json cambios.md
+          git add canales.m3u canales_tdt.m3u historial.json cambios.md
           if ! git diff --cached --quiet; then
-            git commit -m "Actualizar canales Elcano e historial"
+            git commit -m "Actualizar grupos CANO AUTO y TDT AUTO"
             git push
+          else
+            echo "No hay cambios que guardar"
           fi
