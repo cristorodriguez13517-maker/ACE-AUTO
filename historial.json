@@ -1,5 +1,10 @@
 {
   "dazn baloncesto|calidad-2|opcion-1": {
+    "nombre": "DAZN Baloncesto 720p *",
+    "calidad": 2,
+    "hash": "e1e38b01b93bf7827208102c97a0110a7714ceb2099075b697a88674c752acdd"
+  },
+  "dazn baloncesto|calidad-2|opcion-2": {
     "nombre": "DAZN Baloncesto 720p **",
     "calidad": 2,
     "hash": "f8169ec1f06ced26f56f6730e2a08fe5061b38830f1670a102fc2a0881ec21b1"
@@ -9,10 +14,20 @@
     "calidad": 3,
     "hash": "99ff41e7de551249c35d4b61835453d17d4f93daba0dcfef937cfac3522e7d8f"
   },
+  "dazn baloncesto|calidad-3|opcion-2": {
+    "nombre": "DAZN Baloncesto 1080p **",
+    "calidad": 3,
+    "hash": "bec85885c41903091481a79c9ea433c3bd6a5669e286cb15e49ae9c61e583db9"
+  },
   "dazn baloncesto 2|calidad-2|opcion-1": {
     "nombre": "DAZN Baloncesto 2 720p *",
     "calidad": 2,
     "hash": "6e1f7cecfe51cf28cddec5413ddcfac7bd6f33b06bcfae327725977af2a7e38b"
+  },
+  "dazn baloncesto 3|calidad-2|opcion-1": {
+    "nombre": "DAZN Baloncesto 3 720p *",
+    "calidad": 2,
+    "hash": "8a5fad834514a1ba69b0e414b83e32fcdf6a96f6027b6ef983f2c944e3be29ec"
   },
   "dazn baloncesto 3|calidad-3|opcion-1": {
     "nombre": "DAZN Baloncesto 3 1080p **",
@@ -22,9 +37,19 @@
   "m baloncesto|calidad-3|opcion-1": {
     "nombre": "M+ Baloncesto 1080p *",
     "calidad": 3,
-    "hash": "bccb6d9d999ffcc361718455ec6afdad72c8f1326d2b79aa4dc3fa09f37909e7"
+    "hash": "784fbd0ba9fcf1473dfe0055b93b9e8812ee175cca896689f594b565de46faeb"
   },
   "m baloncesto|calidad-3|opcion-2": {
+    "nombre": "M+ Baloncesto 1080p *",
+    "calidad": 3,
+    "hash": "bccb6d9d999ffcc361718455ec6afdad72c8f1326d2b79aa4dc3fa09f37909e7"
+  },
+  "m baloncesto|calidad-3|opcion-3": {
+    "nombre": "M+ Baloncesto 1080p *",
+    "calidad": 3,
+    "hash": "ff8f9fc3210d699e029804d5dee3bce8be61f1abd5542904e08334a857f9a656"
+  },
+  "m baloncesto|calidad-3|opcion-4": {
     "nombre": "M+ Baloncesto 1080p **",
     "calidad": 3,
     "hash": "638a78d0af04679b7a9d66ecef74efec11f442bd7fcd494c57acbfe340de3b36"
@@ -44,15 +69,50 @@
     "calidad": 3,
     "hash": "e952691f052f3d261ad2a4c16cb4dc60e6faebeaed9ca24d6f3789ea1d31c5a5"
   },
+  "dazn 1|calidad-2|opcion-1": {
+    "nombre": "DAZN 1 720p **",
+    "calidad": 2,
+    "hash": "9ce6ce92ad0aca0087ec9245c7e7a01060296b067cd00390c8294660888e1336"
+  },
+  "dazn 1|calidad-3|opcion-1": {
+    "nombre": "DAZN 1 1080p **",
+    "calidad": 3,
+    "hash": "e58b5f8f71556ad680a1c90295665b431b89ae6dfca79248b32ed2061910f7b9"
+  },
+  "dazn 2|calidad-2|opcion-1": {
+    "nombre": "DAZN 2 720p **",
+    "calidad": 2,
+    "hash": "2b3dbd0feee5f4be60d16faa1b4702b20073b9f02a849ce8adfbb98c697a82cf"
+  },
+  "dazn 2|calidad-3|opcion-1": {
+    "nombre": "DAZN 2 1080p *",
+    "calidad": 3,
+    "hash": "9ada68f94a25c6acacebe65a73474872d62d3a80d8d10fe30016ee5ba79e799d"
+  },
+  "dazn 2|calidad-3|opcion-2": {
+    "nombre": "DAZN 2 1080p **",
+    "calidad": 3,
+    "hash": "d9599dcb4b4f7e6788d6eafeff586519a4afd267cd2b4a9de327b6ee81d90eb1"
+  },
+  "dazn 4|calidad-3|opcion-1": {
+    "nombre": "DAZN 4 1080p *",
+    "calidad": 3,
+    "hash": "6b9177ccab6d343c7c44e37f4d0a7d6c027e02bb41212d52786749eb879e1137"
+  },
+  "dazn 4|calidad-2|opcion-1": {
+    "nombre": "DAZN 4 **",
+    "calidad": 2,
+    "hash": "5014aa35e20fa7b75324ed0bcde5aa0490f7f9fe19cd99d67a37d6d7b7349425"
+  },
+  "eurosport 1|calidad-2|opcion-1": {
+    "nombre": "Eurosport 1 720p **",
+    "calidad": 2,
+    "hash": "e46d00cde34fe7fcb6029c66f87cb810587cd4fdec22369f1e319184ebf78caf"
+  },
   "eurosport 1|calidad-3|opcion-1": {
     "nombre": "Eurosport 1 1080p *",
     "calidad": 3,
     "hash": "17b3ea27c232d22d38f912a76b515c6b1d7820ddc69f7644935a3589cce75552"
-  },
-  "eurosport 1|calidad-3|opcion-2": {
-    "nombre": "Eurosport 1 1080p **",
-    "calidad": 3,
-    "hash": "4825ced5a8d13d220925feac742b0f5692a6e32dc744fdbc7704edcdc48da807"
   },
   "eurosport 2|calidad-2|opcion-1": {
     "nombre": "Eurosport 2 720p **",
@@ -69,7 +129,337 @@
     "calidad": 3,
     "hash": "34b1c17d3bcea079838508f83adcc4d5afdbde38c795f1f650ccacbedaf384ae"
   },
+  "dazn f1|calidad-2|opcion-1": {
+    "nombre": "DAZN F1 720p *",
+    "calidad": 2,
+    "hash": "52a09c11cae891707bcf3c2b92c69bbb93c8116c3165b88622aef52417bf4c02"
+  },
+  "dazn f1|calidad-2|opcion-2": {
+    "nombre": "DAZN F1 720p **",
+    "calidad": 2,
+    "hash": "d42b0bc25a0d1838957f205a03e45213b6c101dddebdf53134eaacbfa12ec58d"
+  },
+  "dazn f1|calidad-3|opcion-1": {
+    "nombre": "DAZN F1 1080p **",
+    "calidad": 3,
+    "hash": "a9e04db423c9bcae7caf1a8893ce7ebc8f9f68929c00a6961dd498b83fe5aaa5"
+  },
+  "laliga tv hypermotion|calidad-2|opcion-1": {
+    "nombre": "LaLiga TV Hypermotion 720p *",
+    "calidad": 2,
+    "hash": "e8084d964eb7a0eff7d4873124d20a5c901fbc9d8d9230a813ee62cc232d4a18"
+  },
+  "laliga tv hypermotion|calidad-3|opcion-1": {
+    "nombre": "LaLiga TV Hypermotion 1080p *",
+    "calidad": 3,
+    "hash": "7b089b17f09fcd015d81e852ff6328e10fc200ce4a56b4e5722e05ac03a45367"
+  },
+  "laliga tv hypermotion|calidad-3|opcion-2": {
+    "nombre": "LaLiga TV Hypermotion 1080p **",
+    "calidad": 3,
+    "hash": "4185cfc701c0cf0424ccd6be036bd1b7428c2054f74f55af412be6be8e59c5e5"
+  },
+  "laliga tv hypermotion 2|calidad-2|opcion-1": {
+    "nombre": "LaLiga TV Hypermotion 2 720p *",
+    "calidad": 2,
+    "hash": "0f69e3bd2d7eacbfa17788eb755b2a67e3c7c9cef40fd680952d47e6c5983403"
+  },
+  "laliga tv hypermotion 2|calidad-3|opcion-1": {
+    "nombre": "LaLiga TV Hypermotion 2 1080p *",
+    "calidad": 3,
+    "hash": "a6f6d8468d4b124137a66b8e0ca21f46e1e41c0f58ea2951c74803ffbb7cb8d1"
+  },
+  "laliga tv hypermotion 2|calidad-3|opcion-2": {
+    "nombre": "LaLiga TV Hypermotion 2 1080p **",
+    "calidad": 3,
+    "hash": "c99de26e04039af75172e03b8bad5f87e6c5f639fa3dd7acd599dc86910a273a"
+  },
+  "laliga tv hypermotion 3|calidad-3|opcion-1": {
+    "nombre": "LaLiga TV Hypermotion 3 1080p **",
+    "calidad": 3,
+    "hash": "ff005dcbe6451db79f0bf41dbbeff23d079b864fd759ee0bc831f8260a201abe"
+  },
+  "dazn laliga|calidad-2|opcion-1": {
+    "nombre": "DAZN LaLiga 720p **",
+    "calidad": 2,
+    "hash": "e075442546bc84fb1d24899dd33a1a9da497201c1a9588576ce8e17bf9b67d1d"
+  },
+  "dazn laliga|calidad-3|opcion-1": {
+    "nombre": "DAZN LaLiga 1080p *",
+    "calidad": 3,
+    "hash": "c7b797475acf9ac43c0e508a8817f745123199044883d71df791f63c0237d2cd"
+  },
+  "dazn laliga|calidad-3|opcion-2": {
+    "nombre": "DAZN LaLiga 1080p **",
+    "calidad": 3,
+    "hash": "f02b3a2afe4a1386bb8c8d941c29a76f828e4874c4fd192ac7b43e20e751faa2"
+  },
+  "dazn laliga 2|calidad-2|opcion-1": {
+    "nombre": "DAZN LaLiga 2 720p *",
+    "calidad": 2,
+    "hash": "d1de562438d7175a695cb2b8564861bc8f3cf8fc5447e9b274cc1029c5f4a189"
+  },
+  "dazn laliga|calidad-2|opcion-2": {
+    "nombre": "DAZN LaLiga **",
+    "calidad": 2,
+    "hash": "19fd67962f8dbdfa011c81371bb4453d2f95dca14a2ebb456bae3392ea5c0827"
+  },
+  "m laliga|calidad-2|opcion-1": {
+    "nombre": "M+ LaLiga 720p *",
+    "calidad": 2,
+    "hash": "b12a3467ce7164f35268c9a09eafcd4b085f82f84d0e944dbb53f5254efbc084"
+  },
+  "m laliga|calidad-2|opcion-2": {
+    "nombre": "M+ LaLiga 720p *",
+    "calidad": 2,
+    "hash": "98189d63b55a07c23856c378437561d1d2c00f304492ad453b6bb60534e38496"
+  },
+  "m laliga|calidad-2|opcion-3": {
+    "nombre": "M+ LaLiga 720p **",
+    "calidad": 2,
+    "hash": "9a7498e06903fcc165ed9a7c9a2274b2ef445e65f09ddb50b489e62cb94e758b"
+  },
+  "m laliga|calidad-3|opcion-1": {
+    "nombre": "M+ LaLiga 1080p *",
+    "calidad": 3,
+    "hash": "086a8ac25315b33f8682547391784627a10c3cd2df82625b0e2fe29160690f03"
+  },
+  "m laliga|calidad-3|opcion-2": {
+    "nombre": "M+ LaLiga 1080p **",
+    "calidad": 3,
+    "hash": "50afa388915caa4bf582cbda29deebebf3d52d166c22e4d99e00b79b7cbd3bd7"
+  },
+  "m laliga|calidad-3|opcion-3": {
+    "nombre": "M+ LaLiga 1080p **",
+    "calidad": 3,
+    "hash": "4bd938e158698231a1f87665b42c71b6799a0f4b0d8dfc2ff433e4fbcba4b9de"
+  },
+  "m laliga 2|calidad-2|opcion-1": {
+    "nombre": "M+ LaLiga 2 *",
+    "calidad": 2,
+    "hash": "c8955a3425fc358d48aff823585abd1180fa29a9bc09b224430322c20149782b"
+  },
+  "m laliga 3|calidad-2|opcion-1": {
+    "nombre": "M+ LaLiga 3 720p **",
+    "calidad": 2,
+    "hash": "34ab07228082fa5cf71f1252b6b63ecdcb8b530ecb782f457587838c0ddae7a5"
+  },
+  "m laliga 3|calidad-3|opcion-1": {
+    "nombre": "M+ LaLiga 3 1080p **",
+    "calidad": 3,
+    "hash": "abc8f518a0b03d9e7334a34bc52a4d94aa657bac404999b9440085ff7a9a3ff6"
+  },
+  "m liga de campeones|calidad-2|opcion-1": {
+    "nombre": "M+ Liga de Campeones 720p *",
+    "calidad": 2,
+    "hash": "f5f918720c048c834fdd270d5978a2bcd1b880da0b6ef08b33a5f7871714ba38"
+  },
+  "m liga de campeones|calidad-3|opcion-1": {
+    "nombre": "M+ Liga de Campeones 1080p *",
+    "calidad": 3,
+    "hash": "057d2150257ac81ee56cf94a270ef42122e13b1a748f57a66079ba4ce49025b9"
+  },
+  "m liga de campeones|calidad-3|opcion-2": {
+    "nombre": "M+ Liga de Campeones 1080p **",
+    "calidad": 3,
+    "hash": "bb4050d78c7858cfbe8b297bda0c759a6cca85d5d4873e74b24495723bd1fdf4"
+  },
+  "m liga de campeones 2|calidad-2|opcion-1": {
+    "nombre": "M+ Liga de Campeones 2 720p *",
+    "calidad": 2,
+    "hash": "af3de48084c6f7e219c54a7c6aeaefb969850a8f136da1cd95a4b72992d2f3ae"
+  },
+  "m liga de campeones 2|calidad-3|opcion-1": {
+    "nombre": "M+ Liga de Campeones 2 1080p **",
+    "calidad": 3,
+    "hash": "26ef5df1200be8aa2d2cd1462d1f9b8874c9a62a79659418df1af54089f68e3c"
+  },
+  "m liga de campeones 3|calidad-2|opcion-1": {
+    "nombre": "M+ Liga de Campeones 3 720p **",
+    "calidad": 2,
+    "hash": "f3e73f8e79452d2f70c9400da171f81c7c0dc7ae1e72ac8989dc3783afeaa5fa"
+  },
+  "m liga de campeones 3|calidad-3|opcion-1": {
+    "nombre": "M+ Liga de Campeones 3 1080p **",
+    "calidad": 3,
+    "hash": "4f08c1359abcf0c618df8d39c0acf4a77fdde205fef4f0e8fb53b96970d42b7a"
+  },
+  "m liga de campeones 3|calidad-3|opcion-2": {
+    "nombre": "M+ Liga de Campeones 3 1080p **",
+    "calidad": 3,
+    "hash": "ffe4569648f0470c7716c8634c22e2253dfc145d31891bfb559166a94de52343"
+  },
+  "m liga de campeones 5|calidad-3|opcion-1": {
+    "nombre": "M+ Liga de Campeones 5 1080p **",
+    "calidad": 3,
+    "hash": "b437dd6347e9fcb969071a7cf4e1ce3750630ac6c051d7cfaa6390398e33b99c"
+  },
+  "m liga de campeones 6|calidad-2|opcion-1": {
+    "nombre": "M+ Liga de Campeones 6 720p **",
+    "calidad": 2,
+    "hash": "5e894d82296671b35ea31838d38cfd93ea2d40b485e818cfcd0af46ef78cb5da"
+  },
+  "m liga de campeones 6|calidad-3|opcion-1": {
+    "nombre": "M+ Liga de Campeones 6 1080p **",
+    "calidad": 3,
+    "hash": "2d5faf797ec54a665c055cff7405ffca55727dc2ac46798493f4c6b23d100eca"
+  },
+  "m liga de campeones 7|calidad-3|opcion-1": {
+    "nombre": "M+ Liga de Campeones 7 1080p *",
+    "calidad": 3,
+    "hash": "c55943efce48504abbf1c2386ab6c00374a2fb35236e0ae3c3e596e4cc28f2ac"
+  },
+  "m liga de campeones 7|calidad-3|opcion-2": {
+    "nombre": "M+ Liga de Campeones 7 1080p **",
+    "calidad": 3,
+    "hash": "8426112cd210bab7abed6514aba313c960b4608e45cffaf28aeb2f79c565bd0d"
+  },
+  "m liga de campeones 8|calidad-3|opcion-1": {
+    "nombre": "M+ Liga de Campeones 8 1080p **",
+    "calidad": 3,
+    "hash": "2cb7faaffab6fc1af561ea4292cc2a107856f563824c1f0f732beffa5cb78f9f"
+  },
+  "movistar plus|calidad-2|opcion-1": {
+    "nombre": "MOVISTAR PLUS 720p *",
+    "calidad": 2,
+    "hash": "34bc3ce585b94321af27038ef1c31e12f50ae1cc95b77664e9eee915bc396e57"
+  },
+  "movistar plus|calidad-3|opcion-1": {
+    "nombre": "MOVISTAR PLUS 1080p *",
+    "calidad": 3,
+    "hash": "75f4a6d6a096429c8c7d806ea96b238d480372fe03889ee899c5a5a29c9faf34"
+  },
+  "m deportes|calidad-2|opcion-1": {
+    "nombre": "M+ Deportes 720p *",
+    "calidad": 2,
+    "hash": "74862c1772ab05965c7a4aca1537788fbaa9c5406db471f11b15e9571618b605"
+  },
+  "m deportes|calidad-2|opcion-2": {
+    "nombre": "M+ Deportes 720p **",
+    "calidad": 2,
+    "hash": "539a03aafeed38ecf49a3e69a8e463d01f55c9504e1276d6e65ec67ca8650b68"
+  },
+  "m deportes|calidad-3|opcion-1": {
+    "nombre": "M+ Deportes 1080p *",
+    "calidad": 3,
+    "hash": "b6525d672103680b7e01df549af97cf8f7c53e4db8d152eef43ea8589dadfe00"
+  },
+  "m deportes|calidad-3|opcion-2": {
+    "nombre": "M+ Deportes 1080p **",
+    "calidad": 3,
+    "hash": "1c94e158dd5daf6e249f2bcde0260b8beb18e5dd4f3653ef4e8cdb7dbc08ae65"
+  },
+  "m deportes 2|calidad-2|opcion-1": {
+    "nombre": "M+ Deportes 2 720p *",
+    "calidad": 2,
+    "hash": "aeaea1874fc567be691fe3f444ded6bf4203fd9cd32f86eb93ff132adf4cda21"
+  },
+  "m deportes 2|calidad-2|opcion-2": {
+    "nombre": "M+ Deportes 2 720p **",
+    "calidad": 2,
+    "hash": "812946bdb0ec1c43f5e3e69070ac2f4302f10f24367dd673f50f63289f434148"
+  },
+  "m deportes 2|calidad-3|opcion-1": {
+    "nombre": "M+ Deportes 2 1080p *",
+    "calidad": 3,
+    "hash": "ee09c39c41d54d0101c508e0c8ddf36a2cbd8ceab7cfeacb556fa87dc74293f7"
+  },
+  "m deportes 2|calidad-3|opcion-2": {
+    "nombre": "M+ Deportes 2 1080p **",
+    "calidad": 3,
+    "hash": "da249712915e400aabb71d257530f9c25d411098c790803784573328f3a4f997"
+  },
+  "m deportes 3|calidad-2|opcion-1": {
+    "nombre": "M+ Deportes 3 720p *",
+    "calidad": 2,
+    "hash": "9d7e9f406864902770c9633e8d5b947c983ec795abdd1a47aa728d8a546c7725"
+  },
+  "m deportes 3|calidad-2|opcion-2": {
+    "nombre": "M+ Deportes 3 720p **",
+    "calidad": 2,
+    "hash": "f9e37b559201325fdc07070bbbdf74f5ab760d98999b18b03c878ae7261c5780"
+  },
+  "m deportes 3|calidad-3|opcion-1": {
+    "nombre": "M+ Deportes 3 1080p *",
+    "calidad": 3,
+    "hash": "6e45898a13b4b64c8cd197157173ccead33bebc9421b574a83db6d6cce147f79"
+  },
+  "m deportes 3|calidad-3|opcion-2": {
+    "nombre": "M+ Deportes 3 1080p **",
+    "calidad": 3,
+    "hash": "630bce0eb1bc80123d7ce43c3a81c5ea9c1505f6c199f5865060925bfd4c8f72"
+  },
+  "m deportes 4|calidad-2|opcion-1": {
+    "nombre": "M+ Deportes 4 720p *",
+    "calidad": 2,
+    "hash": "be01e43faaec3a0b8c2399d81a5f3e317a2122aff6e581ac349fd6e3538503d4"
+  },
+  "m deportes 4|calidad-3|opcion-1": {
+    "nombre": "M+ Deportes 4 1080p *",
+    "calidad": 3,
+    "hash": "6ceb5e4629c861762d5ba315359576c252aee4aafb5f6249d838c17fbadc8b5b"
+  },
+  "m deportes 5|calidad-3|opcion-1": {
+    "nombre": "M+ Deportes 5 1080p *",
+    "calidad": 3,
+    "hash": "6dca9be3404489ab5376e0daeb7625b14362cf90db0d18911f3e11d79ed6c5bb"
+  },
+  "m deportes 5|calidad-3|opcion-2": {
+    "nombre": "M+ Deportes 5 1080p **",
+    "calidad": 3,
+    "hash": "dabf919bd48589efc246bc0ddac09c47106aa62b14ef07d9800418b249485f82"
+  },
+  "m deportes 6|calidad-3|opcion-1": {
+    "nombre": "M+ Deportes 6 1080p *",
+    "calidad": 3,
+    "hash": "5f26ba00d265ec3c2003fcaee159ed5642fbe536620f56423e324416ae123130"
+  },
+  "m deportes 6|calidad-3|opcion-2": {
+    "nombre": "M+ Deportes 6 1080p **",
+    "calidad": 3,
+    "hash": "234bf00b0ebacc8febf87d19838821a258349a767904a5c72b09cc8ffcf679ee"
+  },
+  "m deportes 7|calidad-2|opcion-1": {
+    "nombre": "M+ Deportes 7 720p *",
+    "calidad": 2,
+    "hash": "ea66274455aa54066268b58e9c8e4caca6b25dc89133c74ce08baa9e569ef467"
+  },
+  "m deportes 7|calidad-3|opcion-1": {
+    "nombre": "M+ Deportes 7 1080p *",
+    "calidad": 3,
+    "hash": "825cc9c8f11ad42163e3aeef27657d2b6ed0b6a0b31198e56b798298636385e4"
+  },
+  "m deportes 7|calidad-3|opcion-2": {
+    "nombre": "M+ Deportes 7 1080p **",
+    "calidad": 3,
+    "hash": "691da41876da1c6db2d4b82d7ef9a54c3d53afce1f18d98492e1b945c8c38db5"
+  },
+  "m deportes 8|calidad-3|opcion-1": {
+    "nombre": "M+ Deportes 8 1080p **",
+    "calidad": 3,
+    "hash": "b54055c133775935bda2b1622c332e54de5666562cbf0d592de32baebe7f2f33"
+  },
+  "m golf|calidad-3|opcion-1": {
+    "nombre": "M+ Golf 1080p *",
+    "calidad": 3,
+    "hash": "40251794eb5f5e83909d9d0878fcfbcfd8c9e610ac565b8e11890e024607805c"
+  },
+  "m golf|calidad-3|opcion-2": {
+    "nombre": "M+ Golf 1080p **",
+    "calidad": 3,
+    "hash": "ccb4b81555fed3388f46fc7ab761f5e327b7d08ffb2df52e2987f66462dc2708"
+  },
+  "m golf 2|calidad-3|opcion-1": {
+    "nombre": "M+ Golf 2 1080p *",
+    "calidad": 3,
+    "hash": "0c848b0c043438f688cd327996e8e8aacdd8d22fdd475cb027d410fcd6dc0d43"
+  },
   "m vamos|calidad-2|opcion-1": {
+    "nombre": "M+ Vamos 720p *",
+    "calidad": 2,
+    "hash": "89241ca0d6367bbb7707c348016357f358403927f4191998ac1befba101f5ca8"
+  },
+  "m vamos|calidad-2|opcion-2": {
     "nombre": "M+ Vamos 720p **",
     "calidad": 2,
     "hash": "4f314301aabc13b1ae0f8b3da7609d812ec82dbcaca61efc171df4b19841721b"
@@ -84,25 +474,160 @@
     "calidad": 3,
     "hash": "860bdf21ee8179abb4e79f9e446e8a5f3d51c3971154904c3380f83916765f0d"
   },
+  "m vamos 2|calidad-2|opcion-1": {
+    "nombre": "M+ VAMOS 2 720p *",
+    "calidad": 2,
+    "hash": "98ec75b3e3fe2b6a2ee16a21a467d11f14c8657fd17b4b9d69d34c4b7a0cf832"
+  },
   "m vamos 2|calidad-3|opcion-1": {
     "nombre": "M+ VAMOS 2 1080p *",
     "calidad": 3,
     "hash": "0965b96aebdd67d1be83d77c3482eebe24d34bab0c7e1c0aa921a25bf7a8f331"
+  },
+  "m vamos 2|calidad-3|opcion-2": {
+    "nombre": "M+ VAMOS 2 1080p **",
+    "calidad": 3,
+    "hash": "7b07fa45dc66488dde544a0c671ce2c6a69426942e3a20d179aee07798848e4b"
+  },
+  "m vamos 3|calidad-2|opcion-1": {
+    "nombre": "M+ VAMOS 3 720p **",
+    "calidad": 2,
+    "hash": "2d12f735cd02a12e4666c7a388f291893e8b90d0cceaf656f251500f125841dd"
   },
   "m vamos 3|calidad-3|opcion-1": {
     "nombre": "M+ VAMOS 3 1080p *",
     "calidad": 3,
     "hash": "5ebc3aa836703e4e7ef5bafff63c2e92b125da52f7be6f84dbb97d1b3a1bf035"
   },
+  "m vamos 3|calidad-3|opcion-2": {
+    "nombre": "M+ VAMOS 3 1080p **",
+    "calidad": 3,
+    "hash": "f77be0e4120cbb252c07c192ad4fa7fab48bba4af34ae943e179339a3a3c80a0"
+  },
+  "rfef tv|calidad-3|opcion-1": {
+    "nombre": "RFEF TV 1080p *",
+    "calidad": 3,
+    "hash": "dd884be183725d3ca89f98feb2a5b7689543984a82ce8c500f40d75970df28cd"
+  },
+  "rfef tv|calidad-3|opcion-2": {
+    "nombre": "RFEF TV 1080p *",
+    "calidad": 3,
+    "hash": "9d09c8be1c5924911f026540fe9d3fce6efd471a7c9c5aee4bbe6b0d47503e46"
+  },
+  "rfef tv|calidad-3|opcion-3": {
+    "nombre": "RFEF TV 1080p **",
+    "calidad": 3,
+    "hash": "b45dce5b9fa97eb2c9801d595c531ad62a253e8e50374f617388d7762d5c8c5a"
+  },
+  "rfef tv|calidad-3|opcion-4": {
+    "nombre": "RFEF TV 1080p **",
+    "calidad": 3,
+    "hash": "5a6ec4224383bc21a1489bc2396f1828f99bbe27c52a0ca12cea589598ac26e3"
+  },
+  "cuatro|calidad-3|opcion-1": {
+    "nombre": "CUATRO 1080p **",
+    "calidad": 3,
+    "hash": "c5bdc0b62f8a04c8b05a368f279575bac8d492c57a9c99b07cbc6c4652af7140"
+  },
+  "la 1 tve|calidad-4|opcion-1": {
+    "nombre": "La 1 TVE 4K **",
+    "calidad": 4,
+    "hash": "3ae718c2eb5c55ec29dbc4bab375681e1732c7df776ab170a784232f474c3a26"
+  },
+  "la 2 tve|calidad-3|opcion-1": {
+    "nombre": "La 2 TVE 1080p *",
+    "calidad": 3,
+    "hash": "8d3bd7c542fa514da95d4f1ca284a5f44ea707f37e2869171c4b12fe78901eac"
+  },
+  "la 2 tve|calidad-3|opcion-2": {
+    "nombre": "La 2 TVE 1080p **",
+    "calidad": 3,
+    "hash": "200618fdd833e48f3f7ec0d355789cdab42dfeeeafee417d0172150c7d78ef9e"
+  },
+  "m 0|calidad-3|opcion-1": {
+    "nombre": "M+ 0 1080p **",
+    "calidad": 3,
+    "hash": "431b118e010a80ea052d9708220c1adef57d0debc7cb0e47f8b05e20fc760dcd"
+  },
+  "telecinco|calidad-3|opcion-1": {
+    "nombre": "Telecinco 1080p **",
+    "calidad": 3,
+    "hash": "6abada4bbb7566a0fb29fb280a058a3f365f48d490d8e90bec27435891fd57f3"
+  },
+  "azteca 7|calidad-2|opcion-1": {
+    "nombre": "Azteca 7 720p **",
+    "calidad": 2,
+    "hash": "d853e4a9e94aba718e2fdce5f9de3c5909c15d4ec1a7d220753a9ea61901c38c"
+  },
+  "bein sports 3 tr|calidad-2|opcion-1": {
+    "nombre": "Bein Sports 3 TR 720p *",
+    "calidad": 2,
+    "hash": "dfef0ad03212bd1f4a6aed7d453c6e975417ec8ec83ecee7b38768ca8acea1d5"
+  },
+  "bein sports tr|calidad-2|opcion-1": {
+    "nombre": "Bein Sports TR 720p *",
+    "calidad": 2,
+    "hash": "a1710d2212a91a87fadcfc57edd73b9a83bc164dfd2148b4a97ffacc7dd2b0f9"
+  },
   "esport3|calidad-2|opcion-1": {
+    "nombre": "Esport3 720p *",
+    "calidad": 2,
+    "hash": "8f79bb44e3a30cd19bef581e2ce616c94fffed1c381d9538be4ea45472eaaf2e"
+  },
+  "esport3|calidad-2|opcion-2": {
     "nombre": "Esport3 720p **",
     "calidad": 2,
     "hash": "0e84a001e25e462a3db7e4c63ef9754670387780109d690c28e2c22bdb1f58d9"
   },
   "esport3|calidad-3|opcion-1": {
+    "nombre": "Esport3 1080p *",
+    "calidad": 3,
+    "hash": "5ea58ed39725c79b8806176bc998255d8fef524d992521d1ea836c0259028310"
+  },
+  "esport3|calidad-3|opcion-2": {
     "nombre": "Esport3 1080p **",
     "calidad": 3,
     "hash": "6da5b4baa6d793af808d2622485299f9f5549df49428a2da98fedf163f225ae5"
+  },
+  "fox sports 2|calidad-0|opcion-1": {
+    "nombre": "Fox Sports 2 *",
+    "calidad": 0,
+    "hash": "4812bf966839eba21774b1ebaa6e7ca631842b507e01533cb2021a88a22ca892"
+  },
+  "nbc sports|calidad-3|opcion-1": {
+    "nombre": "NBC Sports 1080p *",
+    "calidad": 3,
+    "hash": "57394307dfb0a42d415ab8ee5076cbfbad9780c7dede19b19bb2ee9ced716b0b"
+  },
+  "real madrid tv|calidad-3|opcion-1": {
+    "nombre": "Real Madrid TV 1080p *",
+    "calidad": 3,
+    "hash": "80200b71432dc3f6ff8103014bd8ee89105299b4457e7fbfa039d08aceeabdb0"
+  },
+  "real madrid tv|calidad-3|opcion-2": {
+    "nombre": "Real Madrid TV 1080p **",
+    "calidad": 3,
+    "hash": "19bc943fc795bda7db1603b6a0fcb7888700509e732cff5ef8db50522cfb4945"
+  },
+  "sport tv3|calidad-2|opcion-1": {
+    "nombre": "SPORT TV3 720p **",
+    "calidad": 2,
+    "hash": "0a9e95d71abf23737c11a2f0d7e960ab706abb6906442eb5a061d2f8b3465efd"
+  },
+  "sport tv3|calidad-3|opcion-1": {
+    "nombre": "SPORT TV3 1080p *",
+    "calidad": 3,
+    "hash": "f33fd104214848fcc3638695dda7266d42825a4093d3e37ceacee9bdfe418c87"
+  },
+  "sport tv3|calidad-3|opcion-2": {
+    "nombre": "SPORT TV3 1080p **",
+    "calidad": 3,
+    "hash": "40360354176d03f872bed7c5215b4169203d360536e119fe726d4be954e04e68"
+  },
+  "sport tv|calidad-3|opcion-1": {
+    "nombre": "Sport TV+ 1080p *",
+    "calidad": 3,
+    "hash": "6ba800043de3d21a7a9a3d012e5f44f3e778e9d1cbbd2a743fd34c3e98187e96"
   },
   "teledeporte|calidad-2|opcion-1": {
     "nombre": "Teledeporte 720p **",
@@ -114,10 +639,25 @@
     "calidad": 3,
     "hash": "9518dad19f8838fcfc12548e4b8e74930979ca4758f9318a4915dcf8897f774a"
   },
-  "teledeporte|calidad-3|opcion-2": {
-    "nombre": "Teledeporte 1080p **",
+  "dazn motogp|calidad-3|opcion-1": {
+    "nombre": "Dazn MotoGP 1080p *",
     "calidad": 3,
-    "hash": "34a3d15e44c3f2cb914eb5c3eb25b5c8f8040568be0b4bef4c7692bf7afa54a9"
+    "hash": "90323afb90dca1e828c105700cd47fb5e46071c05a41dc2b0a8416e8c58bfae9"
+  },
+  "dazn motogp|calidad-3|opcion-2": {
+    "nombre": "Dazn MotoGP 1080p **",
+    "calidad": 3,
+    "hash": "0a76bc9e2cb640b3d6c24e91ed2c2e52f8454b8ed52f99f674d33bacc7b94329"
+  },
+  "dazn motogp|calidad-3|opcion-3": {
+    "nombre": "Dazn MotoGP 1080p **",
+    "calidad": 3,
+    "hash": "0ff4174bc43446c67c26e41a755d9c2317d35728dbf056d4b406fa3ca00916d2"
+  },
+  "sky sport motogp|calidad-3|opcion-1": {
+    "nombre": "Sky Sport MotoGP 1080p **",
+    "calidad": 3,
+    "hash": "3cec138e35a99621b781210d8081595ba02e30494904c8eb91b2e47cde54f6a0"
   },
   "nba league pass|calidad-3|opcion-1": {
     "nombre": "NBA League Pass 1080p *",
@@ -125,13 +665,38 @@
     "hash": "35381709cdc63a1333de13c547f5a75fea1962c17b3a1c63cecc50e51a645090"
   },
   "nba league pass|calidad-3|opcion-2": {
+    "nombre": "NBA League Pass 1080p *",
+    "calidad": 3,
+    "hash": "af8cdd625aeca9b9e1661540abcc427fed898e98c479eb6f1859957e9b3d63aa"
+  },
+  "nba league pass|calidad-3|opcion-3": {
     "nombre": "NBA League Pass 1080p **",
     "calidad": 3,
     "hash": "9c9287ae29232f11a15694be03a298c6bb9f5aa6b7a72a13cb019ff23457a3aa"
+  },
+  "sky sport tennis|calidad-3|opcion-1": {
+    "nombre": "Sky Sport Tennis 1080p *",
+    "calidad": 3,
+    "hash": "5f34b42243ada4ed8285bcaf36726ba07b862a988236506f5666756751ab4cb0"
+  },
+  "sky sport tennis|calidad-3|opcion-2": {
+    "nombre": "Sky Sport Tennis 1080p **",
+    "calidad": 3,
+    "hash": "27706843ff07357f1f15786585635643a96f67fa496c93160214510e56fdb257"
   },
   "tennis channel|calidad-3|opcion-1": {
     "nombre": "Tennis Channel 1080p *",
     "calidad": 3,
     "hash": "6e077bae386b2674a3d818082025adabc4e20a9914336bfebfe4aa1023286aaa"
+  },
+  "tennis channel|calidad-3|opcion-2": {
+    "nombre": "Tennis Channel 1080p **",
+    "calidad": 3,
+    "hash": "59e014d81a52939590cfbb2bc5216df0c98e493b678c8ad33d949345925d1734"
+  },
+  "onetoro tv|calidad-3|opcion-1": {
+    "nombre": "Onetoro TV 1080p *",
+    "calidad": 3,
+    "hash": "ab42ecab963533bbf9c6406eb1aa33c38cef607a97a5a701121bd83a26d811e6"
   }
 }
