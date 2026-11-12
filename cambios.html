@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACE-AUTO - Historial de cambios</title>
+<title>ACE-AUTO - Estadísticas de canales</title>
 
 <style>
 :root {
@@ -11,22 +11,28 @@
     --panel: #151515;
     --rojo: #e50914;
     --verde: #20c878;
-    --amarillo: #f5bd42;
     --texto: #ffffff;
     --gris: #999999;
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
     padding: 25px;
-    background: radial-gradient(ellipse at top left, #301014 0%, transparent 45%), var(--fondo);
+    background:
+        radial-gradient(ellipse at top left, #301014 0%, transparent 45%),
+        var(--fondo);
     color: var(--texto);
     font-family: Arial, sans-serif;
 }
 
-.container { max-width: 1000px; margin: auto; }
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
 
 header {
     padding: 25px 0;
@@ -41,7 +47,10 @@ header {
     letter-spacing: 2px;
 }
 
-.subtitle { color: var(--gris); margin-top: 8px; }
+.subtitle {
+    color: var(--gris);
+    margin-top: 8px;
+}
 
 .estado {
     background: var(--panel);
@@ -60,28 +69,36 @@ header {
 
 .tarjeta {
     background: var(--panel);
-    padding: 22px 12px;
+    padding: 25px 12px;
     border-radius: 12px;
     text-align: center;
     border: 1px solid #292929;
 }
 
 .numero {
-    font-size: 34px;
+    font-size: 38px;
     font-weight: bold;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
-.tarjeta small { color: var(--gris); }
+.tarjeta small {
+    color: var(--gris);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
 
-.verde { color: var(--verde); }
-.rojo { color: var(--rojo); }
-.amarillo { color: var(--amarillo); }
+.verde {
+    color: var(--verde);
+}
+
+.rojo {
+    color: var(--rojo);
+}
 
 .actualizacion {
     background: var(--panel);
-    border: 1px solid #e50914;
+    border: 1px solid #292929;
     border-radius: 14px;
     padding: 22px;
     margin-bottom: 20px;
@@ -94,14 +111,19 @@ header {
     margin-bottom: 18px;
 }
 
-.seccion { margin-top: 22px; }
+.seccion {
+    margin-top: 22px;
+}
 
 .seccion h3 {
     font-size: 15px;
     letter-spacing: 1px;
 }
 
-.seccion ul { list-style: none; padding: 0; }
+.seccion ul {
+    list-style: none;
+    padding: 0;
+}
 
 .seccion li {
     padding: 12px;
@@ -112,11 +134,18 @@ header {
     overflow-wrap: anywhere;
 }
 
-.seccion.anadidos li { border-left-color: var(--verde); }
-.seccion.eliminados li { border-left-color: var(--rojo); }
-.seccion.modificados li { border-left-color: var(--amarillo); }
+.seccion.anadidos li {
+    border-left-color: var(--verde);
+}
 
-.sin-cambios { color: var(--gris); padding: 12px 0; }
+.seccion.eliminados li {
+    border-left-color: var(--rojo);
+}
+
+.sin-cambios {
+    color: var(--gris);
+    padding: 12px 0;
+}
 
 .boton {
     background: var(--rojo);
@@ -128,7 +157,9 @@ header {
     cursor: pointer;
 }
 
-.boton:active { transform: scale(.97); }
+.boton:active {
+    transform: scale(.97);
+}
 
 footer {
     color: #666;
@@ -138,26 +169,53 @@ footer {
 }
 
 @media(max-width: 550px) {
-    body { padding: 15px; }
-    .resumen { gap: 8px; }
-    .numero { font-size: 27px; }
-    .tarjeta { padding: 17px 5px; }
-    .logo { font-size: 25px; }
+    body {
+        padding: 15px;
+    }
+
+    .resumen {
+        gap: 8px;
+    }
+
+    .numero {
+        font-size: 29px;
+    }
+
+    .tarjeta {
+        padding: 20px 5px;
+    }
+
+    .tarjeta small {
+        font-size: 10px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
 <header>
     <div class="logo">ACE-AUTO</div>
-    <div class="subtitle">Historial de cambios de la lista Elcano</div>
+    <div class="subtitle">Estadísticas y actualizaciones de la lista Elcano</div>
 </header>
 
-<div class="estado" id="estado">Consultando historial...</div>
+<div class="estado" id="estado">
+    Consultando información...
+</div>
 
 <div class="resumen">
+
+    <div class="tarjeta">
+        <span class="numero verde" id="totalCanales">0</span>
+        <small>CANALES TOTALES</small>
+    </div>
+
     <div class="tarjeta">
         <span class="numero verde" id="totalAnadidos">0</span>
         <small>CANALES AÑADIDOS</small>
@@ -168,25 +226,28 @@ footer {
         <small>CANALES ELIMINADOS</small>
     </div>
 
-    <div class="tarjeta">
-        <span class="numero amarillo" id="totalModificados">0</span>
-        <small>CANALES MODIFICADOS</small>
-    </div>
 </div>
 
 <h2>Última actualización</h2>
 
-<div id="historial">Cargando cambios...</div>
+<div id="historial">
+    Cargando información...
+</div>
 
-<button class="boton" onclick="cargarCambios()">↻ ACTUALIZAR</button>
+<button class="boton" onclick="cargarCambios()">
+    ↻ ACTUALIZAR
+</button>
 
-<footer>ACE-AUTO · Actualización automática del historial</footer>
+<footer>
+    ACE-AUTO · Estadísticas automáticas de canales
+</footer>
 
 </div>
 
 <script>
 
-const ARCHIVO = "./cambios.md";
+const ARCHIVO_CAMBIOS = "./cambios.md";
+const ARCHIVO_LISTA = "./canales.m3u";
 
 function normalizar(texto) {
     return texto
@@ -208,6 +269,13 @@ function leerNumero(texto, tipo) {
     return resultado ? Number(resultado[1]) : 0;
 }
 
+function contarCanales(lista) {
+
+    const coincidencias = lista.match(/^#EXTINF\s*:/gim);
+
+    return coincidencias ? coincidencias.length : 0;
+}
+
 function obtenerLista(lineas, nombre) {
 
     const objetivo = normalizar(nombre);
@@ -218,7 +286,7 @@ function obtenerLista(lineas, nombre) {
 
         const linea = lineaOriginal.trim();
 
-        if (/^###\s+/.test(linea)) {
+        if (linea.startsWith("### ")) {
 
             const titulo = normalizar(
                 linea.replace(/^###\s+/, "")
@@ -245,12 +313,15 @@ function crearSeccion(titulo, elementos, clase) {
 
     const h3 = document.createElement("h3");
     h3.textContent = titulo;
+
     seccion.appendChild(h3);
 
     if (elementos.length === 0) {
+
         const p = document.createElement("p");
         p.className = "sin-cambios";
-        p.textContent = "No hay cambios en este apartado.";
+        p.textContent = "No hay canales en este apartado.";
+
         seccion.appendChild(p);
         return seccion;
     }
@@ -258,8 +329,10 @@ function crearSeccion(titulo, elementos, clase) {
     const ul = document.createElement("ul");
 
     elementos.forEach(nombre => {
+
         const li = document.createElement("li");
         li.textContent = nombre;
+
         ul.appendChild(li);
     });
 
@@ -273,32 +346,46 @@ async function cargarCambios() {
     const estado = document.getElementById("estado");
     const historial = document.getElementById("historial");
 
-    estado.textContent = "Consultando historial...";
-    historial.textContent = "Cargando...";
+    estado.textContent = "Consultando información...";
 
     try {
 
-        const respuesta = await fetch(
-            ARCHIVO + "?actualizacion=" + Date.now(),
-            { cache: "no-store" }
-        );
+        // Descargar los dos archivos al mismo tiempo.
+        const [respuestaCambios, respuestaLista] = await Promise.all([
 
-        if (!respuesta.ok) {
-            throw new Error("No se pudo descargar cambios.md. Código: " + respuesta.status);
+            fetch(
+                ARCHIVO_CAMBIOS + "?t=" + Date.now(),
+                { cache: "no-store" }
+            ),
+
+            fetch(
+                ARCHIVO_LISTA + "?t=" + Date.now(),
+                { cache: "no-store" }
+            )
+
+        ]);
+
+        if (!respuestaCambios.ok) {
+            throw new Error("No se encuentra cambios.md");
         }
 
-        const texto = (await respuesta.text()).replace(/^\uFEFF/, "");
-
-        if (!texto.trim()) {
-            throw new Error("El archivo cambios.md está vacío.");
+        if (!respuestaLista.ok) {
+            throw new Error("No se encuentra canales.m3u");
         }
 
-        // Leer directamente el formato real de cambios.md.
-        const nuevos = leerNumero(texto, "añadidos");
-        const eliminados = leerNumero(texto, "eliminados");
-        const modificados = leerNumero(texto, "modificados");
+        const [textoCambios, textoLista] = await Promise.all([
+            respuestaCambios.text(),
+            respuestaLista.text()
+        ]);
 
-        const lineas = texto.split(/\r?\n/);
+        // Calcular el total real de canales de la lista actual.
+        const totalCanales = contarCanales(textoLista);
+
+        // Leer los añadidos y eliminados del último informe.
+        const nuevos = leerNumero(textoCambios, "añadidos");
+        const eliminados = leerNumero(textoCambios, "eliminados");
+
+        const lineas = textoCambios.split(/\r?\n/);
 
         const lineaFecha = lineas.find(linea =>
             /^Fecha\s*:/i.test(linea.trim())
@@ -310,14 +397,13 @@ async function cargarCambios() {
 
         const anadidos = obtenerLista(lineas, "Añadidos");
         const quitados = obtenerLista(lineas, "Eliminados");
-        const cambiados = obtenerLista(lineas, "Modificados");
 
-        // Actualizar los contadores.
+        // Mostrar los tres contadores.
+        document.getElementById("totalCanales").textContent = totalCanales;
         document.getElementById("totalAnadidos").textContent = nuevos;
         document.getElementById("totalEliminados").textContent = eliminados;
-        document.getElementById("totalModificados").textContent = modificados;
 
-        // Construir el informe.
+        // Mostrar el informe.
         historial.replaceChildren();
 
         const tarjeta = document.createElement("div");
@@ -326,26 +412,32 @@ async function cargarCambios() {
         const titulo = document.createElement("div");
         titulo.className = "fecha";
         titulo.textContent = "📅 " + fecha;
+
         tarjeta.appendChild(titulo);
 
         const resumen = document.createElement("p");
+
         resumen.textContent =
+            "📺 " + totalCanales + " canales actualmente en la lista · " +
             "🟢 " + nuevos + " añadidos · " +
-            "🔴 " + eliminados + " eliminados · " +
-            "🟡 " + modificados + " modificados";
+            "🔴 " + eliminados + " eliminados";
 
         tarjeta.appendChild(resumen);
 
         tarjeta.appendChild(
-            crearSeccion("🟢 CANALES AÑADIDOS", anadidos, "anadidos")
+            crearSeccion(
+                "🟢 CANALES AÑADIDOS",
+                anadidos,
+                "anadidos"
+            )
         );
 
         tarjeta.appendChild(
-            crearSeccion("🔴 CANALES ELIMINADOS", quitados, "eliminados")
-        );
-
-        tarjeta.appendChild(
-            crearSeccion("🟡 CANALES MODIFICADOS", cambiados, "modificados")
+            crearSeccion(
+                "🔴 CANALES ELIMINADOS",
+                quitados,
+                "eliminados"
+            )
         );
 
         historial.appendChild(tarjeta);
@@ -353,12 +445,13 @@ async function cargarCambios() {
         estado.replaceChildren();
 
         const mensaje = document.createElement("strong");
-        mensaje.textContent = "✓ Historial leído correctamente. ";
+        mensaje.textContent = "✓ Lista e historial cargados correctamente. ";
 
         const detalle = document.createElement("small");
         detalle.style.color = "#999";
         detalle.textContent =
-            "Comprobado: " + new Date().toLocaleString("es-ES");
+            "Última comprobación: " +
+            new Date().toLocaleString("es-ES");
 
         estado.appendChild(mensaje);
         estado.appendChild(detalle);
@@ -368,16 +461,18 @@ async function cargarCambios() {
         estado.textContent = "⚠️ " + error.message;
 
         historial.textContent =
-            "No se ha podido leer el historial. Comprueba la ubicación de cambios.md.";
+            "No se ha podido cargar la información. Comprueba que cambios.md y canales.m3u estén publicados junto a cambios.html.";
 
-        console.error("Error leyendo cambios.md:", error);
+        console.error(error);
     }
 }
 
 cargarCambios();
 
+// Actualización automática cada minuto.
 setInterval(cargarCambios, 60000);
 
 </script>
+
 </body>
 </html>
