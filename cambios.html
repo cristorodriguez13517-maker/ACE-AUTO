@@ -97,6 +97,11 @@ header {
     color: var(--rojo);
 }
 
+/* COLOR AMARILLO PARA CANALES TOTALES */
+.amarillo {
+    color: #f5bd42 !important;
+}
+
 .actualizacion {
     background: var(--panel);
     border: 1px solid #292929;
@@ -351,7 +356,6 @@ async function cargarCambios() {
 
     try {
 
-        // Descargar los dos archivos al mismo tiempo.
         const [respuestaCambios, respuestaLista] = await Promise.all([
 
             fetch(
@@ -379,10 +383,8 @@ async function cargarCambios() {
             respuestaLista.text()
         ]);
 
-        // Calcular el total real de canales de la lista actual.
         const totalCanales = contarCanales(textoLista);
 
-        // Leer los añadidos y eliminados del último informe.
         const nuevos = leerNumero(textoCambios, "añadidos");
         const eliminados = leerNumero(textoCambios, "eliminados");
 
@@ -399,12 +401,10 @@ async function cargarCambios() {
         const anadidos = obtenerLista(lineas, "Añadidos");
         const quitados = obtenerLista(lineas, "Eliminados");
 
-        // Mostrar los tres contadores.
         document.getElementById("totalCanales").textContent = totalCanales;
         document.getElementById("totalAnadidos").textContent = nuevos;
         document.getElementById("totalEliminados").textContent = eliminados;
 
-        // Mostrar el informe.
         historial.replaceChildren();
 
         const tarjeta = document.createElement("div");
@@ -470,7 +470,6 @@ async function cargarCambios() {
 
 cargarCambios();
 
-// Actualización automática cada minuto.
 setInterval(cargarCambios, 60000);
 
 </script>
