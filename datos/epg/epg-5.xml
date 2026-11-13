@@ -6681,6 +6681,12 @@
 		<icon src="None"/>
 		<category>Desconocido</category>
 	</programme>
+	<programme channel="CanalSurFlamenco.Radio" start="20261113090000 +0000" stop="20261113150000 +0000">
+		<title>Foro y recitales flamencos</title>
+		<desc>Manuel Curao dirige y presenta este espacio dedicado a la difusión mundial del flamenco en el que tienen cabida desde las máximas figuras de nuestro a...</desc>
+		<icon src="None"/>
+		<category>Desconocido</category>
+	</programme>
 	<programme channel="CanalSurFlamenco.Radio" start="20261113150000 +0000" stop="20261113160000 +0000">
 		<title>Verso a verso: literatura flamenca</title>
 		<desc>Paco Robles analiza la relación entre el flamenco y la literatura. El flamenco es cante, baile, toque y... literatura. Las letras o coplas que configu...</desc>

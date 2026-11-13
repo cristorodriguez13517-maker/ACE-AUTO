@@ -12,12 +12,12 @@
   "dazn baloncesto|calidad-3|opcion-1": {
     "nombre": "DAZN Baloncesto 1080p **",
     "calidad": 3,
-    "hash": "a8c7a11998946d1ff4f822af0cdb5c1b3d1a3c46e2e56b852af6e1527ca70ec1"
+    "hash": "93db22689f54a42c883ace34ec20752a9dd6c493c11304a82b499b877cea58f4"
   },
   "dazn baloncesto|calidad-3|opcion-2": {
     "nombre": "DAZN Baloncesto 1080p **",
     "calidad": 3,
-    "hash": "93db22689f54a42c883ace34ec20752a9dd6c493c11304a82b499b877cea58f4"
+    "hash": "a8c7a11998946d1ff4f822af0cdb5c1b3d1a3c46e2e56b852af6e1527ca70ec1"
   },
   "dazn baloncesto 2|calidad-2|opcion-1": {
     "nombre": "DAZN Baloncesto 2 720p *",
@@ -37,12 +37,17 @@
   "m baloncesto|calidad-3|opcion-1": {
     "nombre": "M+ Baloncesto 1080p *",
     "calidad": 3,
-    "hash": "9d5f215e6141e195e4c3370a29f91467f08fd0d26a7cac8f142f41b3a2c1b3bc"
+    "hash": "317e44dd70af28cd7bdf33bb1d6dca820fbdc287fa9f45a98e5180fb946f8fb1"
   },
   "m baloncesto|calidad-3|opcion-2": {
     "nombre": "M+ Baloncesto 1080p *",
     "calidad": 3,
-    "hash": "317e44dd70af28cd7bdf33bb1d6dca820fbdc287fa9f45a98e5180fb946f8fb1"
+    "hash": "9d5f215e6141e195e4c3370a29f91467f08fd0d26a7cac8f142f41b3a2c1b3bc"
+  },
+  "m baloncesto|calidad-3|opcion-3": {
+    "nombre": "M+ Baloncesto 1080p **",
+    "calidad": 3,
+    "hash": "42444a657752acddecbcdbd0ae5e1ffd1207a5a602c5828748886dc3a0a45f9c"
   },
   "m baloncesto 2|calidad-3|opcion-1": {
     "nombre": "M+ Baloncesto 2 1080p *",
@@ -119,6 +124,11 @@
     "calidad": 2,
     "hash": "2ea42fc2c7a01ead9abf99592eb1f0c73e8dccadc1ad1b4f52b71e878085229a"
   },
+  "laliga tv hypermotion|calidad-2|opcion-1": {
+    "nombre": "LaLiga TV Hypermotion 720p **",
+    "calidad": 2,
+    "hash": "75702b16d2476bcad134e2ba1f5932ec7ff89ff00ceddc0c94cae4658d452d30"
+  },
   "laliga tv hypermotion|calidad-3|opcion-1": {
     "nombre": "LaLiga TV Hypermotion 1080p **",
     "calidad": 3,
@@ -177,12 +187,17 @@
   "m laliga|calidad-3|opcion-2": {
     "nombre": "M+ LaLiga 1080p **",
     "calidad": 3,
-    "hash": "b8faf07590a4ceca96acb4ccf08e07ee94c689bdbee0327919ab5f952b05307f"
+    "hash": "c6a127bd992bd1af390a5f64a4979242dfeb08dcd57a3962feec7478f3f68eef"
   },
   "m laliga|calidad-3|opcion-3": {
     "nombre": "M+ LaLiga 1080p **",
     "calidad": 3,
     "hash": "405bb663d3ea54220e9c5a289000bd9a2701c09e22d040e226e1a2333196808f"
+  },
+  "m laliga|calidad-3|opcion-4": {
+    "nombre": "M+ LaLiga 1080p **",
+    "calidad": 3,
+    "hash": "b8faf07590a4ceca96acb4ccf08e07ee94c689bdbee0327919ab5f952b05307f"
   },
   "m laliga 2|calidad-2|opcion-1": {
     "nombre": "M+ LaLiga 2 720p **",
@@ -389,11 +404,6 @@
     "calidad": 3,
     "hash": "d4664fd59dec1eaef1ed4327b5d309aeb92560cfb0697a817ea0e851efedc6b3"
   },
-  "rfef tv|calidad-3|opcion-3": {
-    "nombre": "RFEF TV 1080p **",
-    "calidad": 3,
-    "hash": "b2fe890079dbc8ba6ed84134317723360fc324b71c40e0837b65c94ecc90e563"
-  },
   "cuatro|calidad-3|opcion-1": {
     "nombre": "CUATRO 1080p **",
     "calidad": 3,
@@ -403,11 +413,6 @@
     "nombre": "La 1 TVE 720p **",
     "calidad": 2,
     "hash": "c4659bc7c1966b6fc908df61e8482d173b63d8e6a33256347b8b8e5faaa725cf"
-  },
-  "la 1 tve|calidad-3|opcion-1": {
-    "nombre": "La 1 TVE 1080p **",
-    "calidad": 3,
-    "hash": "524f1025b28ffd4ce32e8760ab7b221bc5dc122d40c19bef95d5931f8a0438a7"
   },
   "la 1 tve|calidad-4|opcion-1": {
     "nombre": "La 1 TVE 4K **",
@@ -527,7 +532,7 @@
   "nba league pass|calidad-3|opcion-1": {
     "nombre": "NBA League Pass 1080p *",
     "calidad": 3,
-    "hash": "251563346e7ecbbb9dbf818969e7a55fcddd9960e72150dc50ee000efe7ebbe0"
+    "hash": "6b8c8d43d7b9a00e78d5441b4f4dcf7fdd8cdaf037703c674334d381b53a3478"
   },
   "nba league pass|calidad-3|opcion-2": {
     "nombre": "NBA League Pass 1080p *",
@@ -537,7 +542,7 @@
   "nba league pass|calidad-3|opcion-3": {
     "nombre": "NBA League Pass 1080p *",
     "calidad": 3,
-    "hash": "6b8c8d43d7b9a00e78d5441b4f4dcf7fdd8cdaf037703c674334d381b53a3478"
+    "hash": "251563346e7ecbbb9dbf818969e7a55fcddd9960e72150dc50ee000efe7ebbe0"
   },
   "nba league pass|calidad-3|opcion-4": {
     "nombre": "NBA League Pass 1080p **",
