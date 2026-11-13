@@ -32,7 +32,7 @@
   "m baloncesto|calidad-3|opcion-1": {
     "nombre": "M+ Baloncesto 1080p *",
     "calidad": 3,
-    "hash": "317e44dd70af28cd7bdf33bb1d6dca820fbdc287fa9f45a98e5180fb946f8fb1"
+    "hash": "9d5f215e6141e195e4c3370a29f91467f08fd0d26a7cac8f142f41b3a2c1b3bc"
   },
   "m baloncesto|calidad-3|opcion-2": {
     "nombre": "M+ Baloncesto 1080p *",
@@ -42,7 +42,7 @@
   "m baloncesto|calidad-3|opcion-3": {
     "nombre": "M+ Baloncesto 1080p *",
     "calidad": 3,
-    "hash": "9d5f215e6141e195e4c3370a29f91467f08fd0d26a7cac8f142f41b3a2c1b3bc"
+    "hash": "317e44dd70af28cd7bdf33bb1d6dca820fbdc287fa9f45a98e5180fb946f8fb1"
   },
   "m baloncesto|calidad-3|opcion-4": {
     "nombre": "M+ Baloncesto 1080p **",
@@ -277,12 +277,12 @@
   "m liga de campeones 3|calidad-3|opcion-1": {
     "nombre": "M+ Liga de Campeones 3 1080p **",
     "calidad": 3,
-    "hash": "b22c468d3a83fe4308b34b34674f85fbfec89232c452af4985dc16b56db2e0d7"
+    "hash": "52cc723f8d87b75f49e2460cb2b51a49ebbd1176b9415939391f93c868bb2fda"
   },
   "m liga de campeones 3|calidad-3|opcion-2": {
     "nombre": "M+ Liga de Campeones 3 1080p **",
     "calidad": 3,
-    "hash": "52cc723f8d87b75f49e2460cb2b51a49ebbd1176b9415939391f93c868bb2fda"
+    "hash": "b22c468d3a83fe4308b34b34674f85fbfec89232c452af4985dc16b56db2e0d7"
   },
   "m liga de campeones 5|calidad-3|opcion-1": {
     "nombre": "M+ Liga de Campeones 5 1080p **",
@@ -492,12 +492,12 @@
   "rfef tv|calidad-3|opcion-1": {
     "nombre": "RFEF TV 1080p *",
     "calidad": 3,
-    "hash": "b2eeeea579219f3779a37d9c33ca3c249c75690bba87de3d292faacac07c7911"
+    "hash": "4b6153f8cb24465f5b6b1c15035d1c1f249494364dfd884674b409fde8083fb5"
   },
   "rfef tv|calidad-3|opcion-2": {
     "nombre": "RFEF TV 1080p *",
     "calidad": 3,
-    "hash": "4b6153f8cb24465f5b6b1c15035d1c1f249494364dfd884674b409fde8083fb5"
+    "hash": "b2eeeea579219f3779a37d9c33ca3c249c75690bba87de3d292faacac07c7911"
   },
   "rfef tv|calidad-3|opcion-3": {
     "nombre": "RFEF TV 1080p **",
