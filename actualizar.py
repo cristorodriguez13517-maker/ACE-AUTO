@@ -16,11 +16,25 @@ import requests
 # CONFIGURACION ACE-AUTO
 # ==========================================================
 
-FUENTE_ELCANO = (
-    "https://tokyo2.elcano-ipfs.workers.dev/"
-    "k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs/"
-    "hashes_acestream.m3u"
-)
+FUENTES_ELCANO = [
+    (
+        "Elcano original",
+        "https://tokyo2.elcano-ipfs.workers.dev/"
+        "k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs/"
+        "hashes_acestream.m3u"
+    ),
+    (
+        "IPFS.io",
+        "https://ipfs.io/ipns/"
+        "k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs/"
+        "hashes_acestream.m3u"
+    ),
+    (
+        "DWeb.link",
+        "https://k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs."
+        "ipns.dweb.link/hashes_acestream.m3u"
+    ),
+]
 
 API_GIT_GAY = "https://git.gay/api/v1"
 REPO_GIT_GAY = "iptvpro2026/lista"
@@ -37,6 +51,7 @@ ARCHIVO_CAMBIOS = Path("cambios.md")
 GRUPO_AUTO = "CANO AUTO"
 GRUPO_TDT = "TDT AUTO"
 GRUPO_RADIO = "RADIOS AUTO"
+
 FUENTE_TDT = "https://www.tdtchannels.com/lists/tv.m3u"
 FUENTE_RADIO = "https://www.tdtchannels.com/lists/radio.m3u"
 
@@ -72,38 +87,90 @@ SESION.headers.update({
 
 
 # ==========================================================
-# DESCARGAR FUENTE
+# DESCARGAR FUENTES DE ELCANO CON RESPALDO AUTOMATICO
 # ==========================================================
 
 def descargar_fuente():
 
-    print("Descargando lista original de Elcano...")
+    print("=" * 55)
+    print("BUSCANDO UNA FUENTE DISPONIBLE DE ELCANO")
+    print("=" * 55)
 
-    respuesta = SESION.get(
-        FUENTE_ELCANO,
-        timeout=120
+    errores = []
+
+    for nombre, url in FUENTES_ELCANO:
+
+        print()
+        print("Probando fuente:", nombre)
+        print("URL:", url)
+
+        try:
+
+            respuesta = SESION.get(
+                url,
+                timeout=90
+            )
+
+            respuesta.raise_for_status()
+
+            texto = respuesta.content.decode(
+                "utf-8-sig",
+                errors="replace"
+            ).strip()
+
+            if not texto.startswith("#EXTM3U"):
+                raise RuntimeError(
+                    "La respuesta no es una lista M3U válida."
+                )
+
+            if "#EXTINF" not in texto:
+                raise RuntimeError(
+                    "La lista no contiene canales."
+                )
+
+            registros = separar_registros(texto)
+
+            validos = [
+                registro
+                for registro in registros
+                if extraer_id_acestream(
+                    url_registro(registro)
+                )
+            ]
+
+            if not validos:
+                raise RuntimeError(
+                    "La lista no contiene hashes AceStream válidos."
+                )
+
+            print("---------------------------------------")
+            print("FUENTE ELCANO SELECCIONADA:", nombre)
+            print("Entradas recibidas:", len(registros))
+            print("Canales con ID válida:", len(validos))
+            print("---------------------------------------")
+
+            return texto
+
+        except Exception as error:
+
+            mensaje = f"{nombre}: {error}"
+
+            errores.append(mensaje)
+
+            print("ERROR:", mensaje)
+            print("Probando la siguiente fuente...")
+
+    raise RuntimeError(
+        "NINGUNA FUENTE DE ELCANO ESTÁ DISPONIBLE.\n"
+        "Se detiene la actualización para proteger "
+        "el catálogo anterior.\n\n"
+        + "\n".join(errores)
     )
 
-    respuesta.raise_for_status()
 
-    texto = respuesta.content.decode(
-        "utf-8-sig",
-        errors="replace"
-    ).strip()
-
-    if not texto.startswith("#EXTM3U"):
-        raise RuntimeError(
-            "La fuente descargada no parece una lista M3U."
-        )
-
-    if "#EXTINF" not in texto:
-        raise RuntimeError(
-            "Elcano no ha devuelto canales. "
-            "Se conserva la lista anterior."
-        )
-
-    return texto
-
+# ==========================================================
+# DESCARGAR TDT
+# ==========================================================
 
 def descargar_fuente_tdt():
 
@@ -113,6 +180,7 @@ def descargar_fuente_tdt():
         FUENTE_TDT,
         timeout=120
     )
+
     respuesta.raise_for_status()
 
     texto = respuesta.content.decode(
@@ -134,6 +202,10 @@ def descargar_fuente_tdt():
     return texto
 
 
+# ==========================================================
+# DESCARGAR RADIO
+# ==========================================================
+
 def descargar_fuente_radio():
 
     print("Descargando lista oficial de radios de TDTChannels...")
@@ -142,6 +214,7 @@ def descargar_fuente_radio():
         FUENTE_RADIO,
         timeout=120
     )
+
     respuesta.raise_for_status()
 
     texto = respuesta.content.decode(
@@ -407,25 +480,27 @@ def asignar_grupo(extinf, grupo):
 
 
 def preparar_registro_tdt(registro):
-    """Asigna el grupo TDT AUTO y conserva intactas las URLs oficiales."""
 
     salida = list(registro)
     salida[0] = asignar_grupo(salida[0], GRUPO_TDT)
+
     return salida
 
 
 def es_formato_radio_permitido(url):
-    """Acepta únicamente streams AAC, MP3 o listas M3U8."""
 
     ruta = urlsplit(url.strip()).path.lower()
-    return ruta.endswith((".aac", ".mp3", ".m3u8"))
+
+    return ruta.endswith(
+        (".aac", ".mp3", ".m3u8")
+    )
 
 
 def preparar_registro_radio(registro):
-    """Asigna RADIOS AUTO sin modificar la URL original del stream."""
 
     salida = list(registro)
     salida[0] = asignar_grupo(salida[0], GRUPO_RADIO)
+
     return salida
 
 
@@ -473,7 +548,6 @@ def seleccionar_opciones(registros):
 
         identificador = extraer_id_acestream(url)
 
-        # No aceptar registros sin ID AceStream válida.
         if not identificador:
 
             descartados += 1
@@ -490,9 +564,6 @@ def seleccionar_opciones(registros):
             automatico=True
         )
 
-        # IMPORTANTE:
-        # No agrupamos por nombre ni por calidad.
-        # Cada entrada original de Elcano se conserva.
         resultado.append(preparado)
 
         ids_encontradas.add(
@@ -623,8 +694,6 @@ def mapa_registros(registros):
 
         base = f"{canal}|calidad-{calidad}"
 
-        # Permite conservar varias entradas del mismo canal
-        # y de la misma calidad en el historial.
         contadores[base] += 1
 
         clave = (
@@ -680,6 +749,7 @@ def registrar_cambios(registros):
     ).strftime("%d/%m/%Y %H:%M UTC")
 
     if anterior is None:
+
         ARCHIVO_HISTORIAL.write_text(
             json.dumps(actual, ensure_ascii=False, indent=2),
             encoding="utf-8"
@@ -694,9 +764,15 @@ def registrar_cambios(registros):
         print("Primera sincronización.")
         return
 
-    nuevos = [k for k in actual if k not in anterior]
+    nuevos = [
+        k for k in actual
+        if k not in anterior
+    ]
 
-    eliminados = [k for k in anterior if k not in actual]
+    eliminados = [
+        k for k in anterior
+        if k not in actual
+    ]
 
     modificados = [
         k for k in actual
@@ -706,18 +782,16 @@ def registrar_cambios(registros):
         )
     ]
 
-    # Actualizar el historial interno.
     ARCHIVO_HISTORIAL.write_text(
         json.dumps(actual, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
 
-    # Si no hay cambios, conservar la última actualización mostrada.
     if not nuevos and not eliminados and not modificados:
+
         print("Sin cambios. Se conserva la última actualización.")
         return
 
-    # Crear exclusivamente el último resultado.
     informe = [
         "# Última actualización ACE-AUTO",
         "",
@@ -735,17 +809,23 @@ def registrar_cambios(registros):
     ):
 
         if claves:
-            informe.extend(["", f"### {titulo}"])
+
+            informe.extend([
+                "",
+                f"### {titulo}"
+            ])
 
             for clave in claves:
+
                 if clave in actual:
                     nombre = actual[clave]["nombre"]
                 else:
                     nombre = anterior[clave]["nombre"]
 
-                informe.append(f"- {nombre}")
+                informe.append(
+                    f"- {nombre}"
+                )
 
-    # SOBRESCRIBIR: nunca acumular informes anteriores.
     ARCHIVO_CAMBIOS.write_text(
         "\n".join(informe) + "\n",
         encoding="utf-8"
@@ -759,14 +839,14 @@ def registrar_cambios(registros):
 # ==========================================================
 
 def publicar_git_gay(contenido):
-    """
-    Publica hashes.m3u en iptvpro2026/lista (rama main).
-    Si el archivo ya existe, recupera su SHA para actualizarlo.
-    """
 
-    token = os.environ.get("GIT_GAY_TOKEN", "").strip()
+    token = os.environ.get(
+        "GIT_GAY_TOKEN",
+        ""
+    ).strip()
 
     if not token:
+
         raise RuntimeError(
             "Falta el secreto GIT_GAY_TOKEN en GitHub Actions."
         )
@@ -783,7 +863,6 @@ def publicar_git_gay(contenido):
         "User-Agent": "ACE-AUTO/2.0",
     }
 
-    # Consultar el archivo para obtener el SHA si ya existe.
     respuesta = SESION.get(
         url,
         headers=cabeceras,
@@ -794,9 +873,12 @@ def publicar_git_gay(contenido):
     sha = None
 
     if respuesta.status_code == 200:
+
         try:
             datos = respuesta.json()
+
         except ValueError as error:
+
             raise RuntimeError(
                 "git.gay devolvió una respuesta no válida al consultar "
                 f"{ARCHIVO_DESTINO}: {respuesta.text[:500]}"
@@ -805,11 +887,13 @@ def publicar_git_gay(contenido):
         sha = datos.get("sha")
 
         if not sha:
+
             raise RuntimeError(
                 "git.gay encontró el archivo, pero no devolvió su SHA."
             )
 
     elif respuesta.status_code != 404:
+
         raise RuntimeError(
             "No se pudo consultar el archivo en git.gay. "
             f"HTTP {respuesta.status_code}: {respuesta.text[:1000]}"
@@ -836,6 +920,7 @@ def publicar_git_gay(contenido):
     )
 
     if publicacion.status_code not in (200, 201):
+
         raise RuntimeError(
             "No se pudo publicar hashes.m3u en git.gay. "
             f"HTTP {publicacion.status_code}: "
@@ -843,6 +928,7 @@ def publicar_git_gay(contenido):
         )
 
     print("Lista publicada correctamente en git.gay.")
+
     return True
 
 
@@ -856,10 +942,10 @@ def main():
     print("ACTUALIZANDO ACE-AUTO")
     print("=" * 55)
 
-    # 1. Descargar fuente original
+    # 1. Descargar Elcano utilizando las tres fuentes de respaldo.
     fuente = descargar_fuente()
 
-    # 2. Separar las entradas originales
+    # 2. Separar las entradas originales.
     registros_fuente = separar_registros(
         fuente
     )
@@ -870,7 +956,7 @@ def main():
             "Elcano no devolvió registros válidos."
         )
 
-    # 3. Procesar exclusivamente las entradas de Elcano
+    # 3. Procesar exclusivamente las entradas de Elcano.
     automaticos = seleccionar_opciones(
         registros_fuente
     )
@@ -882,7 +968,7 @@ def main():
             "Se conserva la lista anterior."
         )
 
-    # 4. Generar canales.m3u SOLO con Elcano
+    # 4. Generar canales.m3u SOLO con Elcano.
     texto_auto = (
         CABECERA
         + "\n"
@@ -899,13 +985,18 @@ def main():
         "canales.m3u actualizado exclusivamente con Elcano."
     )
 
-    # 5. Descargar y procesar TDTChannels como grupo independiente
+    # 5. Descargar y procesar TDTChannels.
     fuente_tdt = descargar_fuente_tdt()
-    registros_tdt_fuente = separar_registros(fuente_tdt)
+
+    registros_tdt_fuente = separar_registros(
+        fuente_tdt
+    )
 
     if not registros_tdt_fuente:
+
         raise RuntimeError(
-            "TDTChannels no devolvió registros válidos. Se conserva la lista anterior."
+            "TDTChannels no devolvió registros válidos. "
+            "Se conserva la lista anterior."
         )
 
     canales_tdt = [
@@ -915,8 +1006,10 @@ def main():
     ]
 
     if not canales_tdt:
+
         raise RuntimeError(
-            "No se encontraron canales TDT con URL. Se conserva la lista anterior."
+            "No se encontraron canales TDT con URL. "
+            "Se conserva la lista anterior."
         )
 
     texto_tdt = (
@@ -926,32 +1019,49 @@ def main():
         + serializar_registros(canales_tdt)
         + "\n"
     )
-    ARCHIVO_TDT.write_text(texto_tdt, encoding="utf-8")
 
-    print("canales_tdt.m3u actualizado exclusivamente con TDT AUTO.")
+    ARCHIVO_TDT.write_text(
+        texto_tdt,
+        encoding="utf-8"
+    )
 
-    # 6. Descargar la lista oficial de RADIO y filtrar AAC, MP3 y M3U8.
-    # La M3U oficial es la versión generada por TDTChannels a partir de RADIO.md.
+    print(
+        "canales_tdt.m3u actualizado exclusivamente con TDT AUTO."
+    )
+
+    # 6. Descargar y procesar RADIOS AUTO.
     fuente_radio = descargar_fuente_radio()
-    registros_radio_fuente = separar_registros(fuente_radio)
+
+    registros_radio_fuente = separar_registros(
+        fuente_radio
+    )
 
     if not registros_radio_fuente:
+
         raise RuntimeError(
             "TDTChannels no devolvió registros de radio válidos. "
             "Se conserva la lista anterior."
         )
 
     canales_radio = []
+
     descartadas_radio = 0
 
     for registro in registros_radio_fuente:
+
         url = url_registro(registro)
+
         if not url or not es_formato_radio_permitido(url):
+
             descartadas_radio += 1
             continue
-        canales_radio.append(preparar_registro_radio(registro))
+
+        canales_radio.append(
+            preparar_registro_radio(registro)
+        )
 
     if not canales_radio:
+
         raise RuntimeError(
             "No se encontraron radios AAC, MP3 o M3U8. "
             "Se conserva la lista anterior."
@@ -959,22 +1069,42 @@ def main():
 
     texto_radio = (
         CABECERA
-        + "\n# Fuente: TDTChannels RADIO.md - https://github.com/LaQuay/TDTChannels/blob/master/RADIO.md"
+        + "\n# Fuente: TDTChannels RADIO.md - "
+        "https://github.com/LaQuay/TDTChannels/blob/master/RADIO.md"
         + "\n"
         + serializar_registros(canales_radio)
         + "\n"
     )
-    ARCHIVO_RADIO.write_text(texto_radio, encoding="utf-8")
 
-    print("canales_radio.m3u actualizado exclusivamente con RADIOS AUTO.")
-    print("Radios incluidas (AAC/MP3/M3U8):", len(canales_radio))
-    print("Streams descartados por otro formato:", descartadas_radio)
+    ARCHIVO_RADIO.write_text(
+        texto_radio,
+        encoding="utf-8"
+    )
 
-    # 7. Leer canales manuales por separado (sin modificarlos)
+    print(
+        "canales_radio.m3u actualizado exclusivamente con RADIOS AUTO."
+    )
+
+    print(
+        "Radios incluidas (AAC/MP3/M3U8):",
+        len(canales_radio)
+    )
+
+    print(
+        "Streams descartados por otro formato:",
+        descartadas_radio
+    )
+
+    # 7. Leer canales manuales.
     manuales = leer_manual()
 
-    # 8. Una única lista final con cuatro grupos independientes
-    todos = automaticos + canales_tdt + canales_radio + manuales
+    # 8. Crear una única lista con los cuatro grupos.
+    todos = (
+        automaticos
+        + canales_tdt
+        + canales_radio
+        + manuales
+    )
 
     final = (
         "\n".join(CABECERA_FINAL)
@@ -985,22 +1115,23 @@ def main():
         + "\n"
     )
 
-    # 9. Registrar cambios solo de Elcano
+    # 9. Registrar cambios solo de Elcano.
     registrar_cambios(
         automaticos
     )
 
-    # 9. Publicar lista final
+    # 10. Publicar la lista final.
     publicar_git_gay(
         final
     )
 
+    # 11. Resumen final.
     print("---------------------------------------")
     print("RESUMEN FINAL ACE-AUTO")
     print("---------------------------------------")
 
     print(
-        "Entradas automáticas:",
+        "Entradas automáticas CANO AUTO:",
         len(automaticos)
     )
 
