@@ -116,7 +116,6 @@ video{width:100%;height:100%;object-fit:contain;background:#000}
 <main class="main">
 
 <section class="watch">
-
 <div class="screen">
 
 <video id="video" controls playsinline></video>
@@ -135,29 +134,23 @@ video{width:100%;height:100%;object-fit:contain;background:#000}
  <button id="prev" title="Canal anterior">◀</button>
  <button id="play" title="Reproducir">▶ Reproducir</button>
  <button id="stop" title="Detener">■</button>
-
  <div class="now">
   <strong id="nowName">Ningún canal seleccionado</strong>
   <small id="nowInfo">ACE-AUTO · Guía EPG</small>
  </div>
-
  <button id="fullscreen" title="Pantalla completa">⛶</button>
  <button id="next" title="Canal siguiente">▶|</button>
 </div>
-
 </section>
 
 <section class="epg">
-
 <div class="epghead">
  <h3>GUÍA DE PROGRAMACIÓN</h3>
  <span id="epgStatus">EPG pendiente</span>
 </div>
-
 <div id="programs" class="programs">
  <div class="empty">Selecciona un canal para consultar su programación.</div>
 </div>
-
 </section>
 
 </main>
@@ -171,9 +164,7 @@ video{width:100%;height:100%;object-fit:contain;background:#000}
 <script>
 "use strict";
 
-/* =========================================
-   CONFIGURACION
-========================================= */
+/* CONFIGURACION */
 
 const M3U_URL = "datos/canales.m3u";
 
@@ -184,15 +175,6 @@ const EPG_FILES = [
  "datos/epg/epg-4.xml",
  "datos/epg/epg-5.xml"
 ];
-
-/*
- ACE-SERVE
-
- AceServe debe estar iniciado en el mismo
- dispositivo donde se abre ACE-AUTO.
-
- El motor utiliza normalmente el puerto 6878.
-*/
 
 const ACE_ENGINE_BASE = "http://127.0.0.1:6878";
 
@@ -206,36 +188,29 @@ let selected = -1;
 let hls = null;
 let epgMap = new Map();
 let xmlChannels = new Map();
+let playbackRequest = 0;
 
-/* =========================================
-   AVISOS
-========================================= */
+/* AVISOS */
 
 function toast(msg) {
  const t = $("toast");
  t.textContent = msg;
  t.style.display = "block";
-
  clearTimeout(toast.timer);
-
  toast.timer = setTimeout(() => {
   t.style.display = "none";
- }, 5000);
+ }, 6000);
 }
 
-/* =========================================
-   LECTURA M3U
-========================================= */
+/* LECTURA M3U */
 
 function parseAttrs(s) {
  const out = {};
  const re = /([\w-]+)="([^"]*)"/g;
  let m;
-
  while ((m = re.exec(s))) {
   out[m[1].toLowerCase()] = m[2];
  }
-
  return out;
 }
 
@@ -247,19 +222,15 @@ function parseM3U(text) {
 
  for (const raw of lines) {
   const line = raw.trim();
-
   if (!line) continue;
 
   if (line.startsWith("#EXTINF:")) {
    meta = line;
    extras = [];
-
   } else if (meta && line.startsWith("#")) {
    extras.push(line);
-
   } else if (meta && !line.startsWith("#")) {
    const comma = meta.indexOf(",");
-
    const attrs = parseAttrs(
     meta.slice(0, comma < 0 ? meta.length : comma)
    );
@@ -283,24 +254,19 @@ function parseM3U(text) {
    extras = [];
   }
  }
-
  return out;
 }
 
-/* =========================================
-   CARGAR LISTA
-========================================= */
+/* CARGAR LISTA */
 
 async function loadM3U() {
  const r = await fetch(
   M3U_URL + "?v=" + Date.now(),
-  { cache: "no-store" }
+  {cache:"no-store"}
  );
 
  if (!r.ok) {
-  throw Error(
-   "No se pudo descargar datos/canales.m3u (HTTP " + r.status + ")"
-  );
+  throw Error("No se pudo descargar canales.m3u. HTTP " + r.status);
  }
 
  const txt = await r.text();
@@ -327,9 +293,7 @@ async function loadM3U() {
  renderChannels();
 }
 
-/* =========================================
-   GRUPOS
-========================================= */
+/* GRUPOS */
 
 function renderGroups() {
  const root = $("groups");
@@ -337,11 +301,7 @@ function renderGroups() {
 
  groups.forEach(g => {
   const b = document.createElement("button");
-
-  b.className = "tab" + (
-   g === activeGroup ? " active" : ""
-  );
-
+  b.className = "tab" + (g === activeGroup ? " active" : "");
   b.textContent = g;
 
   b.onclick = () => {
@@ -356,17 +316,12 @@ function renderGroups() {
  $("groupTitle").textContent = activeGroup;
 }
 
-/* =========================================
-   CANALES VISIBLES
-========================================= */
+/* CANALES VISIBLES */
 
 function visibleChannels() {
  const q = $("search").value.trim().toLocaleLowerCase();
 
- return channels.map((c, i) => ({
-  ...c,
-  index: i
- })).filter(c => {
+ return channels.map((c,i) => ({...c,index:i})).filter(c => {
   return (
    (activeGroup === "Todos" || c.group === activeGroup) &&
    (
@@ -378,9 +333,7 @@ function visibleChannels() {
  });
 }
 
-/* =========================================
-   MOSTRAR CANALES
-========================================= */
+/* MOSTRAR CANALES */
 
 function renderChannels() {
  const root = $("channels");
@@ -389,18 +342,13 @@ function renderChannels() {
  const list = visibleChannels();
 
  if (!list.length) {
-  root.innerHTML =
-   '<div class="empty">No hay canales en este grupo.</div>';
+  root.innerHTML = '<div class="empty">No hay canales en este grupo.</div>';
   return;
  }
 
  list.forEach(c => {
   const b = document.createElement("button");
-
-  b.className =
-   "channel" + (c.index === selected ? " active" : "");
-
-  b.dataset.index = c.index;
+  b.className = "channel" + (c.index === selected ? " active" : "");
 
   const img = document.createElement("img");
   img.className = "logo";
@@ -425,26 +373,21 @@ function renderChannels() {
   g.className = "chgroup";
   g.textContent = c.group;
 
-  tx.append(n, g);
-  b.append(img, tx);
-
+  tx.append(n,g);
+  b.append(img,tx);
   b.onclick = () => playChannel(c.index);
 
   root.appendChild(b);
  });
 }
 
-/* =========================================
-   DETECTAR ACESTREAM
-========================================= */
+/* DETECTAR ACESTREAM */
 
 function isAce(url) {
  return /acestream:\/\/|127\.0\.0\.1:6878|localhost:6878|\/ace\/getstream|\/ace\/manifest\.m3u8/i.test(url);
 }
 
-/* =========================================
-   EXTRAER ID ACESTREAM
-========================================= */
+/* EXTRAER ID */
 
 function getAceId(url) {
  try {
@@ -454,7 +397,7 @@ function getAceId(url) {
    );
   }
 
-  const parsed = new URL(url, window.location.href);
+  const parsed = new URL(url,window.location.href);
 
   return (
    parsed.searchParams.get("id") ||
@@ -463,140 +406,206 @@ function getAceId(url) {
   );
 
  } catch(e) {
-  console.warn("Error leyendo identificador AceStream:", e);
+  console.error("Error leyendo ID AceStream:",e);
   return null;
  }
 }
 
-/* =========================================
-   CONSTRUIR URL HLS DE ACESERVE
-========================================= */
+/* OBTENER PLAYBACK_URL REAL DE ACESERVE */
 
-function getAceManifest(url) {
- try {
-  const parsed = new URL(url, window.location.href);
+async function getAcePlaybackUrl(originalUrl) {
 
-  const id =
-   parsed.searchParams.get("id") ||
-   parsed.searchParams.get("infohash") ||
-   parsed.searchParams.get("content_id");
+ const id = getAceId(originalUrl);
 
-  if (!id) {
-   throw Error("No se encuentra el identificador del canal.");
-  }
-
-  /*
-   Si el enlace ya es manifest.m3u8,
-   conservamos su dirección.
-  */
-
-  if (/\/ace\/manifest\.m3u8$/i.test(parsed.pathname)) {
-   return parsed.href;
-  }
-
-  /*
-   Convertimos getstream en manifest.m3u8.
-   Conservamos los parámetros adicionales.
-  */
-
-  const manifest = new URL(
-   ACE_ENGINE_BASE + "/ace/manifest.m3u8"
-  );
-
-  parsed.searchParams.forEach((value, key) => {
-   manifest.searchParams.set(key, value);
-  });
-
-  return manifest.href;
-
- } catch(e) {
-  console.error(e);
-  toast(e.message);
-  return null;
+ if (!id) {
+  throw Error("No se ha podido extraer el ID del canal AceStream.");
  }
-}
 
-/* =========================================
-   REPRODUCIR ACESTREAM EN EL REPRODUCTOR
-========================================= */
+ const api = new URL(
+  ACE_ENGINE_BASE + "/ace/manifest.m3u8"
+ );
 
-async function playAceStream(url) {
- const manifest = getAceManifest(url);
+ api.searchParams.set("id",id);
+ api.searchParams.set("format","json");
 
- if (!manifest) return;
-
- $("nowInfo").textContent = "Conectando con AceServe…";
- $("overlay").hidden = false;
+ $("nowInfo").textContent = "Consultando AceServe…";
  $("overlay").textContent = "Conectando con AceServe…";
 
- /*
-  HLS.JS
- */
+ console.log("Consultando API AceServe:",api.href);
 
- if (window.Hls && Hls.isSupported()) {
-  hls = new Hls({
-   enableWorker: true,
-   lowLatencyMode: false,
-   backBufferLength: 30
+ let response;
+
+ try {
+  response = await fetch(api.href,{
+   method:"GET",
+   cache:"no-store"
   });
-
-  hls.on(Hls.Events.ERROR, function(event, data) {
-   if (data.fatal) {
-    console.error("Error HLS AceStream:", data);
-
-    $("nowInfo").textContent = "Error de reproducción AceServe";
-
-    toast(
-     "Error AceServe: " +
-     (data.details || data.type) +
-     ". Comprueba que el servicio esté iniciado."
-    );
-
-    hls.destroy();
-    hls = null;
-   }
-  });
-
-  hls.on(Hls.Events.MANIFEST_PARSED, function() {
-   $("overlay").hidden = true;
-   $("nowInfo").textContent = "AceServe · Reproducción HLS";
-
-   video.play().catch(() => {
-    toast("Pulsa Reproducir para iniciar el canal.");
-   });
-  });
-
-  hls.loadSource(manifest);
-  hls.attachMedia(video);
-
-  return;
+ } catch(e) {
+  throw Error(
+   "No se puede conectar con AceServe desde esta página. " +
+   "Comprueba el servicio y los permisos de conexión local del navegador. " +
+   "Detalle: " + e.message
+  );
  }
 
- /*
-  REPRODUCTORES CON HLS NATIVO
- */
-
- if (video.canPlayType("application/vnd.apple.mpegurl")) {
-  video.src = manifest;
-
-  video.onloadedmetadata = () => {
-   video.play().catch(() => {
-    toast("Pulsa Reproducir para iniciar el canal.");
-   });
-  };
-
-  $("nowInfo").textContent = "AceServe · HLS nativo";
-  return;
+ if (!response.ok) {
+  throw Error("AceServe respondió con HTTP " + response.status);
  }
 
- toast("Este navegador no dispone de soporte HLS compatible.");
+ let data;
+
+ try {
+  data = await response.json();
+ } catch(e) {
+  throw Error("AceServe no ha devuelto una respuesta JSON válida.");
+ }
+
+ console.log("Respuesta AceServe:",data);
+
+ if (data.error) {
+  throw Error(
+   typeof data.error === "string"
+    ? data.error
+    : JSON.stringify(data.error)
+  );
+ }
+
+ const playbackUrl = data?.response?.playback_url;
+
+ if (!playbackUrl) {
+  throw Error("AceServe no ha devuelto response.playback_url.");
+ }
+
+ return playbackUrl;
 }
 
-/* =========================================
-   LIMPIAR REPRODUCTOR
-========================================= */
+/* REPRODUCIR ACESTREAM */
+
+async function playAceStream(originalUrl) {
+
+ const requestId = ++playbackRequest;
+
+ try {
+
+  $("nowInfo").textContent = "Conectando con AceServe…";
+  $("overlay").hidden = false;
+  $("overlay").textContent = "Solicitando señal AceStream…";
+
+  const playbackUrl = await getAcePlaybackUrl(originalUrl);
+
+  // Evitar que una petición antigua sustituya al canal nuevo.
+  if (requestId !== playbackRequest) return;
+
+  console.log("URL HLS recibida:",playbackUrl);
+
+  $("overlay").textContent = "Cargando vídeo…";
+  $("nowInfo").textContent = "AceServe · Preparando reproducción";
+
+  if (window.Hls && Hls.isSupported()) {
+
+   hls = new Hls({
+    enableWorker:true,
+    lowLatencyMode:false,
+    backBufferLength:30,
+    manifestLoadingTimeOut:20000,
+    manifestLoadingMaxRetry:3,
+    levelLoadingTimeOut:20000,
+    fragLoadingTimeOut:30000
+   });
+
+   hls.on(Hls.Events.ERROR,function(event,data) {
+
+    console.error("Error HLS:",data);
+
+    if (!data.fatal) return;
+
+    $("nowInfo").textContent =
+     "Error HLS: " + (data.details || data.type);
+
+    toast(
+     "Error de reproducción: " +
+     (data.details || data.type)
+    );
+
+    $("overlay").hidden = false;
+    $("overlay").textContent = "Error al reproducir el canal";
+
+    if (hls) {
+     hls.destroy();
+     hls = null;
+    }
+   });
+
+   hls.on(Hls.Events.MANIFEST_PARSED,function() {
+
+    if (requestId !== playbackRequest) return;
+
+    $("overlay").hidden = true;
+    $("nowInfo").textContent = "AceServe · HLS conectado";
+
+    video.play().catch(e => {
+     console.warn("Reproducción pendiente:",e);
+     toast("Pulsa Reproducir para iniciar el canal.");
+    });
+   });
+
+   hls.on(Hls.Events.FRAG_BUFFERED,function() {
+    $("overlay").hidden = true;
+    $("nowInfo").textContent = "AceServe · Reproduciendo";
+   });
+
+   hls.loadSource(playbackUrl);
+   hls.attachMedia(video);
+
+   return;
+  }
+
+  // HLS nativo: dispositivos que lo soporten.
+  if (video.canPlayType("application/vnd.apple.mpegurl")) {
+
+   video.src = playbackUrl;
+
+   video.onloadedmetadata = () => {
+    if (requestId !== playbackRequest) return;
+
+    $("overlay").hidden = true;
+    $("nowInfo").textContent = "AceServe · HLS nativo";
+
+    video.play().catch(() => {
+     toast("Pulsa Reproducir para iniciar el canal.");
+    });
+   };
+
+   video.onerror = () => {
+    console.error("Error de vídeo:",video.error);
+    toast("El navegador no puede reproducir el flujo de AceServe.");
+   };
+
+   return;
+  }
+
+  throw Error("Este navegador no tiene soporte HLS compatible.");
+
+ } catch(e) {
+
+  if (requestId !== playbackRequest) return;
+
+  console.error("Error AceStream:",e);
+
+  $("nowInfo").textContent = "Error de conexión AceServe";
+  $("overlay").hidden = false;
+  $("overlay").textContent = "No se pudo iniciar el canal";
+
+  toast(e.message);
+ }
+}
+
+/* LIMPIAR REPRODUCTOR */
 
 function cleanPlayback() {
+
+ playbackRequest++;
+
  if (hls) {
   hls.destroy();
   hls = null;
@@ -605,21 +614,21 @@ function cleanPlayback() {
  video.pause();
  video.removeAttribute("src");
  video.load();
+
+ video.onerror = null;
+ video.onloadedmetadata = null;
 }
 
-/* =========================================
-   DETECTAR HLS NORMAL
-========================================= */
+/* DETECTAR HLS NORMAL */
 
 function isHls(url) {
  return /\.m3u8(?:$|[?#])/i.test(url);
 }
 
-/* =========================================
-   REPRODUCIR CANAL
-========================================= */
+/* REPRODUCIR CANAL */
 
 async function playChannel(index) {
+
  if (index < 0 || index >= channels.length) return;
 
  selected = index;
@@ -640,62 +649,64 @@ async function playChannel(index) {
 
  const url = c.url;
 
- /*
-  CANALES ACESTREAM
-  Se reproducen dentro del reproductor de ACE-AUTO.
- */
-
+ // ACESTREAM
  if (isAce(url)) {
   showEPG(c);
   await playAceStream(url);
   return;
  }
 
- /*
-  CANALES HLS NORMALES
- */
+ // HLS NORMAL
+ if (isHls(url) && window.Hls && Hls.isSupported()) {
 
- if (
-  isHls(url) &&
-  window.Hls &&
-  Hls.isSupported()
- ) {
   hls = new Hls({
-   enableWorker: true
+   enableWorker:true
   });
 
-  hls.loadSource(url);
-  hls.attachMedia(video);
-
-  hls.on(Hls.Events.ERROR, (_, data) => {
+  hls.on(Hls.Events.ERROR,(_,data) => {
    if (data.fatal) {
+    console.error("Error HLS normal:",data);
     toast(
-     "No se pudo reproducir este stream HLS: " +
+     "No se pudo reproducir el stream: " +
      (data.details || data.type)
     );
    }
   });
 
+  hls.on(Hls.Events.MANIFEST_PARSED,() => {
+   $("overlay").hidden = true;
+   video.play().catch(() => {
+    toast("Pulsa Reproducir para iniciar el canal.");
+   });
+  });
+
+  hls.loadSource(url);
+  hls.attachMedia(video);
+
  } else {
+
   video.src = url;
+
+  video.onerror = () => {
+   toast("No se pudo reproducir este canal.");
+  };
  }
 
- try {
-  await video.play();
- } catch(e) {
-  toast(
-   "El navegador no ha podido iniciar el canal. Comprueba la compatibilidad del enlace."
-  );
+ if (!isHls(url)) {
+  try {
+   await video.play();
+  } catch(e) {
+   toast("Pulsa Reproducir para iniciar el canal.");
+  }
  }
 
  showEPG(c);
 }
 
-/* =========================================
-   DETENER
-========================================= */
+/* DETENER */
 
 function stop() {
+
  cleanPlayback();
 
  $("placeholder").style.display = "flex";
@@ -705,25 +716,23 @@ function stop() {
  $("nowInfo").textContent = "ACE-AUTO · Guía EPG";
 }
 
-/* =========================================
-   CAMBIAR CANAL
-========================================= */
+/* CAMBIAR CANAL */
 
 function step(dir) {
+
  if (!channels.length) return;
 
- let i = selected < 0
+ const i = selected < 0
   ? 0
   : (selected + dir + channels.length) % channels.length;
 
  playChannel(i);
 }
 
-/* =========================================
-   EPG
-========================================= */
+/* EPG */
 
 function parseXmltvDate(s) {
+
  const m = s.match(
   /^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})\s*([+-]\d{4})?/
  );
@@ -738,20 +747,23 @@ function parseXmltvDate(s) {
 }
 
 function timeFmt(d) {
- return d.toLocaleTimeString("es-ES", {
-  hour: "2-digit",
-  minute: "2-digit"
+ return d.toLocaleTimeString("es-ES",{
+  hour:"2-digit",
+  minute:"2-digit"
  });
 }
 
 async function loadEPG() {
+
  let loaded = 0;
 
  epgMap.clear();
  xmlChannels.clear();
 
  for (const file of EPG_FILES) {
+
   try {
+
    const r = await fetch(file + "?v=" + Date.now());
 
    if (!r.ok) continue;
@@ -766,30 +778,29 @@ async function loadEPG() {
    if (doc.querySelector("parsererror")) continue;
 
    doc.querySelectorAll("channel").forEach(ch => {
+
     const id = ch.getAttribute("id");
 
     if (id && !xmlChannels.has(id)) {
-     xmlChannels.set(id, ch);
+     xmlChannels.set(id,ch);
     }
    });
 
    doc.querySelectorAll("programme").forEach(p => {
+
     const id = p.getAttribute("channel");
 
     if (!id) return;
 
     const item = {
-     start: parseXmltvDate(p.getAttribute("start") || ""),
-     stop: parseXmltvDate(p.getAttribute("stop") || ""),
-     title:
-      p.querySelector("title")?.textContent?.trim() ||
-      "Sin título",
-     desc:
-      p.querySelector("desc")?.textContent?.trim() || ""
+     start:parseXmltvDate(p.getAttribute("start") || ""),
+     stop:parseXmltvDate(p.getAttribute("stop") || ""),
+     title:p.querySelector("title")?.textContent?.trim() || "Sin título",
+     desc:p.querySelector("desc")?.textContent?.trim() || ""
     };
 
     if (!epgMap.has(id)) {
-     epgMap.set(id, []);
+     epgMap.set(id,[]);
     }
 
     epgMap.get(id).push(item);
@@ -798,14 +809,12 @@ async function loadEPG() {
    loaded++;
 
   } catch(e) {
-   console.warn("EPG no disponible:", file, e);
+   console.warn("EPG no disponible:",file,e);
   }
  }
 
  for (const arr of epgMap.values()) {
-  arr.sort(
-   (a, b) => (a.start || 0) - (b.start || 0)
-  );
+  arr.sort((a,b) => (a.start || 0) - (b.start || 0));
  }
 
  $("epgStatus").textContent = loaded
@@ -817,11 +826,10 @@ async function loadEPG() {
  }
 }
 
-/* =========================================
-   MOSTRAR PROGRAMACION
-========================================= */
+/* MOSTRAR PROGRAMACION */
 
 function showEPG(c) {
+
  const root = $("programs");
  root.innerHTML = "";
 
@@ -843,7 +851,7 @@ function showEPG(c) {
 
  const upcoming = list.filter(p =>
   p.stop && p.stop > now
- ).slice(0, 8);
+ ).slice(0,8);
 
  if (!upcoming.length) {
   root.innerHTML =
@@ -852,6 +860,7 @@ function showEPG(c) {
  }
 
  upcoming.forEach(p => {
+
   const box = document.createElement("article");
 
   box.className =
@@ -868,7 +877,7 @@ function showEPG(c) {
    " – " +
    (p.stop ? timeFmt(p.stop) : "--:--");
 
-  box.append(b, s);
+  box.append(b,s);
 
   if (p.desc) {
    const d = document.createElement("p");
@@ -880,19 +889,15 @@ function showEPG(c) {
  });
 }
 
-/* =========================================
-   CONTROLES
-========================================= */
+/* CONTROLES */
 
-$("search").addEventListener(
- "input",
- renderChannels
-);
+$("search").addEventListener("input",renderChannels);
 
 $("prev").onclick = () => step(-1);
 $("next").onclick = () => step(1);
 
 $("play").onclick = () => {
+
  if (selected < 0) {
   toast("Primero selecciona un canal.");
   return;
@@ -913,6 +918,7 @@ $("play").onclick = () => {
 $("stop").onclick = stop;
 
 $("fullscreen").onclick = () => {
+
  const el = document.querySelector(".screen");
 
  if (el.requestFullscreen) {
@@ -922,16 +928,13 @@ $("fullscreen").onclick = () => {
  }
 };
 
-/* =========================================
-   MANDO / TECLADO
-========================================= */
+/* MANDO Y TECLADO */
 
-document.addEventListener("keydown", e => {
- if (
-  ["INPUT", "TEXTAREA"].includes(
-   document.activeElement.tagName
-  )
- ) return;
+document.addEventListener("keydown",e => {
+
+ if (["INPUT","TEXTAREA"].includes(
+  document.activeElement.tagName
+ )) return;
 
  if (e.key === "ArrowDown") {
   e.preventDefault();
@@ -944,6 +947,7 @@ document.addEventListener("keydown", e => {
  }
 
  if (e.key === "Enter" && selected >= 0) {
+
   const c = channels[selected];
 
   if (isAce(c.url)) {
@@ -959,16 +963,19 @@ document.addEventListener("keydown", e => {
  }
 });
 
-/* =========================================
-   INICIAR ACE-AUTO
-========================================= */
+/* INICIAR ACE-AUTO */
 
 (async () => {
+
  try {
+
   await loadM3U();
   await loadEPG();
 
  } catch(e) {
+
+  console.error(e);
+
   $("status").textContent = "Error al cargar";
 
   $("channels").innerHTML =
@@ -976,6 +983,7 @@ document.addEventListener("keydown", e => {
 
   toast(e.message);
  }
+
 })();
 
 </script>
