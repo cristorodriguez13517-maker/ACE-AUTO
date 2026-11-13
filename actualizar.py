@@ -48,6 +48,9 @@ ARCHIVO_MANUAL = Path("canales_manuales.m3u")
 ARCHIVO_HISTORIAL = Path("historial.json")
 ARCHIVO_CAMBIOS = Path("cambios.md")
 
+# Archivo que utilizará la página de GitHub Pages.
+ARCHIVO_WEB = Path("datos/canales.m3u")
+
 GRUPO_AUTO = "CANO AUTO"
 GRUPO_TDT = "TDT AUTO"
 GRUPO_RADIO = "RADIOS AUTO"
@@ -933,6 +936,32 @@ def publicar_git_gay(contenido):
 
 
 # ==========================================================
+# GUARDAR LISTA PARA GITHUB PAGES
+# ==========================================================
+
+def guardar_lista_web(contenido):
+
+    # Crear la carpeta datos si todavía no existe.
+    ARCHIVO_WEB.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    # Guardar la lista unificada.
+    ARCHIVO_WEB.write_text(
+        contenido,
+        encoding="utf-8"
+    )
+
+    print("---------------------------------------")
+    print("LISTA WEB GUARDADA CORRECTAMENTE")
+    print("---------------------------------------")
+    print("Archivo:", ARCHIVO_WEB)
+    print("Tamaño:", ARCHIVO_WEB.stat().st_size, "bytes")
+    print("---------------------------------------")
+
+
+# ==========================================================
 # PROCESO PRINCIPAL
 # ==========================================================
 
@@ -1115,17 +1144,22 @@ def main():
         + "\n"
     )
 
-    # 9. Registrar cambios solo de Elcano.
+    # 9. Guardar la lista unificada para GitHub Pages.
+    guardar_lista_web(
+        final
+    )
+
+    # 10. Registrar cambios solo de Elcano.
     registrar_cambios(
         automaticos
     )
 
-    # 10. Publicar la lista final.
+    # 11. Publicar la lista final en git.gay.
     publicar_git_gay(
         final
     )
 
-    # 11. Resumen final.
+    # 12. Resumen final.
     print("---------------------------------------")
     print("RESUMEN FINAL ACE-AUTO")
     print("---------------------------------------")
@@ -1153,6 +1187,11 @@ def main():
     print(
         "Total publicado:",
         len(todos)
+    )
+
+    print(
+        "Lista web:",
+        ARCHIVO_WEB
     )
 
     print("---------------------------------------")
