@@ -1,25 +1,25 @@
 # Última actualización ACE-AUTO
 
-Fecha: 13/11/2026 20:09 UTC
+Fecha: 13/11/2026 23:36 UTC
 
-Canales añadidos: 3
-Canales eliminados: 2
-Canales modificados: 7
-
-### Añadidos
-- M+ Baloncesto 1080p **
-- LaLiga TV Hypermotion 720p **
-- M+ LaLiga 1080p **
+Canales añadidos: 0
+Canales eliminados: 6
+Canales modificados: 8
 
 ### Eliminados
+- Eurosport 1 720p **
+- M+ Deportes 7 1080p **
 - RFEF TV 1080p **
-- La 1 TVE 1080p **
+- La 1 TVE 720p **
+- Bein Sports TR 720p *
+- Dazn MotoGP 720p *
 
 ### Modificados
-- DAZN Baloncesto 1080p **
-- DAZN Baloncesto 1080p **
-- M+ Baloncesto 1080p *
-- M+ Baloncesto 1080p *
 - M+ LaLiga 1080p **
+- M+ LaLiga 1080p **
+- M+ LaLiga 1080p **
+- M+ Deportes 7 1080p **
+- RFEF TV 1080p **
+- NBA League Pass 1080p *
 - NBA League Pass 1080p *
 - NBA League Pass 1080p *
