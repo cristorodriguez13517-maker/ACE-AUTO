@@ -4,30 +4,20 @@
     "calidad": 2,
     "hash": "46d5e27aa3dcac7111cacf4c525bbb9c33ad93662f350f485d9723e3a78e1d20"
   },
-  "dazn baloncesto|calidad-2|opcion-2": {
-    "nombre": "DAZN Baloncesto 720p **",
-    "calidad": 2,
-    "hash": "ba7eec82daaecd5b792b1449566c877b4adf8dfa38a9909b53a594d884040cfd"
-  },
   "dazn baloncesto|calidad-3|opcion-1": {
     "nombre": "DAZN Baloncesto 1080p **",
     "calidad": 3,
-    "hash": "93db22689f54a42c883ace34ec20752a9dd6c493c11304a82b499b877cea58f4"
+    "hash": "a8c7a11998946d1ff4f822af0cdb5c1b3d1a3c46e2e56b852af6e1527ca70ec1"
   },
   "dazn baloncesto|calidad-3|opcion-2": {
     "nombre": "DAZN Baloncesto 1080p **",
     "calidad": 3,
-    "hash": "a8c7a11998946d1ff4f822af0cdb5c1b3d1a3c46e2e56b852af6e1527ca70ec1"
+    "hash": "93db22689f54a42c883ace34ec20752a9dd6c493c11304a82b499b877cea58f4"
   },
   "dazn baloncesto 2|calidad-2|opcion-1": {
     "nombre": "DAZN Baloncesto 2 720p *",
     "calidad": 2,
     "hash": "c9f1ea6a838f3c7c83f4a04623710c1bb1a27fe1ac24e3daaf64e0b5f7c71e9f"
-  },
-  "dazn baloncesto 3|calidad-2|opcion-1": {
-    "nombre": "DAZN Baloncesto 3 720p *",
-    "calidad": 2,
-    "hash": "141324711d36029952767e2b37e9aee8a849203ec0af5101f8cf0bf9f2690601"
   },
   "dazn baloncesto 3|calidad-3|opcion-1": {
     "nombre": "DAZN Baloncesto 3 1080p **",
@@ -63,11 +53,6 @@
     "nombre": "M+ Baloncesto 3 1080p *",
     "calidad": 3,
     "hash": "8b8a965d5183fda6018d80fc90a98ea653e2201731b1e4ff8bb1b8775f7d36d1"
-  },
-  "m baloncesto 3|calidad-3|opcion-2": {
-    "nombre": "M+ Baloncesto 3 1080p **",
-    "calidad": 3,
-    "hash": "baaccc82a196b1288b9c1287cd65a6f5a825363f60c78d8b13945a4c26ebfed8"
   },
   "dazn 1|calidad-3|opcion-1": {
     "nombre": "DAZN 1 1080p **",
@@ -177,12 +162,12 @@
   "m laliga|calidad-3|opcion-2": {
     "nombre": "M+ LaLiga 1080p **",
     "calidad": 3,
-    "hash": "b8faf07590a4ceca96acb4ccf08e07ee94c689bdbee0327919ab5f952b05307f"
+    "hash": "c6a127bd992bd1af390a5f64a4979242dfeb08dcd57a3962feec7478f3f68eef"
   },
   "m laliga|calidad-3|opcion-3": {
     "nombre": "M+ LaLiga 1080p **",
     "calidad": 3,
-    "hash": "c6a127bd992bd1af390a5f64a4979242dfeb08dcd57a3962feec7478f3f68eef"
+    "hash": "b8faf07590a4ceca96acb4ccf08e07ee94c689bdbee0327919ab5f952b05307f"
   },
   "m laliga|calidad-3|opcion-4": {
     "nombre": "M+ LaLiga 1080p **",
@@ -203,11 +188,6 @@
     "nombre": "M+ LaLiga 3 1080p **",
     "calidad": 3,
     "hash": "fbfbb628a2bc451275c1b41f6c8f1c1c874cd66836f07f812b68e48b624f1041"
-  },
-  "movistar plus|calidad-2|opcion-1": {
-    "nombre": "MOVISTAR PLUS 720p *",
-    "calidad": 2,
-    "hash": "208f7498501c4fbf141b655264e404537a081356f9c78e07f9a8efa9ba65d647"
   },
   "movistar plus|calidad-3|opcion-1": {
     "nombre": "MOVISTAR PLUS 1080p *",
@@ -467,17 +447,17 @@
   "nba league pass|calidad-3|opcion-1": {
     "nombre": "NBA League Pass 1080p *",
     "calidad": 3,
-    "hash": "251563346e7ecbbb9dbf818969e7a55fcddd9960e72150dc50ee000efe7ebbe0"
+    "hash": "edfd2cc5358fa9c9e364abe6190985b8cc125ab33a34be2e5f28f70277b3773e"
   },
   "nba league pass|calidad-3|opcion-2": {
     "nombre": "NBA League Pass 1080p *",
     "calidad": 3,
-    "hash": "edfd2cc5358fa9c9e364abe6190985b8cc125ab33a34be2e5f28f70277b3773e"
+    "hash": "6b8c8d43d7b9a00e78d5441b4f4dcf7fdd8cdaf037703c674334d381b53a3478"
   },
   "nba league pass|calidad-3|opcion-3": {
     "nombre": "NBA League Pass 1080p *",
     "calidad": 3,
-    "hash": "6b8c8d43d7b9a00e78d5441b4f4dcf7fdd8cdaf037703c674334d381b53a3478"
+    "hash": "251563346e7ecbbb9dbf818969e7a55fcddd9960e72150dc50ee000efe7ebbe0"
   },
   "nba league pass|calidad-3|opcion-4": {
     "nombre": "NBA League Pass 1080p **",
@@ -485,11 +465,6 @@
     "hash": "87e5f8f61fea755489973c54156211e90dd93a01670d56abc36d041633554f1a"
   },
   "sky sport tennis|calidad-3|opcion-1": {
-    "nombre": "Sky Sport Tennis 1080p *",
-    "calidad": 3,
-    "hash": "691e1de2c223d7cc3db325f0c966359ac46d8c808ba11b220cbb329ec75598aa"
-  },
-  "sky sport tennis|calidad-3|opcion-2": {
     "nombre": "Sky Sport Tennis 1080p **",
     "calidad": 3,
     "hash": "5de9568f40d1a8674b1231183d66a2aa8679e2e5696efaa81891f9bbf6dbb188"
