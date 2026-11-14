@@ -3,76 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Diagnóstico AceServe</title>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<title>Prueba AceServe</title>
 <style>
-body{background:#111;color:white;font-family:Arial;padding:20px}
-button{background:#e50914;color:white;border:0;padding:14px;border-radius:6px}
-video{width:100%;background:black;margin-top:20px}
-#resultado{white-space:pre-wrap;overflow-wrap:anywhere;margin-top:20px}
+body {
+    background: #080808;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+    padding: 20px;
+}
+video {
+    width: 100%;
+    max-width: 900px;
+    background: black;
+}
 </style>
 </head>
 <body>
 
-<h2>ACE-AUTO - Diagnóstico AceServe</h2>
+<h2>ACE-AUTO - Prueba AceServe</h2>
 
-<button onclick="probar()">PROBAR REPRODUCCIÓN</button>
+<video id="video" controls autoplay playsinline></video>
 
-<video id="video" controls playsinline></video>
-
-<div id="resultado">Pulsa PROBAR REPRODUCCIÓN.</div>
+<p id="estado">Conectando con AceServe...</p>
 
 <script>
-const URL_HLS =
-"http://127.0.0.1:6878/ace/m/259cf124aa38e8751c5f4a656656fa0da5b6be82/f528764d624db129b32c21fbca0cb8d6.m3u8";
+const VIDEO =
+"http://127.0.0.1:6878/ace/m/191c2708c68317192dc1492722c7901e6431f208/f528764d624db129b32c21fbca0cb8d6.m3u8";
 
 const video = document.getElementById("video");
-const resultado = document.getElementById("resultado");
+const estado = document.getElementById("estado");
 
-function log(texto) {
-    resultado.textContent += "\n" + texto;
-}
+video.src = VIDEO;
 
-async function probar() {
-    resultado.textContent = "Probando conexión con AceServe...";
+video.addEventListener("loadedmetadata", () => {
+    estado.textContent = "Vídeo detectado correctamente.";
+});
 
-    try {
-        const respuesta = await fetch(URL_HLS, {
-            method: "GET",
-            cache: "no-store"
-        });
+video.addEventListener("playing", () => {
+    estado.textContent = "REPRODUCIENDO CORRECTAMENTE.";
+});
 
-        log("FETCH: HTTP " + respuesta.status);
-
-        const contenido = await respuesta.text();
-        log("Respuesta recibida: " + contenido.slice(0, 300));
-
-    } catch (error) {
-        log("ERROR FETCH: " + error.message);
-    }
-
-    if (Hls.isSupported()) {
-        log("Hls.js está disponible.");
-
-        const hls = new Hls();
-
-        hls.on(Hls.Events.ERROR, function(event, data) {
-            log("ERROR HLS: " + data.type + " / " +
-                data.details + " / Fatal: " + data.fatal);
-        });
-
-        hls.on(Hls.Events.MANIFEST_PARSED, function() {
-            log("MANIFIESTO CARGADO. Intentando reproducir...");
-            video.play().catch(e => log("PLAY: " + e.message));
-        });
-
-        hls.loadSource(URL_HLS);
-        hls.attachMedia(video);
-
-    } else {
-        log("Hls.js no está disponible en este navegador.");
-    }
-}
+video.addEventListener("error", () => {
+    estado.textContent = "ERROR: Chrome no puede reproducir directamente este flujo.";
+});
 </script>
 
 </body>
