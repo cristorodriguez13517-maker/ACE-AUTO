@@ -1,12 +1,12 @@
 # Última actualización ACE-AUTO
 
-Fecha: 14/11/2026 01:05 UTC
+Fecha: 14/11/2026 01:13 UTC
 
-Canales añadidos: 0
-Canales eliminados: 48
+Canales añadidos: 41
+Canales eliminados: 0
 Canales modificados: 60
 
-### Eliminados
+### Añadidos
 - DAZN Baloncesto 720p **
 - DAZN Baloncesto 2 720p *
 - DAZN Baloncesto 3 720p *
@@ -14,35 +14,28 @@ Canales modificados: 60
 - M+ Baloncesto 1080p **
 - M+ Baloncesto 2 1080p **
 - M+ Baloncesto 3 1080p **
-- DAZN 4 1080p *
 - Eurosport 1 1080p **
 - Eurosport 2 1080p **
 - LaLiga TV Hypermotion 2 720p *
 - LaLiga TV Hypermotion 2 1080p **
 - M+ LaLiga 720p **
 - M+ LaLiga 1080p **
-- M+ LaLiga 2 *
 - MOVISTAR PLUS 720p *
 - MOVISTAR PLUS 1080p **
 - M+ Deportes 720p **
 - M+ Deportes 1080p **
 - M+ Deportes 2 1080p **
 - M+ Deportes 3 720p **
-- M+ Deportes 3 1080p **
 - M+ Deportes 4 720p *
-- M+ Deportes 4 1080p **
 - M+ Deportes 6 1080p *
 - M+ Deportes 7 720p *
-- M+ Golf 720p *
 - M+ Golf 2 1080p *
-- M+ Golf 2 1080p **
 - M+ Vamos 720p **
 - M+ VAMOS 2 720p *
 - M+ VAMOS 2 1080p *
 - M+ VAMOS 3 1080p **
 - Bein Sports 3 TR 720p *
 - Esport3 720p **
-- Esport3 1080p **
 - Fox Sports 2 *
 - NBC Sports 1080p *
 - Real Madrid TV 1080p **
@@ -57,63 +50,63 @@ Canales modificados: 60
 - Tennis Channel 1080p **
 
 ### Modificados
-- DAZN Baloncesto 720p
-- DAZN Baloncesto 1080p
-- DAZN Baloncesto 1080p
-- DAZN Baloncesto 3 1080p
-- M+ Baloncesto 1080p
-- M+ Baloncesto 2 1080p
-- M+ Baloncesto 3 1080p
-- DAZN 1 1080p
-- DAZN 2 720p
-- DAZN 2 1080p
-- Eurosport 1 1080p
-- Eurosport 2 720p
-- Eurosport 2 1080p
-- DAZN F1 720p
-- LaLiga TV Hypermotion 720p
-- LaLiga TV Hypermotion 1080p
-- LaLiga TV Hypermotion 2 1080p
-- LaLiga TV Hypermotion 3 1080p
-- DAZN LaLiga
-- DAZN LaLiga 720p
-- DAZN LaLiga 1080p
-- M+ LaLiga 720p
-- M+ LaLiga 1080p
-- M+ LaLiga 1080p
-- M+ LaLiga 1080p
-- M+ LaLiga 2 720p
-- M+ LaLiga 3 720p
-- M+ LaLiga 3 1080p
-- MOVISTAR PLUS 1080p
-- M+ Deportes 720p
-- M+ Deportes 1080p
-- M+ Deportes 2 720p
-- M+ Deportes 2 1080p
-- M+ Deportes 3 720p
-- M+ Deportes 3 1080p
-- M+ Deportes 4 1080p
-- M+ Deportes 5 1080p
-- M+ Deportes 7 1080p
-- M+ Deportes 8 1080p
-- M+ Golf 1080p
-- M+ Vamos 720p
-- M+ Vamos 1080p
-- M+ VAMOS 3 720p
-- M+ VAMOS 3 1080p
-- RFEF TV 1080p
-- CUATRO 1080p
-- La 1 TVE 4K
-- La 2 TVE 1080p
-- M+ 0 1080p
-- Telecinco 1080p
-- Esport3 720p
-- Esport3 1080p
-- Real Madrid TV 1080p
-- SPORT TV3 720p
-- SPORT TV3 1080p
-- Teledeporte 720p
-- Teledeporte 1080p
-- NBA League Pass 1080p
-- Sky Sport Tennis 1080p
-- Tennis Channel 1080p
+- DAZN Baloncesto 720p *
+- DAZN Baloncesto 1080p **
+- DAZN Baloncesto 1080p **
+- DAZN Baloncesto 3 1080p **
+- M+ Baloncesto 1080p *
+- M+ Baloncesto 2 1080p *
+- M+ Baloncesto 3 1080p *
+- DAZN 1 1080p **
+- DAZN 2 720p **
+- DAZN 2 1080p **
+- Eurosport 1 1080p *
+- Eurosport 2 720p **
+- Eurosport 2 1080p *
+- DAZN F1 720p **
+- LaLiga TV Hypermotion 720p **
+- LaLiga TV Hypermotion 1080p **
+- LaLiga TV Hypermotion 2 1080p *
+- LaLiga TV Hypermotion 3 1080p **
+- DAZN LaLiga 720p **
+- DAZN LaLiga 1080p **
+- DAZN LaLiga **
+- M+ LaLiga 720p *
+- M+ LaLiga 1080p *
+- M+ LaLiga 1080p **
+- M+ LaLiga 1080p **
+- M+ LaLiga 2 720p **
+- M+ LaLiga 3 720p **
+- M+ LaLiga 3 1080p **
+- MOVISTAR PLUS 1080p *
+- M+ Deportes 720p *
+- M+ Deportes 1080p *
+- M+ Deportes 2 720p **
+- M+ Deportes 2 1080p *
+- M+ Deportes 3 720p *
+- M+ Deportes 3 1080p **
+- M+ Deportes 4 1080p **
+- M+ Deportes 5 1080p **
+- M+ Deportes 7 1080p **
+- M+ Deportes 8 1080p **
+- M+ Golf 1080p **
+- M+ Vamos 720p *
+- M+ Vamos 1080p **
+- M+ VAMOS 3 720p **
+- M+ VAMOS 3 1080p *
+- RFEF TV 1080p **
+- CUATRO 1080p **
+- La 1 TVE 4K **
+- La 2 TVE 1080p **
+- M+ 0 1080p **
+- Telecinco 1080p **
+- Esport3 720p *
+- Esport3 1080p **
+- Real Madrid TV 1080p *
+- SPORT TV3 720p **
+- SPORT TV3 1080p **
+- Teledeporte 720p **
+- Teledeporte 1080p *
+- NBA League Pass 1080p *
+- Sky Sport Tennis 1080p *
+- Tennis Channel 1080p *
