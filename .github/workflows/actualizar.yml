@@ -1,4 +1,4 @@
-name: Actualizar ACE-AUTO y GitHub Pages
+name: Actualizar ACE-AUTO
 
 on:
   workflow_dispatch:
@@ -9,8 +9,6 @@ on:
   push:
     paths:
       - "actualizar.py"
-      - "preparar_epg.py"
-      - "index.html"
       - "canales_manuales.m3u"
       - ".github/workflows/actualizar.yml"
 
@@ -41,30 +39,21 @@ jobs:
         run: |
           python -u actualizar.py
 
-      - name: Preparar datos para GitHub Pages
-        run: |
-          mkdir -p datos/epg
-          test -s datos/canales.m3u
-          python -u preparar_epg.py
-          touch .nojekyll
-
-      - name: Guardar actualizaciones en GitHub
+      - name: Guardar actualizaciones
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -A -- \
+          git add -- \
             canales.m3u \
             canales_tdt.m3u \
             canales_radio.m3u \
             historial.json \
-            cambios.md \
-            datos \
-            .nojekyll
+            cambios.md
 
           if git diff --cached --quiet; then
             echo "No hay cambios que guardar."
           else
-            git commit -m "Actualizar ACE-AUTO y GitHub Pages"
+            git commit -m "Actualizar ACE-AUTO"
             git push
           fi
