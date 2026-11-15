@@ -43,9 +43,7 @@ https://playerservices.streamtheworld.com/api/livestream-redirect/RAC_MES_1.mp3
 #EXTINF:-1 radio="true" tvg-id="CATRadio.Radio" tvg-logo="https://graph.facebook.com/catradio/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Catalunya Ràdio",Catalunya Ràdio
 https://directes-radio-int.3catdirectes.cat/live-content/catalunya-radio-hls/master.m3u8
 #EXTINF:-1 radio="true" tvg-id="OndaMadrid.Radio" tvg-logo="https://graph.facebook.com/ondamadridradio/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Onda Madrid",Onda Madrid
-https://live.telemadrid.cross-media.es/6389769037112/eu-central-1/6416060453001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiajI5YjgyLmVncmVzcy5haGc3NmwiLCJhY2NvdW50X2lkIjoiNjQxNjA2MDQ1MzAwMSIsImVobiI6ImxpdmUudGVsZW1hZHJpZC5jcm9zcy1tZWRpYS5lcyIsImlzcyI6ImJsaXZlLXBsYXliYWNrLXNvdXJjZS1hcGkiLCJzdWIiOiJwYXRobWFwdG9rZW4iLCJhdWQiOlsiNjQxNjA2MDQ1MzAwMSJdLCJqdGkiOiI2Mzg5NzY5MDM3MTEyIn0.mSEPQICNIKBAWWzolDpDk6cERGe7k93rkqQunSc6cG4/playlist-hls.m3u8
-#EXTINF:-1 radio="true" tvg-id="OndaMadrid.Radio" tvg-logo="https://graph.facebook.com/ondamadridradio/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Onda Madrid",Onda Madrid
-https://live.telemadrid.cross-media.es/6389770485112/eu-central-1/6416060453001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiajI5YjgyLmVncmVzcy5haGc3NmwiLCJhY2NvdW50X2lkIjoiNjQxNjA2MDQ1MzAwMSIsImVobiI6ImxpdmUudGVsZW1hZHJpZC5jcm9zcy1tZWRpYS5lcyIsImlzcyI6ImJsaXZlLXBsYXliYWNrLXNvdXJjZS1hcGkiLCJzdWIiOiJwYXRobWFwdG9rZW4iLCJhdWQiOlsiNjQxNjA2MDQ1MzAwMSJdLCJqdGkiOiI2Mzg5NzcwNDg1MTEyIn0.MZsybG7gZngXIa5TKgjC4kKqA5hzM_oyShyMLKKaohQ/playlist-hls.m3u8
+https://live.telemadrid.cross-media.es/6389769037112/eu-central-1/6416060453001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiajI5YjgyLmVncmVzcy5haGc3NmwiLCJhY2NvdW50X2lkIjoiNjQxNjA2MDQ1MzAwMSIsImVobiI6ImxpdmUudGVsZW1hZHJpZC5jcm9zcy1tZWRpYS5lcyIsImlzcyI6ImJsaXZlLXBsYXliYWNrLXNvdXJjZS1hcGkiLCJzdWIiOiJwYXRobWFwdG9rZW4iLCJhdWQiOlsiNjQxNjA2MDQ1MzAwMSJdLCJqdGkiOiI2Mzg5NzY5MDM3MTEyIn0.mSEPQICNIKBAWWzolDpDk6cERGe7k93rkqQunSc6cG4/playlist-hls-dvr.m3u8
 #EXTINF:-1 radio="true" tvg-id="CanalSur.Radio" tvg-logo="https://graph.facebook.com/CanalSurRadioAndalucia/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Canal Sur Radio",Canal Sur Radio
 https://rtva-live-radio.flumotion.com/rtva/csr.mp3
 #EXTINF:-1 radio="true" tvg-id="RadioEuskadi.Radio" tvg-logo="https://graph.facebook.com/radioeuskadi.RE/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Radio Euskadi",Radio Euskadi
@@ -110,6 +108,8 @@ https://playerservices.streamtheworld.com/api/livestream-redirect/RAC105.mp3
 https://mdstrm.com/audio/697382c0662b3e30d30e12a4/live.m3u8
 #EXTINF:-1 radio="true" tvg-id="RNEClasica.Radio" tvg-logo="https://graph.facebook.com/radioclasicartve/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Radio Clásica RNE",Radio Clásica RNE
 https://rtvelivestream.rtve.es/rtvesec/rne/rne_r2_main.m3u8
+#EXTINF:-1 radio="true" tvg-logo="https://graph.facebook.com/ondamadridradio/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Onda Madrid Deportes",Onda Madrid Deportes
+https://live.telemadrid.cross-media.es/6389770485112/eu-central-1/6416060453001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiajI5YjgyLmVncmVzcy5haGc3NmwiLCJhY2NvdW50X2lkIjoiNjQxNjA2MDQ1MzAwMSIsImVobiI6ImxpdmUudGVsZW1hZHJpZC5jcm9zcy1tZWRpYS5lcyIsImlzcyI6ImJsaXZlLXBsYXliYWNrLXNvdXJjZS1hcGkiLCJzdWIiOiJwYXRobWFwdG9rZW4iLCJhdWQiOlsiNjQxNjA2MDQ1MzAwMSJdLCJqdGkiOiI2Mzg5NzcwNDg1MTEyIn0.MZsybG7gZngXIa5TKgjC4kKqA5hzM_oyShyMLKKaohQ/playlist-hls-dvr.m3u8
 #EXTINF:-1 radio="true" tvg-logo="https://graph.facebook.com/ValenciaCF/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Valencia CF Radio",Valencia CF Radio
 https://radio-valencia-direct.flumotion.com/rvfc/shoutcast.mp3
 #EXTINF:-1 radio="true" tvg-logo="https://graph.facebook.com/sevillafc/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Sevilla FC Radio",Sevilla FC Radio
@@ -428,7 +428,7 @@ https://wecast-bl01.flumotion.com/copesedes/santander.mp3
 https://wecast02-h-cloud.flumotion.com/copesedes/santander-mas.mp3
 #EXTINF:-1 radio="true" tvg-id="OC_Santander.Radio" tvg-logo="https://graph.facebook.com/ondacerocantabria/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Onda Cero Santander",Onda Cero Santander
 https://radio-atres-live.ondacero.es/api/livestream-redirect/OC_SANTANDERAAC.m3u8
-#EXTINF:-1 radio="true" tvg-logo="https://graph.facebook.com/ondaoccidental/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Onda Occidental",Onda Occidental
+#EXTINF:-1 radio="true" tvg-logo="https://pbs.twimg.com/profile_images/2008930393261506561/gfTyMe9t_200x200.jpg" group-title="RADIOS AUTO" tvg-name="Onda Occidental",Onda Occidental
 https://server9.emitironline.com:10944/;.mp3
 #EXTINF:-1 radio="true" tvg-logo="https://graph.facebook.com/arcofmcantabria/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="ARCO FM",ARCO FM
 https://hisparadio.duckdns.org/stream/1/stream.mp3

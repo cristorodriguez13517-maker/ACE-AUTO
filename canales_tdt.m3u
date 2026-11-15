@@ -94,7 +94,7 @@ https://directes-tv-es.3catdirectes.cat/live-origin/super3-hls/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/CanalExtremadura/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Infantil (Canal Extremadura)",Infantil (Canal Extremadura)
 https://cdn-canalextremadura.watchity.net/fast2/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/Pequeradio/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Pequeradio TV",Pequeradio TV
-https://183.bozztv.com/ssh101/ssh101/pequeradiotv/playlist.m3u8
+https://vps-9f1e2662.vps.ovh.net/hls/antenitatv.m3u8
 #EXTINF:-1 tvg-id="EnergeekRetro.TV" tvg-logo="https://pbs.twimg.com/profile_images/2088558300111556608/CrCydAjp_200x200.jpg" group-title="TDT AUTO" tvg-name="EnerGeek Retro",EnerGeek Retro HD
 https://cl-2.backend.energeek.cl/bkp/egretroweb/index.m3u8?token=TDTCh4nnelsES
 #EXTINF:-1 tvg-id="EnergeekRetro.TV" tvg-logo="https://pbs.twimg.com/profile_images/2088558300111556608/CrCydAjp_200x200.jpg" group-title="TDT AUTO" tvg-name="EnerGeek Retro",EnerGeek Retro SD
@@ -167,6 +167,10 @@ https://rtvelivestream.rtve.es/eventual/gofast/playm26_main.m3u8
 https://ztnr.rtve.es/ztnr/17232941.m3u8
 #EXTINF:-1 tvg-id="RTVE_PopUp2.TV" tvg-logo="https://graph.facebook.com/rtveplay/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RTVE 70 años (RTVE)",RTVE 70 años (RTVE)
 https://rtvelivestream.rtve.es/eventual/gofast/playm28_main_dvr.m3u8
+#EXTINF:-1 tvg-id="RTVE_PopUp3.TV" tvg-logo="https://graph.facebook.com/rtveplay/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Segunda estrella (RTVE)",Segunda estrella (RTVE)
+https://ztnr.rtve.es/ztnr/17239088.m3u8
+#EXTINF:-1 tvg-id="RTVE_PopUp3.TV" tvg-logo="https://graph.facebook.com/rtveplay/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Segunda estrella (RTVE)",Segunda estrella (RTVE)
+https://rtvelivestream.rtve.es/eventual/gofast/playm29_main.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/CongresodelosDiputados/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Canal Parlamento",Canal Parlamento
 https://congresodirecto.akamaized.net/hls/live/2037973/canalparlamento/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/CongresodelosDiputados/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Congreso de los Diputados",Congreso de los Diputados
@@ -213,8 +217,6 @@ https://streaming004.gestec-video.com/hls/7TVCADIZ.m3u8
 https://streaming004.gestec-video.com/hls/7TVCORDOBA.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/7TelevisionAndalucia/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="7TV Granada",7TV Granada
 https://streaming004.gestec-video.com/hls/7TVGRANADA.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/7TelevisionAndalucia/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="7TV Huelva",7TV Huelva
-https://streaming004.gestec-video.com/hls/regional.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/7TelevisionAndalucia/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="7TV Jaén",7TV Jaén
 https://streaming004.gestec-video.com/hls/7TVJAEN.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/7TelevisionAndalucia/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="7TV Málaga",7TV Málaga
@@ -330,7 +332,7 @@ https://video.telemotril.com/telemotril-channel-1/index.m3u8
 https://cdnlivevlc.codev8.net/canaltorremolinoslive/smil:channel1.smil/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/TG7tv/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="TG7",TG7
 https://flu-01.hucame.es/TG7/index.fmp4.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/SalTelevision/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Sal TV",Sal TV
+#EXTINF:-1 tvg-id="SalTV.TV" tvg-logo="https://graph.facebook.com/SalTelevision/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Sal TV",Sal TV
 https://nimble.tuyapro.es/saltv/tv/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/rtvmanilva/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Manilva TV",Manilva TV
 #EXTVLCOPT:http-referrer=https://player.castr.com/
@@ -409,13 +411,15 @@ http://stream.estecanaltv.com:8009/live/stream/index.m3u8
 https://stream.castr.com/5d1f649bed75c92e40481734/live_19364d50fbcd11ed91bd012c3488eabc/index.fmp4.m3u8
 #EXTINF:-1 tvg-logo="https://yt3.ggpht.com/qj92f7GsPI7R-YCYzsFj5mDoSCduHSgh8lwCWHFXbHAx6rNmLsB78RZlmfiqbjYzQdNh1Fj9sQ=s200" group-title="TDT AUTO" tvg-name="Fuerteventura TV",Fuerteventura TV
 https://live.lancelot.tv/directo/fuerteventura.television/index.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/canal13canarias/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Canal 13 Canarias",Canal 13 Canarias
+https://eu1.servers10.com:8081/8316/index.m3u8
 #EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/1498617906560737281/iOri7Ujk_200x200.jpg" group-title="TDT AUTO" tvg-name="Factoría de Carnaval",Factoría de Carnaval
 https://eu1.servers10.com:8081/8116/index.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/calimafm/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Radio Calima TV",Radio Calima TV
 https://nrvideo1.newradio.it:443/calimafm/calimafm/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/afortunadastv/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Afortunadas TV",Afortunadas TV
 https://cloudvideo.servers10.com:8081/8108/index.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/ondaoccidental/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Saja Nansa TV",Saja Nansa TV
+#EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/2008930393261506561/gfTyMe9t_200x200.jpg" group-title="TDT AUTO" tvg-name="Saja Nansa TV",Saja Nansa TV
 https://streamlov.alsolnet.com/sajanansatv/live/playlist.m3u8
 #EXTINF:-1 tvg-id="PopularTV_S.TV" tvg-logo="https://graph.facebook.com/populartvcantabria/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Popular TV Cantabria",Popular TV Cantabria
 https://limited12.todostreaming.es/live/ptvcantabria-livestream.m3u8
@@ -507,7 +511,7 @@ https://directes-tv-cat.3catdirectes.cat/live-content/tem1-hls/master.m3u8
 https://directes-tv-es.3catdirectes.cat/live-content/tem1-hls/master.m3u8
 #EXTINF:-1 tvg-id="La1_CAT.TV" tvg-logo="https://graph.facebook.com/la1detve/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="La 1 Catalunya",La 1 Catalunya
 https://rtvelivestream.rtve.es/rtvesec/cat/la1_cat_main_dvr.m3u8
-#EXTINF:-1 tvg-id="La2_CAT.TV" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz-PTZCuOfGtshG9A9z2phYEL97ppHhD0cug&s" group-title="TDT AUTO" tvg-name="La 2 Cat",La 2 Cat
+#EXTINF:-1 tvg-id="La2_CAT.TV" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz-PTZCuOfGtshG9A9z2phYEL97ppHhD0cug&s" group-title="TDT AUTO" tvg-name="La 2Cat",La 2Cat
 https://rtvelivestream.rtve.es/rtvesec/cat/la2_cat_main_dvr.m3u8
 #EXTINF:-1 tvg-id="24H_CAT.TV" tvg-logo="https://pbs.twimg.com/profile_images/1634293543987453954/mb1Rzmso_200x200.jpg" group-title="TDT AUTO" tvg-name="24h Catalunya",24h Catalunya
 https://ztnr.rtve.es/ztnr/4952053.m3u8
@@ -530,7 +534,7 @@ https://video3.lhdserver.es/empordatv2/live.m3u8
 #EXTINF:-1 tvg-id="Xarxa_Canal_Terrassa.TV" tvg-logo="https://graph.facebook.com/canalterrassa/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Canal Terrassa",Canal Terrassa
 https://ingest2-video.streaming-pro.com/canalterrassa/stream/playlist.m3u8
 #EXTINF:-1 tvg-id="Xarxa_TAC12.TV" tvg-logo="https://graph.facebook.com/tacdotze/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="TAC 12",TAC 12
-https://ingest1-video.streaming-pro.com/tac12_ABR/stream/playlist.m3u8
+https://ingest3-video.streaming-pro.com/tac12_ABR/stream/playlist.m3u8
 #EXTINF:-1 tvg-id="Xarxa_LleidaTV.TV" tvg-logo="https://graph.facebook.com/LleidaTV/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Lleida TV",Lleida TV
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 CrKey/1.44.191160
 #EXTVLCOPT:http-referrer=https://player.instantvideocloud.net/
@@ -871,9 +875,9 @@ https://d2ferbiwcx1539.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68
 https://d2jiqiw4g5lj5k.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/AmericasVoiceChannel-prod/AVSamsung/AVSamsung.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/BUZZRtv/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="BUZZR TV USA",BUZZR TV USA EN
 https://buzzrota-ono.amagi.tv/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/newsmax/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Newsmax2 USA",Newsmax2 USA EN
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/Newsmax2/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Newsmax2 USA",Newsmax2 USA EN
 https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/newsmax/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Newsmax2 USA",Newsmax2 USA EN
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/Newsmax2/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Newsmax2 USA",Newsmax2 USA EN
 https://nmx1ota.akamaized.net/hls/live/2107010/Live_1/index.m3u8
 #EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/2067373416173260801/9cUCY5wX_200x200.jpg" group-title="TDT AUTO" tvg-name="America TeVe USA",America TeVe USA
 https://live.gideo.video/americateve2/master.m3u8
@@ -942,10 +946,6 @@ https://stream.oromar.tv/hls/oromartv_hi/index.m3u8
 #EXTINF:-1 tvg-id="Cubavision.TV" tvg-logo="https://graph.facebook.com/CubavisionInternacional/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Cubavisión TV Cuba",Cubavisión TV Cuba
 #EXTVLCOPT:http-referrer=https://teveo.cu/live/video/AKDdWvMTYzfsfnNJ/embed?auto=true
 https://cdn.teveo.cu/live/video/A36pWmuWvZBQskuZ/ngrp:gppfydfzpSUn9Udy.stream/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/1571129300623015936/-HJCmEk3_200x200.jpg" group-title="TDT AUTO" tvg-name="HCH Honduras",HCH Honduras
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 CrKey/1.44.191160
-#EXTVLCOPT:http-referrer=https://hch.tv/hch-en-vivo/
-https://stream.hch.hn/live/streams/stream1.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/canal6hn/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Canal 6 Honduras",Canal 6 Honduras
 https://video.dataserv.cc:3910/live/canal6honduraslive.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/canal11hn/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Canal 11 Honduras",Canal 11 Honduras
@@ -1072,9 +1072,9 @@ https://lbgo.bozztv.com/ssh101/ssh101/conexionbera/playlist.m3u8
 https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/RTL102.5/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RTL 102.5 Italia",RTL 102.5 Italia IT
 https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_video.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/RTL102.5/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RTL Radio Freccia Italia",RTL Radio Freccia Italia IT
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/radiofrecciaufficiale/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RTL Radio Freccia Italia",RTL Radio Freccia Italia IT
 https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/0tuSetc8UFkF/playlist_video.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/RTL102.5/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RTL Zeta Italia",RTL Zeta Italia IT
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/radiozeta.it/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RTL Zeta Italia",RTL Zeta Italia IT
 https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/playlist_video.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/RTL102.5/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RTL 102.5 Best Italia",RTL 102.5 Best Italia IT
 https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S76960628/OEPHRUIctA0M/playlist_video.m3u8
