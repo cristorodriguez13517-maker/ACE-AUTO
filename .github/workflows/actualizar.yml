@@ -1,3 +1,4 @@
+```yaml
 name: Actualizar ACE-AUTO
 
 on:
@@ -22,6 +23,8 @@ jobs:
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Preparar Python
         uses: actions/setup-python@v5
@@ -55,5 +58,9 @@ jobs:
             echo "No hay cambios que guardar."
           else
             git commit -m "Actualizar ACE-AUTO"
-            git push
+
+            git pull --rebase origin main
+
+            git push origin main
           fi
+```
