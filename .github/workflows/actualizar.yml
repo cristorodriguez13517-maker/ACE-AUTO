@@ -1,4 +1,3 @@
-```yaml
 name: Actualizar ACE-AUTO
 
 on:
@@ -63,4 +62,4 @@ jobs:
 
             git push origin main
           fi
-```
+
