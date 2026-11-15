@@ -1,105 +1,24 @@
 # Última actualización ACE-AUTO
 
-Fecha: 15/11/2026 18:23 UTC
+Fecha: 15/11/2026 18:40 UTC
 
-Canales añadidos: 55
-Canales eliminados: 24
-Canales modificados: 13
+Canales añadidos: 1
+Canales eliminados: 1
+Canales modificados: 9
 
 ### Añadidos
-- M+ Liga de Campeones 8 1080p *
-- DAZN Baloncesto 720p **
-- DAZN Baloncesto 1080p **
-- DAZN Baloncesto 1080p **
-- DAZN Baloncesto 2 1080p **
-- DAZN Baloncesto 3 1080p **
-- M+ Baloncesto 2 1080p **
-- M+ Baloncesto 3 1080p **
-- DAZN 1 720p *
-- DAZN 1 720p **
-- DAZN 1 1080p *
-- DAZN 1 1080p **
-- DAZN 2 720p **
-- DAZN 2 1080p **
-- DAZN 3 1080p *
-- DAZN 3 1080p **
-- DAZN 4 1080p *
-- DAZN 4 **
-- Eurosport 2 720p **
-- Eurosport 2 1080p **
-- LaLiga TV Hypermotion 3 1080p **
-- MOVISTAR PLUS 1080p **
-- M+ Deportes 720p **
-- M+ Deportes 1080p **
-- M+ Deportes 2 720p *
-- M+ Deportes 2 720p **
-- M+ Deportes 3 720p **
-- M+ Deportes 4 1080p **
-- M+ Deportes 7 1080p **
-- M+ Golf 1080p **
-- M+ Golf 2 1080p **
-- M+ Vamos 720p **
-- M+ Vamos 1080p **
-- M+ VAMOS 2 1080p **
-- M+ VAMOS 3 720p **
-- RFEF TV 1080p **
-- RFEF TV 1080p **
-- CUATRO 1080p **
-- La 1 TVE 720p *
-- La 1 TVE 1080p *
-- La 1 TVE 1080p **
-- La 1 TVE 1080p **
-- La 1 TVE 4K *
-- La 1 TVE 4K **
-- La 2 TVE 1080p **
-- M+ 0 1080p **
-- Telecinco 1080p **
-- SPORT TV3 1080p **
-- Teledeporte 720p **
-- Teledeporte 1080p **
-- Sky Sport Tennis 1080p *
-- Sky Sport Tennis 1080p **
-- Tennis Channel 1080p **
-- Paramount+ UFC **
-- OFF **
+- LaLiga TV Hypermotion 720p *
 
 ### Eliminados
-- M+ LaLiga 720p *
-- M+ LaLiga 720p *
-- M+ LaLiga 1080p *
-- M+ LaLiga 2 *
-- M+ LaLiga 3 720p **
-- DAZN LaLiga 720p **
-- DAZN LaLiga 1080p *
-- DAZN LaLiga 2 720p *
-- M+ Liga de Campeones 720p *
-- M+ Liga de Campeones 1080p *
-- M+ Liga de Campeones 2 720p *
-- M+ Liga de Campeones 4 1080p *
-- M+ Liga de Campeones 6 1080p **
-- M+ Liga de Campeones 7 1080p *
-- M+ Liga de Campeones 7 1080p **
-- LaLiga TV Hypermotion 720p *
 - LaLiga TV Hypermotion 1080p **
-- M+ Deportes 5 1080p **
-- M+ Deportes 7 720p *
-- M+ VAMOS 2 720p *
-- Esport3 720p **
-- SPORT TV3 720p **
-- Dazn MotoGP 1080p *
-- Dazn MotoGP 1080p *
 
 ### Modificados
-- M+ Baloncesto 1080p **
-- LaLiga TV Hypermotion 1080p **
-- M+ Deportes 3 1080p *
-- M+ Deportes 7 1080p *
 - RFEF TV 1080p *
 - RFEF TV 1080p *
+- RFEF TV 1080p **
+- RFEF TV 1080p **
 - NBA League Pass 1080p *
 - NBA League Pass 1080p *
-- NBA League Pass 1080p **
-- Paramount+ UFC *
 - Paramount+ UFC *
 - Paramount+ UFC *
 - Paramount+ UFC *

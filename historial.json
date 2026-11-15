@@ -154,10 +154,10 @@
     "calidad": 3,
     "hash": "8cc662746013fa4732b245954a5569039949919860cc53e6526287bf98d203a5"
   },
-  "laliga tv hypermotion|calidad-3|opcion-1": {
-    "nombre": "LaLiga TV Hypermotion 1080p **",
-    "calidad": 3,
-    "hash": "e68d7a5a5d4b655e548dfcb7a746598b7176a5355319a24327e26378def2981a"
+  "laliga tv hypermotion|calidad-2|opcion-1": {
+    "nombre": "LaLiga TV Hypermotion 720p *",
+    "calidad": 2,
+    "hash": "225db8a4dd3be4a1040f94bde417c2c15e17ed7ca5cf35c303ebe29a9f7bc064"
   },
   "laliga tv hypermotion 2|calidad-2|opcion-1": {
     "nombre": "LaLiga TV Hypermotion 2 720p *",
@@ -347,22 +347,22 @@
   "rfef tv|calidad-3|opcion-1": {
     "nombre": "RFEF TV 1080p *",
     "calidad": 3,
-    "hash": "4b6153f8cb24465f5b6b1c15035d1c1f249494364dfd884674b409fde8083fb5"
+    "hash": "b2eeeea579219f3779a37d9c33ca3c249c75690bba87de3d292faacac07c7911"
   },
   "rfef tv|calidad-3|opcion-2": {
     "nombre": "RFEF TV 1080p *",
     "calidad": 3,
-    "hash": "b2eeeea579219f3779a37d9c33ca3c249c75690bba87de3d292faacac07c7911"
+    "hash": "4b6153f8cb24465f5b6b1c15035d1c1f249494364dfd884674b409fde8083fb5"
   },
   "rfef tv|calidad-3|opcion-3": {
     "nombre": "RFEF TV 1080p **",
     "calidad": 3,
-    "hash": "d4664fd59dec1eaef1ed4327b5d309aeb92560cfb0697a817ea0e851efedc6b3"
+    "hash": "b2fe890079dbc8ba6ed84134317723360fc324b71c40e0837b65c94ecc90e563"
   },
   "rfef tv|calidad-3|opcion-4": {
     "nombre": "RFEF TV 1080p **",
     "calidad": 3,
-    "hash": "b2fe890079dbc8ba6ed84134317723360fc324b71c40e0837b65c94ecc90e563"
+    "hash": "d4664fd59dec1eaef1ed4327b5d309aeb92560cfb0697a817ea0e851efedc6b3"
   },
   "cuatro|calidad-3|opcion-1": {
     "nombre": "CUATRO 1080p **",
@@ -497,12 +497,12 @@
   "nba league pass|calidad-3|opcion-1": {
     "nombre": "NBA League Pass 1080p *",
     "calidad": 3,
-    "hash": "6b8c8d43d7b9a00e78d5441b4f4dcf7fdd8cdaf037703c674334d381b53a3478"
+    "hash": "edfd2cc5358fa9c9e364abe6190985b8cc125ab33a34be2e5f28f70277b3773e"
   },
   "nba league pass|calidad-3|opcion-2": {
     "nombre": "NBA League Pass 1080p *",
     "calidad": 3,
-    "hash": "edfd2cc5358fa9c9e364abe6190985b8cc125ab33a34be2e5f28f70277b3773e"
+    "hash": "6b8c8d43d7b9a00e78d5441b4f4dcf7fdd8cdaf037703c674334d381b53a3478"
   },
   "nba league pass|calidad-3|opcion-3": {
     "nombre": "NBA League Pass 1080p **",
@@ -537,7 +537,7 @@
   "paramount ufc|calidad-0|opcion-1": {
     "nombre": "Paramount+ UFC *",
     "calidad": 0,
-    "hash": "2d16eb597b3df469dd73ed7b815690c6ee5a2dd1c1afa5203dbe1e662753da49"
+    "hash": "88d96df231ffa66c1b93981dc5e3226998e0b01d32c23df77b360c4e836d2a22"
   },
   "paramount ufc|calidad-0|opcion-2": {
     "nombre": "Paramount+ UFC *",
@@ -547,12 +547,12 @@
   "paramount ufc|calidad-0|opcion-3": {
     "nombre": "Paramount+ UFC *",
     "calidad": 0,
-    "hash": "2e4ced0941245316600b600d4e8331424479c6b47e256caadb222b0d8452ad31"
+    "hash": "2d16eb597b3df469dd73ed7b815690c6ee5a2dd1c1afa5203dbe1e662753da49"
   },
   "paramount ufc|calidad-0|opcion-4": {
     "nombre": "Paramount+ UFC *",
     "calidad": 0,
-    "hash": "88d96df231ffa66c1b93981dc5e3226998e0b01d32c23df77b360c4e836d2a22"
+    "hash": "2e4ced0941245316600b600d4e8331424479c6b47e256caadb222b0d8452ad31"
   },
   "paramount ufc|calidad-0|opcion-5": {
     "nombre": "Paramount+ UFC **",
