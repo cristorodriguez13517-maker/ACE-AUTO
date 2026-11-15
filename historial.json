@@ -1,4 +1,54 @@
 {
+  "m laliga|calidad-2|opcion-1": {
+    "nombre": "M+ LaLiga 720p *",
+    "calidad": 2,
+    "hash": "2de61bebd65d1d18c82065248140acd2f5ae1bc1ab4d22ae3ef86409cbfb30c3"
+  },
+  "m laliga|calidad-2|opcion-2": {
+    "nombre": "M+ LaLiga 720p *",
+    "calidad": 2,
+    "hash": "0351391f409796cfb6cf8850a248d7496a5761b76be67891ced038167cba1991"
+  },
+  "m laliga|calidad-2|opcion-3": {
+    "nombre": "M+ LaLiga 720p **",
+    "calidad": 2,
+    "hash": "87681edd2f100296109ebd3bdfd729f56d37bf8819e7fea62e48f40203029621"
+  },
+  "m laliga|calidad-3|opcion-1": {
+    "nombre": "M+ LaLiga 1080p *",
+    "calidad": 3,
+    "hash": "ba395188aa488cadc16e3eb4f5bc4f3f0cada0c4b9c1cfc15d7a89ba0e19e1e9"
+  },
+  "m laliga|calidad-3|opcion-2": {
+    "nombre": "M+ LaLiga 1080p **",
+    "calidad": 3,
+    "hash": "b8faf07590a4ceca96acb4ccf08e07ee94c689bdbee0327919ab5f952b05307f"
+  },
+  "m laliga|calidad-3|opcion-3": {
+    "nombre": "M+ LaLiga 1080p **",
+    "calidad": 3,
+    "hash": "c6a127bd992bd1af390a5f64a4979242dfeb08dcd57a3962feec7478f3f68eef"
+  },
+  "m laliga 2|calidad-2|opcion-1": {
+    "nombre": "M+ LaLiga 2 720p **",
+    "calidad": 2,
+    "hash": "5d863ed2b78bf73fdbdce3a095653e83f51bfaf7bfb862066ea681186b61ef53"
+  },
+  "m laliga 2|calidad-2|opcion-2": {
+    "nombre": "M+ LaLiga 2 *",
+    "calidad": 2,
+    "hash": "ef8a770ed8b0c309af226ddc24fb854102695999cb38cc66d42ee572b7de8813"
+  },
+  "m laliga 3|calidad-2|opcion-1": {
+    "nombre": "M+ LaLiga 3 720p **",
+    "calidad": 2,
+    "hash": "533a30689f99666c55f3cdb13344d1b5b90cf6a8dd6e2618186c56257a776b16"
+  },
+  "m laliga 3|calidad-3|opcion-1": {
+    "nombre": "M+ LaLiga 3 1080p **",
+    "calidad": 3,
+    "hash": "fbfbb628a2bc451275c1b41f6c8f1c1c874cd66836f07f812b68e48b624f1041"
+  },
   "dazn laliga|calidad-2|opcion-1": {
     "nombre": "DAZN LaLiga 720p **",
     "calidad": 2,
@@ -273,56 +323,6 @@
     "nombre": "LaLiga TV Hypermotion 3 1080p **",
     "calidad": 3,
     "hash": "72a9a19066c589e15efe0d4a89efe04593fe6885d094f5da1dbb8c59ec13fc87"
-  },
-  "m laliga|calidad-2|opcion-1": {
-    "nombre": "M+ LaLiga 720p *",
-    "calidad": 2,
-    "hash": "2de61bebd65d1d18c82065248140acd2f5ae1bc1ab4d22ae3ef86409cbfb30c3"
-  },
-  "m laliga|calidad-2|opcion-2": {
-    "nombre": "M+ LaLiga 720p *",
-    "calidad": 2,
-    "hash": "0351391f409796cfb6cf8850a248d7496a5761b76be67891ced038167cba1991"
-  },
-  "m laliga|calidad-2|opcion-3": {
-    "nombre": "M+ LaLiga 720p **",
-    "calidad": 2,
-    "hash": "87681edd2f100296109ebd3bdfd729f56d37bf8819e7fea62e48f40203029621"
-  },
-  "m laliga|calidad-3|opcion-1": {
-    "nombre": "M+ LaLiga 1080p *",
-    "calidad": 3,
-    "hash": "ba395188aa488cadc16e3eb4f5bc4f3f0cada0c4b9c1cfc15d7a89ba0e19e1e9"
-  },
-  "m laliga|calidad-3|opcion-2": {
-    "nombre": "M+ LaLiga 1080p **",
-    "calidad": 3,
-    "hash": "b8faf07590a4ceca96acb4ccf08e07ee94c689bdbee0327919ab5f952b05307f"
-  },
-  "m laliga|calidad-3|opcion-3": {
-    "nombre": "M+ LaLiga 1080p **",
-    "calidad": 3,
-    "hash": "c6a127bd992bd1af390a5f64a4979242dfeb08dcd57a3962feec7478f3f68eef"
-  },
-  "m laliga 2|calidad-2|opcion-1": {
-    "nombre": "M+ LaLiga 2 720p **",
-    "calidad": 2,
-    "hash": "5d863ed2b78bf73fdbdce3a095653e83f51bfaf7bfb862066ea681186b61ef53"
-  },
-  "m laliga 2|calidad-2|opcion-2": {
-    "nombre": "M+ LaLiga 2 *",
-    "calidad": 2,
-    "hash": "ef8a770ed8b0c309af226ddc24fb854102695999cb38cc66d42ee572b7de8813"
-  },
-  "m laliga 3|calidad-2|opcion-1": {
-    "nombre": "M+ LaLiga 3 720p **",
-    "calidad": 2,
-    "hash": "533a30689f99666c55f3cdb13344d1b5b90cf6a8dd6e2618186c56257a776b16"
-  },
-  "m laliga 3|calidad-3|opcion-1": {
-    "nombre": "M+ LaLiga 3 1080p **",
-    "calidad": 3,
-    "hash": "fbfbb628a2bc451275c1b41f6c8f1c1c874cd66836f07f812b68e48b624f1041"
   },
   "movistar plus|calidad-2|opcion-1": {
     "nombre": "MOVISTAR PLUS 720p *",
