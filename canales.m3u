@@ -1,8 +1,8 @@
 #EXTM3U url-tvg="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml,https://epgshare01.online/epgshare01/epg_ripper_NL1.xml.gz,https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml,https://www.tdtchannels.com/epg/TV.xml.gz,https://www.ondachannels.com/epg/RADIO.xml.gz" refresh="3600"
 #EXTINF:-1 tvg-id="M+ LaLiga HD" tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" group-title="CANO AUTO",M+ LaLiga 720p *
-http://127.0.0.1:6878/ace/getstream?id=4243ec2599770c2ed62c174c946def54dcd24980
-#EXTINF:-1 tvg-id="M+ LaLiga HD" tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" group-title="CANO AUTO",M+ LaLiga 720p *
 http://127.0.0.1:6878/ace/getstream?id=73b9678f76017acc06e6f9402a975517f3a9bd05
+#EXTINF:-1 tvg-id="M+ LaLiga HD" tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" group-title="CANO AUTO",M+ LaLiga 720p *
+http://127.0.0.1:6878/ace/getstream?id=4243ec2599770c2ed62c174c946def54dcd24980
 #EXTINF:-1 tvg-id="M+ LaLiga HD" tvg-logo="https://i.ibb.co/yfV1Q8n/liga.png" group-title="CANO AUTO",M+ LaLiga 1080p *
 http://127.0.0.1:6878/ace/getstream?id=913a520ccaf1ef4a1ab73e146d0319d80d0c39da
 #EXTINF:-1 tvg-id="M+ LaLiga 2 HD" tvg-logo="https://i.ibb.co/Tc97zSb/liga2.png" group-title="CANO AUTO",M+ LaLiga 2 *
@@ -13,10 +13,16 @@ http://127.0.0.1:6878/ace/getstream?id=85b13e0d682d56e6976ed874a5526003bf21dca6
 http://127.0.0.1:6878/ace/getstream?id=fb3f3e9629ba9ae3a529a08cab752f47387593d5
 #EXTINF:-1 tvg-id="M+ Liga de Campeones 3 HD" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%20Campeones%203.png" group-title="CANO AUTO",M+ Liga de Campeones 3 1080p *
 http://127.0.0.1:6878/ace/getstream?id=1acd08b0f0461388f42203a643c7455a85f34082
-#EXTINF:-1 tvg-id="DAZN 2 HD" tvg-logo="https://i.ibb.co/Kz0GXSX/dazn2.png" group-title="CANO AUTO",DAZN 2 720p **
-http://127.0.0.1:6878/ace/getstream?id=27ed8f532a68301bff62becf01769bb524904814
-#EXTINF:-1 tvg-id="DAZN 2 HD" tvg-logo="https://i.ibb.co/Kz0GXSX/dazn2.png" group-title="CANO AUTO",DAZN 2 1080p **
-http://127.0.0.1:6878/ace/getstream?id=e748e196d4f26edd7e743cd0d901bfc23d807794
+#EXTINF:-1 tvg-id="M+ Baloncesto" tvg-logo="https://www.adslzone.net/app/uploads-adslzone.net/2026/04/baloncesto-movistar-plus-canales.jpg" group-title="CANO AUTO",M+ Baloncesto 1080p *
+http://127.0.0.1:6878/ace/getstream?id=be93edb36056187656714f66c84026662f483e2f
+#EXTINF:-1 tvg-id="M+ Baloncesto" tvg-logo="https://www.adslzone.net/app/uploads-adslzone.net/2026/04/baloncesto-movistar-plus-canales.jpg" group-title="CANO AUTO",M+ Baloncesto 1080p *
+http://127.0.0.1:6878/ace/getstream?id=5ba57eae303be35f8b551d2ba27b27ef0dd649b0
+#EXTINF:-1 tvg-id="M+ Baloncesto 2" tvg-logo="https://www.adslzone.net/app/uploads-adslzone.net/2026/04/baloncesto-movistar-plus-canales.jpg" group-title="CANO AUTO",M+ Baloncesto 2 1080p *
+http://127.0.0.1:6878/ace/getstream?id=ad50a4fcd5fc51b2fdfaba02216e3e1ee7c310d8
+#EXTINF:-1 tvg-logo="https://www.adslzone.net/app/uploads-adslzone.net/2026/04/baloncesto-movistar-plus-canales.jpg" group-title="CANO AUTO",M+ Baloncesto 3 1080p *
+http://127.0.0.1:6878/ace/getstream?id=e675aecf437124d37f7f2daf31669f1af532a50c
+#EXTINF:-1 tvg-logo="https://www.adslzone.net/app/uploads-adslzone.net/2026/04/baloncesto-movistar-plus-canales.jpg" group-title="CANO AUTO",M+ Baloncesto 3 1080p **
+http://127.0.0.1:6878/ace/getstream?id=70f7638f664442f1a1d4c2389bed5346e4b72dfb
 #EXTINF:-1 tvg-id="Eurosport 1 HD" tvg-logo="https://i.ibb.co/r2Yd7xD/euro1.png" group-title="CANO AUTO",Eurosport 1 1080p *
 http://127.0.0.1:6878/ace/getstream?id=fc81ec3decf1be2c5a84c5a5e22c69e5f153b862
 #EXTINF:-1 tvg-id="Eurosport 2" tvg-logo="https://i.ibb.co/M6h4Qyd/euro2.png" group-title="CANO AUTO",Eurosport 2 1080p *
@@ -39,12 +45,8 @@ http://127.0.0.1:6878/ace/getstream?id=3d225a957a38de94dcc6801538bbe6d1d185d8cc
 http://127.0.0.1:6878/ace/getstream?id=4012a8533cc36eb6a648827fee85fe4a89325b44
 #EXTINF:-1 tvg-id="M+ Deportes 2 HD" tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" group-title="CANO AUTO",M+ Deportes 2 720p *
 http://127.0.0.1:6878/ace/getstream?id=71e56f0315a20d87c3c472dcfbe4cc2c875db090
-#EXTINF:-1 tvg-id="M+ Deportes 2 HD" tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" group-title="CANO AUTO",M+ Deportes 2 720p **
-http://127.0.0.1:6878/ace/getstream?id=592c427008038847d6486daa7c3afd7a72f447da
 #EXTINF:-1 tvg-id="M+ Deportes 2 HD" tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" group-title="CANO AUTO",M+ Deportes 2 1080p *
 http://127.0.0.1:6878/ace/getstream?id=fb4bb73e23b7b24625cc7932f2ff3f7343a43810
-#EXTINF:-1 tvg-id="M+ Deportes 2 HD" tvg-logo="https://i.ibb.co/q95fBKV/deportes2.png" group-title="CANO AUTO",M+ Deportes 2 1080p **
-http://127.0.0.1:6878/ace/getstream?id=ac66efa6cf24464dcc7f94049775ae580d7ba569
 #EXTINF:-1 tvg-id="M+ Deportes 3" tvg-logo="https://i.ibb.co/jDg5qWD/deportes3.png" group-title="CANO AUTO",M+ Deportes 3 720p *
 http://127.0.0.1:6878/ace/getstream?id=96bd8287edb64eb75a92e43aaf91b394842d19b9
 #EXTINF:-1 tvg-id="M+ Deportes 4" tvg-logo="https://i.ibb.co/WDN9NN9/deportes4.png" group-title="CANO AUTO",M+ Deportes 4 720p *
@@ -59,8 +61,6 @@ http://127.0.0.1:6878/ace/getstream?id=cdc332904a0f9be7db0328b0046c56ac1c0b73c9
 http://127.0.0.1:6878/ace/getstream?id=7f33dc6152f265be28b0292c5c5f4b9f457b9811
 #EXTINF:-1 tvg-id="M+ Vamos HD" tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" group-title="CANO AUTO",M+ Vamos 1080p *
 http://127.0.0.1:6878/ace/getstream?id=85e526aae99c6c118d740e44710dcfece2c3a748
-#EXTINF:-1 tvg-id="M+ Vamos HD" tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" group-title="CANO AUTO",M+ Vamos 1080p **
-http://127.0.0.1:6878/ace/getstream?id=1b0374aae74e9792034b21298d6b3dfa25bc60c1
 #EXTINF:-1 tvg-id="M+ Vamos 3" tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" group-title="CANO AUTO",M+ VAMOS 3 1080p *
 http://127.0.0.1:6878/ace/getstream?id=112b3fe1e475cefad946da4f851470725bbddb58
 #EXTINF:-1 tvg-logo="https://cdn-bgp.bluestacks.com/BGP/us/gametiles_com.digiturk.ligtv.jpg" group-title="CANO AUTO",Bein Sports 3 TR 720p *
@@ -72,11 +72,9 @@ http://127.0.0.1:6878/ace/getstream?id=c7d8405bdef3650b9bac58042c3708440ef286a8
 #EXTINF:-1 tvg-id="Teledeporte" tvg-logo="https://img2.rtve.es/n/15966755" group-title="CANO AUTO",Teledeporte 1080p *
 http://127.0.0.1:6878/ace/getstream?id=81aead134bb63a51291d23e793fcddca981ee834
 #EXTINF:-1 tvg-logo="https://www.vhv.rs/dpng/d/431-4310509_nba-league-pass-logo-png-transparent-nba-league.png" group-title="CANO AUTO",NBA League Pass 1080p *
-http://127.0.0.1:6878/ace/getstream?id=2eedcbcc7173d3622804609460687d3e5a19e1ff
-#EXTINF:-1 tvg-logo="https://www.vhv.rs/dpng/d/431-4310509_nba-league-pass-logo-png-transparent-nba-league.png" group-title="CANO AUTO",NBA League Pass 1080p *
 http://127.0.0.1:6878/ace/getstream?id=8698d62f3b2a35aabb599c420b06945ea006400b
-#EXTINF:-1 tvg-logo="https://www.vhv.rs/dpng/d/431-4310509_nba-league-pass-logo-png-transparent-nba-league.png" group-title="CANO AUTO",NBA League Pass 1080p **
-http://127.0.0.1:6878/ace/getstream?id=09368635b716c33a43695a48e6cfe903eac25e20
+#EXTINF:-1 tvg-logo="https://www.vhv.rs/dpng/d/431-4310509_nba-league-pass-logo-png-transparent-nba-league.png" group-title="CANO AUTO",NBA League Pass 1080p *
+http://127.0.0.1:6878/ace/getstream?id=2eedcbcc7173d3622804609460687d3e5a19e1ff
 #EXTINF:-1 tvg-logo="https://www.sportsvideo.org/wp-content/uploads/2016/01/tennis-channel-logo-e1518530950839.jpg" group-title="CANO AUTO",Tennis Channel 1080p *
 http://127.0.0.1:6878/ace/getstream?id=a1f28d5eac77119941ae60e7b1f908609bfcb67f
 #EXTINF:-1 group-title="CANO AUTO",Onetoro TV 1080p *
