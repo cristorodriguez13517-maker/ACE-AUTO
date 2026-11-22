@@ -19,30 +19,16 @@ import requests
 IPNS_HASH = "k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs"
 
 FUENTES_ELCANO = [
-    (
-        "Elcano original",
-        f"https://tokyo2.elcano-ipfs.workers.dev/{IPNS_HASH}/hashes_acestream.m3u"
-    ),
-    (
-        "IPFS.io",
-        f"https://ipfs.io/ipns/{IPNS_HASH}/hashes_acestream.m3u"
-    ),
-    (
-        "Pinata",
-        f"https://gateway.pinata.cloud/ipns/{IPNS_HASH}/hashes_acestream.m3u"
-    ),
-    (
-        "Cloudflare IPFS",
-        f"https://cloudflare-ipfs.com/ipns/{IPNS_HASH}/hashes_acestream.m3u"
-    ),
-    (
-        "DWeb.link",
-        f"https://dweb.link/ipns/{IPNS_HASH}/hashes_acestream.m3u"
-    ),
-    (
-        "Web3 Storage",
-        f"https://w3s.link/ipns/{IPNS_HASH}/hashes_acestream.m3u"
-    ),
+        f"http://127.0.0.1:8080/ipns/{IPNS_HASH}/hashes_acestream.m3u",
+    f"http://127.0.0.1:8080/ipns/{IPNS_HASH}/hashes.json",
+    f"https://ipfs.bytokyo.dpdns.org/{IPNS_HASH}/hashes_acestream.m3u",
+    f"https://ipfs2.bytokyo.dpdns.org/{IPNS_HASH}/hashes_acestream.m3u",
+    f"https://tokyo2.elcano-ipfs.workers.dev/{IPNS_HASH}/hashes_acestream.m3u",
+    f"https://ipfs.io/ipns/{IPNS_HASH}/hashes_acestream.m3u",
+    f"https://gateway.pinata.cloud/ipns/{IPNS_HASH}/hashes_acestream.m3u",
+    f"https://cloudflare-ipfs.com/ipns/{IPNS_HASH}/hashes_acestream.m3u",
+    f"https://dweb.link/ipns/{IPNS_HASH}/hashes_acestream.m3u",
+    f"https://w3s.link/ipns/{IPNS_HASH}/hashes_acestream.m3u",
 ]
 
 API_GIT_GAY = "https://git.gay/api/v1"
