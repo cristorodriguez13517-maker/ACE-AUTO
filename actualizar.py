@@ -17,7 +17,10 @@ import requests
 # ==========================================================
 
 FUENTES_ELCANO = [
-    "https://ipfs.bytokyo.dpdns.org/k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs/hashes.m3u",
+    (
+        "El Cano",
+        "https://ipfs.bytokyo.dpdns.org/k51qzi5uqu5dh5qej4b9wlcr5i6vhc7rcfkekhrxqek5c9lk6gdaiik820fecs/hashes.m3u",
+    ),
 ]
 
 API_GIT_GAY = "https://git.gay/api/v1"
