@@ -14,6 +14,12 @@ https://streaming-1.eltorotv.com/lb0/eltorotv-streaming-web/index.m3u8
 https://edge-nodo-002.streaming.hitcloser.net/eltorotv-streaming-web/index.m3u8
 #EXTINF:-1 tvg-id="13.TV" tvg-logo="https://graph.facebook.com/TRECEtves/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="TRECE",TRECE
 https://play.cdn.enetres.net/091DB7AFBD77442B9BA2F141DCC182F5021/021/playlist.m3u8
+#EXTINF:-1 tvg-id="Squirrel.TV" tvg-logo="https://pbs.twimg.com/profile_images/1868605710218514432/98bLWAHa_200x200.jpg" group-title="TDT AUTO" tvg-name="Squirrel",Squirrel
+https://squirrel.cdn.plenitas.pro/squirrel-es/hls/master.m3u8
+#EXTINF:-1 tvg-id="Squirrel2.TV" tvg-logo="https://pbs.twimg.com/profile_images/2007038154994294784/NqJe7hvI_200x200.jpg" group-title="TDT AUTO" tvg-name="Squirrel2",Squirrel2
+https://squirrel.cdn.plenitas.pro/squirreldos/hls/master.m3u8
+#EXTINF:-1 tvg-id="BOM.TV" tvg-logo="https://pbs.twimg.com/profile_images/1450728866377568257/B8HFyLJe_200x200.jpg" group-title="TDT AUTO" tvg-name="BOM Cine",BOM Cine
+https://squirrel.cdn.plenitas.pro/bomcine/hls/master.m3u8
 #EXTINF:-1 tvg-id="RNE.TV" tvg-logo="https://graph.facebook.com/radionacionalrne/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RNE Accesible",RNE Accesible
 https://ztnr.rtve.es/ztnr/6688753.m3u8
 #EXTINF:-1 tvg-id="RNE.TV" tvg-logo="https://graph.facebook.com/radionacionalrne/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RNE Accesible",RNE Accesible
@@ -77,6 +83,10 @@ https://amg17560-fcb-amg17560c2-samsung-es-9803.playouts.now.amagi.tv/ts-eu-w1-n
 https://amg17560-fcb-amg17560c3-lg-es-11383.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg17560-fcbarcelona-topbarcacatala-lges/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/futsalmafer.tv/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Futsalmafer.tv",Futsalmafer.tv
 https://play.agenciastreaming.com:8081/futsalmafertv/index.m3u8
+#EXTINF:-1 tvg-id="Horse.TV" tvg-logo="https://graph.facebook.com/horsetvES/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Horse TV",Horse TV
+https://squirrel.cdn.plenitas.pro/hprse-es/hls/master.m3u8
+#EXTINF:-1 tvg-id="Nautical_Channel.TV" tvg-logo="https://graph.facebook.com/nauticalchannelesp/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Nautical Channel",Nautical Channel
+https://squirrel.cdn.plenitas.pro/nautical-es/hls/master.m3u8
 #EXTINF:-1 tvg-id="Clan.TV" tvg-logo="https://graph.facebook.com/clantve/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Clan",Clan GEO
 https://ztnr.rtve.es/ztnr/5466990.m3u8
 #EXTINF:-1 tvg-id="Clan.TV" tvg-logo="https://graph.facebook.com/clantve/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Clan",Clan GEO
@@ -167,10 +177,6 @@ https://rtvelivestream.rtve.es/eventual/gofast/playm26_main.m3u8
 https://ztnr.rtve.es/ztnr/17232941.m3u8
 #EXTINF:-1 tvg-id="RTVE_PopUp2.TV" tvg-logo="https://graph.facebook.com/rtveplay/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RTVE 70 años (RTVE)",RTVE 70 años (RTVE)
 https://rtvelivestream.rtve.es/eventual/gofast/playm28_main_dvr.m3u8
-#EXTINF:-1 tvg-id="RTVE_PopUp3.TV" tvg-logo="https://graph.facebook.com/rtveplay/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Segunda estrella (RTVE)",Segunda estrella (RTVE)
-https://ztnr.rtve.es/ztnr/17239088.m3u8
-#EXTINF:-1 tvg-id="RTVE_PopUp3.TV" tvg-logo="https://graph.facebook.com/rtveplay/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Segunda estrella (RTVE)",Segunda estrella (RTVE)
-https://rtvelivestream.rtve.es/eventual/gofast/playm29_main.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/CongresodelosDiputados/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Canal Parlamento",Canal Parlamento
 https://congresodirecto.akamaized.net/hls/live/2037973/canalparlamento/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/CongresodelosDiputados/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Congreso de los Diputados",Congreso de los Diputados
@@ -1066,8 +1072,6 @@ https://cloudvideo.servers10.com:8081/8026/tracks-v1a1/index.m3u8
 https://cl-2.backend.energeek.cl/bkp/egradioweb/index.m3u8?token=TDTCh4nnelsES
 #EXTINF:-1 tvg-logo="https://cdn.energeek.cl/logos/EG-Radio-2025_pfp.png" group-title="TDT AUTO" tvg-name="EnerGeek Radio Chile",EnerGeek Radio Chile SD
 https://cl-2.backend.energeek.cl/bkp/egradio/mobile/index.m3u8?token=TDTCh4nnelsES
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/conexionberatv/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Conexión Berazategui Argentina",Conexión Berazategui Argentina
-https://lbgo.bozztv.com/ssh101/ssh101/conexionbera/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/radioitalia/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="Radio Italia TV",Radio Italia TV IT
 https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/RTL102.5/picture?width=200&height=200" group-title="TDT AUTO" tvg-name="RTL 102.5 Italia",RTL 102.5 Italia IT

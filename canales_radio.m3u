@@ -1144,7 +1144,7 @@ https://radio-atres-live.ondacero.es/api/livestream-redirect/OC_GIJONAAC.m3u8
 https://radio-atres-live.ondacero.es/api/livestream-redirect/OC_INFIESTOAAC.m3u8
 #EXTINF:-1 radio="true" tvg-id="OC_Luarca.Radio" tvg-logo="https://pbs.twimg.com/profile_images/2373496653/6l41qpdjju3ma1a62nyh_200x200.jpeg" group-title="RADIOS AUTO" tvg-name="Onda Cero Luarca",Onda Cero Luarca
 https://radio-atres-live.ondacero.es/api/livestream-redirect/OC_LUARCAAAC.m3u8
-#EXTINF:-1 radio="true" tvg-id="OC_Oviedo.Radio" tvg-logo="https://graph.facebook.com/ondacero.asturias/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Onda Cero Oviedo",Onda Cero Oviedo
+#EXTINF:-1 radio="true" tvg-id="OC_Oviedo.Radio" tvg-logo="https://graph.facebook.com/ondaceroasturias/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Onda Cero Oviedo",Onda Cero Oviedo
 https://radio-atres-live.ondacero.es/api/livestream-redirect/OC_OVIEDOAAC.m3u8
 #EXTINF:-1 radio="true" tvg-logo="https://graph.facebook.com/tueuropafm/picture?width=200&height=200" group-title="RADIOS AUTO" tvg-name="Europa FM Asturias",Europa FM Asturias
 https://radio-atres-live.ondacero.es/api/livestream-redirect/EFM_ASTURIASAAC.m3u8
