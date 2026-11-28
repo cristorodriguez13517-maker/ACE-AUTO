@@ -1,16 +1,16 @@
 # Última actualización ACE-AUTO
 
-Fecha: 28/11/2026 01:30 UTC
+Fecha: 28/11/2026 04:25 UTC
 
 Canales añadidos: 0
 Canales eliminados: 4
-Canales modificados: 31
+Canales modificados: 24
 
 ### Eliminados
-- M+ Liga de Campeones 2 1080p **
-- M+ Golf 720p *
-- Bein Sports 2 TR 1080p *
-- Bein Sports 3 TR 720p *
+- M+ Liga de Campeones 5 1080p **
+- M+ Deportes 6 1080p **
+- M+ Golf 1080p **
+- Dazn MotoGP 1080p **
 
 ### Modificados
 - M+ LaLiga 720p *
@@ -19,28 +19,21 @@ Canales modificados: 31
 - M+ LaLiga 1080p **
 - DAZN LaLiga 1080p **
 - DAZN LaLiga 1080p **
-- M+ Liga de Campeones 1080p **
-- M+ Liga de Campeones 1080p **
-- M+ Liga de Campeones 2 1080p **
-- M+ Liga de Campeones 3 1080p **
-- M+ Liga de Campeones 3 1080p **
 - M+ Liga de Campeones 4 1080p **
 - M+ Liga de Campeones 4 1080p **
-- DAZN F1 720p **
-- DAZN F1 720p **
+- M+ Liga de Campeones 5 1080p **
+- DAZN F1 1080p **
+- DAZN F1 1080p **
+- DAZN F1 1080p **
+- RFEF TV 1080p *
+- RFEF TV 1080p *
 - A Punt 1080p *
 - A Punt 1080p *
-- A Punt 1080p **
-- A Punt 1080p **
-- Sport TV+ 1080p *
 - Sport TV+ 1080p *
 - Sport TV+ 1080p *
 - Dazn MotoGP 1080p **
-- Dazn MotoGP 1080p **
-- luz *
 - NBA League Pass 1080p *
 - NBA League Pass 1080p *
-- UFC *
 - UFC *
 - UFC *
 - UFC *
